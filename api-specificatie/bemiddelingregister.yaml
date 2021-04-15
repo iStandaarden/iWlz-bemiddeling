@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: WLZ bemiddeling register
+  description: OpenAPI Koppelvlak specificatie tbv WLZ bemiddeling register.
+  termsOfService: 'https://github.com/OAI/OpenAPI-Specification/blob/master/LICENSE'
+  contact:
+    name: "iStandaarden"
+    url: "https://istandaarden.nl"
+    email: info@istandaarden.nl
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: '0.0.1'
+externalDocs:
+  description: Find out more about OpenAPI
+  url: 'https://www.openapis.org'
+servers:
+  - url: 'https://api.zk.nl/wlzbemiddelingregister'
+tags:
+  - name: WLZ bemiddeling
+    description: 'Alles over WLZ bemiddeling'
+    externalDocs:
+      description: Link naar iStandaarden
+      url: 'https://informatiemodel.istandaarden.nl/'
+  - name: "iWlz codelijsten"
+    description: ""
+    externalDocs:
+      description: "Codelijsten bij iWlz 2.2"
+      url: "https://www.istandaarden.nl/ibieb/codelijsten-iwlz-221"
+paths:
+  /wlzbemiddeling:
+
+
