@@ -28,5 +28,5 @@ Zorg en Ondersteuning: [homepagina iStandaarden](https://www.istandaarden.nl)
 * Remo van Rest - [@rvanrest](https://github.com/rvanrest)
 
 ## Licentie
-Copyright &copy; iStandaarden 2019
+Copyright &copy; iStandaarden 2021
 Licensed under the [EUPL]
