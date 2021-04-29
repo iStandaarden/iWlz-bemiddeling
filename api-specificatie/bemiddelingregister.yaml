@@ -16,17 +16,6 @@ externalDocs:
   url: 'https://www.openapis.org'
 servers:
   - url: 'https://api.zk.nl/wlzbemiddelingregister'
-tags:
-  - name: Wlz bemiddeling
-    description: 'Alles over Wlz bemiddeling'
-    externalDocs:
-      description: Link naar iStandaarden
-      url: 'https://informatiemodel.istandaarden.nl/'
-  - name: "iWlz codelijsten"
-    description: ""
-    externalDocs:
-      description: "Codelijsten bij iWlz 2.2"
-      url: "https://www.istandaarden.nl/ibieb/codelijsten-iwlz-221"
 paths:
   /wlzbemiddelingen:
     get:
