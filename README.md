@@ -1,11 +1,12 @@
 # iWlz-bemiddeling
 Koppelvlak specificatie Bemiddelingsregister
 ## Preview
+
+<mark> online viewers werken momenteel niet ivm privacy setting repository </mark>
+
 Om de koppelvlakspecificatie te bekijken kunt de yaml-file openen in elke text-editor, maar een specifieke IDE is aan te bevelen. 
 U kunt ook gebruik maken van de online viewers:
 * MrinDoc: [bekijk via deze link:](https://mrin9.github.io/OpenAPI-Viewer/#/load/https%3A%2F%2Fraw.githubusercontent.com%2FiStandaarden%2FiWlz-bemiddeling%2Fmaster%2Fapi-specificatie%2Fbemiddelingregister.yaml "https://mrin9.github.io/OpenAPI-Viewer/#/load/https%3A%2F%2Fraw.githubusercontent.com%2FiStandaarden%2FiWlz-bemiddeling%2Fmaster%2Fapi-specificatie%2Fbemiddelingregister.yaml")
-* SwaggerUI Viewer. [bekijk via deze link:](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/iStandaarden/iWlz-bemiddeling/master/api-specificatie/bemiddelingregister.yaml "https://petstore.swagger.io/?url=https://raw.githubusercontent.com/iStandaarden/iWlz-bemiddeling/master/api-specificatie/bemiddelingregister.yaml")
-
 * SwaggerUI Viewer. [bekijk via deze link:](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iStandaarden/iWlz-bemiddeling/master/api-specificatie/bemiddelingregister.yaml "https://editor.swagger.io/?url=https://raw.githubusercontent.com/iStandaarden/iWlz-bemiddeling/master/api-specificatie/bemiddelingregister.yaml")
 
 ## Versies
