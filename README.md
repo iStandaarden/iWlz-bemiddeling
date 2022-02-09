@@ -2,7 +2,7 @@
 Koppelvlak specificatie Bemiddelingsregister
 ## Preview
 
-<mark> online viewers werken momenteel niet ivm privacy setting repository </mark>
+> online viewers werken momenteel niet ivm privacy setting repository
 
 Om de koppelvlakspecificatie te bekijken kunt de yaml-file openen in elke text-editor, maar een specifieke IDE is aan te bevelen. 
 U kunt ook gebruik maken van de online viewers:
