@@ -1,0 +1,70 @@
+""" 
+  Graphql Schemadefinitie voor het Bemiddelingregister
+  Versie 0.0.1
+"""
+scalar UUID
+scalar Date
+
+
+"Objects"
+
+type Wlzbemiddeling {
+    bemiddelingID: UUID!
+    bsn: String!
+    statusBemiddeling: String! #De status van de bemiddeling
+    leveringsvorm: String #Gecodeerde aanduiding van de vorm waarin zorg binnen de Wlz geleverd kan worden
+    ontvangstdatum: Date! #De datum waarop het verzoek tot bemiddeling is ontvangen
+    ingangsdatum: Date #De datum waarop het zorgkantoor start met bemiddelen
+    einddatum: Date #De datum waarop het zorgkantoor de bemiddeling heeft afgerond
+    overdrachtsdatum: Date #De datum vanaf wanneer het nieuwe zorgkantoor verantwoordelijk is
+    zorgkantoorOverdracht: String #Verantwoordelijk zorgkantoor vanaf dossieroverdracht (Moet voldoen aan COD001: Zorgkantoor; zie iWlz codelijsten)
+    zorgaanbieders: [Zorgaanbieder]
+    pgb: [Pgb]
+}
+
+type Pgb {
+    status: String! #Status pgb
+    bedragBgb: integer
+    ingangsdatum: Date
+    einddatum: Date
+}
+
+    WlzbemiddelingID:
+      type: string
+      format: uuid
+      pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
+      xml:
+        name: wlzbemiddelingID
+    WlzbemiddelingIDs:
+      type: array
+      items:
+        $ref: '#/components/schemas/WlzbemiddelingID'
+      xml:
+        name: wlzbemiddelingIDs
+        wrapped: true
+    Zorgaanbieder:
+      required:
+        - zorgaanbieder
+        - ingangsdatum
+      type: object
+      properties:
+        Zorgaanbieder:
+          description: "De zorgaanbieder waarnaar de cliënt bemiddeld is (volgens iWlz-agbcodelijst)"
+          type: string
+          pattern: '^[0-9]{8}$'
+        Ingangsdatum:
+          description: "De datum die aangeeft vanaf welke datum de client naar de instelling bemiddeld is"
+          type: string
+          format: date
+        Opname:
+          description: "Aanduiding waarmee wordt aangegeven of zorgaanbieder het opnamedeel, binnen leveringsvorm (deeltijd)verblijf, levert"
+          type: boolean
+      xml:
+        name: zorgaanbieder
+    Zorgaanbieders:
+      type: array
+      items:
+        $ref: '#/components/schemas/Zorgaanbieder'
+      xml:
+        name: zorgaanbieders
+        wrapped: true
