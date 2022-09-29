@@ -10,7 +10,7 @@ Kies een versie voor een uitgebreide vergelijking met de voorgaande versie.
 ### Algemeen
 - archive - eerste versie in Github. 
 
-[unreleased]: https://github.com/iStandaarden/iWlz-indicatie/compare/main...archive
+[unreleased]: https://github.com/iStandaarden/iWlz-bemiddeling/compare/main...archive
 [archive]: https://github.com/iStandaarden/iWlz-bemiddeling/releases/tag/archive
 
 ---
