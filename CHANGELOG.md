@@ -4,7 +4,9 @@ Kies een versie voor een uitgebreide vergelijking met de voorgaande versie.
 
 ---
 ## [Unreleased] - main
-(empty)
+
+### Algemeen
+- Volledige herziening eerste versie n.a.v. werkgroep BMC en opgeleverde specificaties.
 
 ## [archive] - 2021-04-15 - Initiële Github versie
 ### Algemeen

@@ -1,13 +1,65 @@
 """ 
   Graphql Schemadefinitie voor het Bemiddelingregister
   Versie 0.0.1
+  Gebaseerd op ERD versie 20220928 en gegevensmatrix versie 20220928
 """
 scalar UUID
 scalar Date
 
+schema {
+  query: Query
+}
+
+"de volgende bevragingen zijn er gedefinieerd"
+type Query {
+  # Haal alle bemiddelingen voor bsn
+  getWlzBemiddelingVoorBsn(bsn: String!): [WlzBemiddeling!]
+  # Haal WlzBemiddeling op voor BemiddelingID
+  getWlzBemiddelingVoorBemiddelingID(bemiddelingID:UUID!): WlzBemiddeling!
+  # Haal Contacten op voor bsn
+  getContactVoorBsn(bsn: String!): [Contact!]
+}
 
 "Objects"
+type WlzBemiddeling {
+  bemiddelingID: UUID!
+  bsn: String!
+  partnerOpname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
+  besluitnummer: Int!
+  verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
+  ingangsdatum: Date
+  einddatum: Date
+  instelling: [Instelling]
+  pgb: [Pgb]
+} 
 
+type Instelling {
+  agbCodeInstelling: String! 
+  uitvoerendZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
+  teLeverenZorgInNatura: [TeLeverenZorgInNatura!]
+}
+
+type TeLeverenZorgInNatura {
+  leveringsvorm: String! #COD578: Leveringsvorm - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD578
+  zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
+  toewijzingIngangsdatum: Date!
+  zinSpecificatie: [ZinSpecificatie!]
+}
+
+type ZinSpecificatie {
+  vaststellingsDatumTijd
+  toewijzingEinddatum: Date
+  toewijzingPercentage: Int!
+  opname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
+  redenIntrekking: 
+  etmalen: 
+  instellingBestemming: String!
+  soortToewijzing: String! #COD165: Soort toewijzing - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD165
+  soortMachtiging: 
+
+}
+
+"""
 type Wlzbemiddeling {
     bemiddelingID: UUID!
     bsn: String!
@@ -28,6 +80,7 @@ type Pgb {
     ingangsdatum: Date
     einddatum: Date
 }
+
 
     WlzbemiddelingID:
       type: string
@@ -68,3 +121,5 @@ type Pgb {
       xml:
         name: zorgaanbieders
         wrapped: true
+
+"""
