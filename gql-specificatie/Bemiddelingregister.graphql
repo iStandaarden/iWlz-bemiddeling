@@ -5,6 +5,7 @@
 """
 scalar UUID
 scalar Date
+scalar DateTime
 
 schema {
   query: Query
@@ -13,7 +14,7 @@ schema {
 "de volgende bevragingen zijn er gedefinieerd"
 type Query {
   # Haal alle bemiddelingen voor bsn
-  getWlzBemiddelingVoorBsn(bsn: String!): [WlzBemiddeling!]
+  getWlzBemiddelingVoorBsn(bsn: String!): [Client!]
   # Haal WlzBemiddeling op voor BemiddelingID
   getWlzBemiddelingVoorBemiddelingID(bemiddelingID:UUID!): WlzBemiddeling!
   # Haal Contacten op voor bsn
@@ -21,10 +22,14 @@ type Query {
 }
 
 "Objects"
-type WlzBemiddeling {
-  bemiddelingID: UUID!
+type Client {
   bsn: String!
   partnerOpname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
+  wlzBemiddeling: [WlzBemiddeling!]
+}
+
+type WlzBemiddeling {
+  bemiddelingID: UUID!
   besluitnummer: Int!
   verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
   ingangsdatum: Date
@@ -33,13 +38,16 @@ type WlzBemiddeling {
   pgb: [Pgb]
 } 
 
+
 type Instelling {
+  instellingID: UUID!
   agbCodeInstelling: String! 
   uitvoerendZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
   teLeverenZorgInNatura: [TeLeverenZorgInNatura!]
 }
 
 type TeLeverenZorgInNatura {
+  teLeverenZorgInNaturaID: UUID!
   leveringsvorm: String! #COD578: Leveringsvorm - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD578
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
@@ -47,15 +55,16 @@ type TeLeverenZorgInNatura {
 }
 
 type ZinSpecificatie {
+  zinSpecificatieID: UUID!
   vaststellingsDatumTijd
   toewijzingEinddatum: Date
   toewijzingPercentage: Int!
   opname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
-  redenIntrekking: 
-  etmalen: 
+  redenIntrekking 
+  etmalen
   instellingBestemming: String!
   soortToewijzing: String! #COD165: Soort toewijzing - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD165
-  soortMachtiging: 
+  soortMachtiging 
 
 }
 
