@@ -16,15 +16,14 @@ Laatste versie: ![GitHub release (latest by date including pre-releases)](https:
 Versie overzicht zie: [Changelog](CHANGELOG.md)
 
 ## Documentatie
-@todo
-- verwijzing opnemen naar leeswijzer
-- verwijzing opnemen naar iStandaarden
+De specificaties zijn gebaseerd op het volgende ERD:
+![ERD](ERD-bemiddeling-inclSleutels.svg "ERD bemiddeling")
+
+Informatiemodel iStandaarden iWlz 2.4: [Informatiemodellen](https://informatiemodellen.istandaarden.nl/)
 
 ## Bronnen
 * Actieprogramma iWlz: van keten naar netwerk: [lees hier meer over het Actieprogramma iWlz](https://www.istandaarden.nl/actieprogramma-iwlz "Actieprogramma iWlz")
-* Informatiemodel iStandaarden iWlz 2.1: [Informatiemodellen](https://informatiemodellen.istandaarden.nl/2020)
-* Portaal voor iStandaarden in de
-Zorg en Ondersteuning: [homepagina iStandaarden](https://www.istandaarden.nl)
+* Portaal voor iStandaarden in de Zorg en Ondersteuning: [homepagina iStandaarden](https://www.istandaarden.nl)
 
 ## Contactpersonen:
 * Hilko Jacobse - [@hilkojacobse](https://github.com/HilkoJacobse)
