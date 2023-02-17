@@ -63,7 +63,7 @@ type BemiddeldeInstelling {
 interface ZorgToewijzing {
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
-  vaststellingTijdstip: DateTime!
+  vaststellingstijdstip: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
 }
@@ -73,7 +73,7 @@ type ZorgInNatura implements ZorgToewijzing {
   leveringsvorm: String! #COD578: Leveringsvorm - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD578
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
-  vaststellingTijdstip: DateTime!
+  vaststellingstijdstip: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
   opname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
@@ -87,7 +87,7 @@ type Pgb implements ZorgToewijzing {
   pgbID: UUID!
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
-  vaststellingTijdstip: DateTime!
+  vaststellingstijdstip: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
 }
