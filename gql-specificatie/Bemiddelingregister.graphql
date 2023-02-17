@@ -1,7 +1,7 @@
-""" 
-  Graphql Schemadefinitie voor het Bemiddelingregister
-  Versie 0.0.1
-  Gebaseerd op ERD versie 20220928 en gegevensmatrix versie 20220928
+"""
+Graphql Schemadefinitie voor het Bemiddelingregister
+Versie 0.0.1
+Gebaseerd op ERD versie 20230214
 """
 scalar UUID
 scalar Date
@@ -16,119 +16,171 @@ type Query {
   # Haal alle bemiddelingen voor bsn
   getWlzBemiddelingVoorBsn(bsn: String!): [Client!]
   # Haal WlzBemiddeling op voor BemiddelingID
-  getWlzBemiddelingVoorBemiddelingID(bemiddelingID:UUID!): WlzBemiddeling!
+  getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): WlzBemiddeling!
   # Haal Contacten op voor bsn
   getContactVoorBsn(bsn: String!): [Contact!]
+  # Haal Bemiddeling op voor BemiddeldeInstellingID
+  getBemiddelingVoorBemiddedeInstelling(bemiddeldeInstellingID:UUID!): [BemiddeldeInstelling!]!
 }
 
 "Objects"
 type Client {
+  id: ID!
   bsn: String!
-  partnerOpname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
-  wlzBemiddeling: [WlzBemiddeling!]
+  # partnerOpname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
+  leefeenheid: String! #COD478: Leefeenheid - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD478
+  huisarts: String
+  communicatievorm: String #COD747: Communicatievorm - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD747
+  taal: String
+  bemiddeling: [Bemiddeling!]!
+  dossierhouder: [Dossierhouder]
+  coordinatorZorgThuis: [CoordinatorZorgThuis]
+  overdracht: [Overdracht]
+  contact: [Contact]
+  telefoon: [Telefoon]
+  email: [Email]
+  adres: [Adres]
 }
 
-type WlzBemiddeling {
+type Bemiddeling {
   bemiddelingID: UUID!
-  besluitnummer: Int!
+  # besluitnummer: Int!
+  wlzIndicatieID: UUID!
   verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
-  ingangsdatum: Date
-  einddatum: Date
-  instelling: [Instelling]
+  bemiddeldeInstelling: [BemiddeldeInstelling]
   pgb: [Pgb]
-} 
-
-
-type Instelling {
-  instellingID: UUID!
-  agbCodeInstelling: String! 
-  uitvoerendZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
-  teLeverenZorgInNatura: [TeLeverenZorgInNatura!]
+  client: Client!
 }
 
-type TeLeverenZorgInNatura {
-  teLeverenZorgInNaturaID: UUID!
+type BemiddeldeInstelling {
+  bemiddeldeInstellingID: UUID!
+  instelling: String!
+  uitvoerendZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
+  zorgInNatura: [ZorgInNatura!]!
+  bemiddeling: Bemiddeling!
+}
+
+interface ZorgToewijzing {
+  zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
+  toewijzingIngangsdatum: Date!
+  vaststellingTijdstip: DateTime!
+  toewijzingEinddatum: Date
+  percentage: Int!
+}
+
+type ZorgInNatura implements ZorgToewijzing {
+  zorgInNaturaID: UUID!
   leveringsvorm: String! #COD578: Leveringsvorm - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD578
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
-  zinSpecificatie: [ZinSpecificatie!]
-}
-
-type ZinSpecificatie {
-  zinSpecificatieID: UUID!
-  vaststellingsDatumTijd
+  vaststellingTijdstip: DateTime!
   toewijzingEinddatum: Date
-  toewijzingPercentage: Int!
+  percentage: Int!
   opname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
-  redenIntrekking 
-  etmalen
+  redenIntrekking: String #COD172: Reden intrekking - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD172
+  etmalen: String #COD755 Etmalen - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD755/
   instellingBestemming: String!
   soortToewijzing: String! #COD165: Soort toewijzing - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD165
-  soortMachtiging 
-
 }
 
-"""
-type Wlzbemiddeling {
-    bemiddelingID: UUID!
-    bsn: String!
-    statusBemiddeling: String! #De status van de bemiddeling
-    leveringsvorm: String #Gecodeerde aanduiding van de vorm waarin zorg binnen de Wlz geleverd kan worden
-    ontvangstdatum: Date! #De datum waarop het verzoek tot bemiddeling is ontvangen
-    ingangsdatum: Date #De datum waarop het zorgkantoor start met bemiddelen
-    einddatum: Date #De datum waarop het zorgkantoor de bemiddeling heeft afgerond
-    overdrachtsdatum: Date #De datum vanaf wanneer het nieuwe zorgkantoor verantwoordelijk is
-    zorgkantoorOverdracht: String #Verantwoordelijk zorgkantoor vanaf dossieroverdracht (Moet voldoen aan COD001: Zorgkantoor; zie iWlz codelijsten)
-    zorgaanbieders: [Zorgaanbieder]
-    pgb: [Pgb]
+type Pgb implements ZorgToewijzing {
+  pgbID: UUID!
+  zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
+  toewijzingIngangsdatum: Date!
+  vaststellingTijdstip: DateTime!
+  toewijzingEinddatum: Date
+  percentage: Int!
 }
 
-type Pgb {
-    status: String! #Status pgb
-    bedragBgb: integer
-    ingangsdatum: Date
-    einddatum: Date
+interface Zorginstelling {
+  instelling: String!
+  ingangsdatum: Date!
+  einddatum: Date
 }
 
+type Dossierhouder implements Zorginstelling {
+  dossierhouderID: UUID!
+  instelling: String!
+  ingangsdatum: Date!
+  einddatum: Date
+}
 
-    WlzbemiddelingID:
-      type: string
-      format: uuid
-      pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
-      xml:
-        name: wlzbemiddelingID
-    WlzbemiddelingIDs:
-      type: array
-      items:
-        $ref: '#/components/schemas/WlzbemiddelingID'
-      xml:
-        name: wlzbemiddelingIDs
-        wrapped: true
-    Zorgaanbieder:
-      required:
-        - zorgaanbieder
-        - ingangsdatum
-      type: object
-      properties:
-        Zorgaanbieder:
-          description: "De zorgaanbieder waarnaar de cliënt bemiddeld is (volgens iWlz-agbcodelijst)"
-          type: string
-          pattern: '^[0-9]{8}$'
-        Ingangsdatum:
-          description: "De datum die aangeeft vanaf welke datum de client naar de instelling bemiddeld is"
-          type: string
-          format: date
-        Opname:
-          description: "Aanduiding waarmee wordt aangegeven of zorgaanbieder het opnamedeel, binnen leveringsvorm (deeltijd)verblijf, levert"
-          type: boolean
-      xml:
-        name: zorgaanbieder
-    Zorgaanbieders:
-      type: array
-      items:
-        $ref: '#/components/schemas/Zorgaanbieder'
-      xml:
-        name: zorgaanbieders
-        wrapped: true
+type CoordinatorZorgThuis implements Zorginstelling {
+  coordinatorZorgThuisID: UUID!
+  instelling: String!
+  ingangsdatum: Date!
+  einddatum: Date
+}
 
-"""
+type Overdracht {
+  overdrachtID: UUID!
+  verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
+  overdrachtDatum: Date!
+  verhuisDatum: Date!
+  overdrachtspecificatie: [Overdrachtspecificatie!]!
+  client: Client!
+}
+
+type overdrachtspecificatie {
+  overdrachtspecificatieID: UUID!
+  leveringsstatus: String! #COD167: Leveringsstatus - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD167
+  leveringsstatusClassificatie: String #COD168: LeveringsstatusClassificatie: https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD168
+  oorspronkelijkeToewijzingEinddatum: Date
+  zorgInNatura: [ZorgInNatura]
+  pgb: [Pgb]
+}
+
+type Contact {
+  contactID: UUID!
+  relatieNummer: String!
+  volgorde: Int
+  soortRelatie: String! #COD472!
+  ingangsdatum: Date!
+  einddatum: Date
+  naam: Naam!
+  telefoon: [Telefoon]
+  email: [Email]
+  adres: [Adres]
+  client: Client!
+}
+
+type Naam {
+  naamID: UUID!
+  voornamen: String
+  geslachtsnaam: String
+  voorvoegselGeslachtsnaam: String
+  partnernaam: String
+  voorvoegselPartnernaam: String
+  naamGebruik: String #COD700
+  organisatieNaam: String
+}
+
+type Adres {
+  adresID: UUID!
+  adresSoort: String! #COD757
+  straatnaam: String
+  huisnummer: Int
+  huisletter: String
+  huisnummerToevoeging: String
+  postcode: String
+  plaatsnaam: String
+  landCode: String #COD032
+  aanduidingWoonadres: String #NUM061
+  ingangsdatum: Date!
+  einddatum: Date
+}
+
+type Telefoon {
+  telefoonID: UUID!
+  telefoonnummer: String!
+  landnummer: String
+  ingangsdatum: Date!
+  einddatum: Date
+}
+
+type Email {
+  emailID: UUID!
+  emailadres: String!
+  ingangsdatum: Date!
+  einddatum: Date
+}
