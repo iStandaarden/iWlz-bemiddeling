@@ -28,7 +28,7 @@ type Client {
   id: ID!
   bsn: String!
   # partnerOpname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
-  leefeenheid: String! #COD478: Leefeenheid - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD478
+  leefeenheid: String #COD478: Leefeenheid - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD478
   huisarts: String
   communicatievorm: String #COD747: Communicatievorm - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD747
   taal: String
