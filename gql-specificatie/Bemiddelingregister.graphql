@@ -1,7 +1,7 @@
 """
 Graphql Schemadefinitie voor het Bemiddelingregister
 Versie 0.0.1
-Gebaseerd op ERD versie 20230214
+Gebaseerd op ERD versie 20230322
 """
 scalar UUID
 scalar Date
@@ -14,18 +14,18 @@ schema {
 "de volgende bevragingen zijn er gedefinieerd"
 type Query {
   # Haal alle bemiddelingen voor bsn
-  getWlzBemiddelingVoorBsn(bsn: String!): [Client!]
+  getWlzBemiddelingenVoorBsn(bsn: String!): Client!
   # Haal WlzBemiddeling op voor BemiddelingID
   getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): WlzBemiddeling!
   # Haal Contacten op voor bsn
   getContactVoorBsn(bsn: String!): [Contact!]
   # Haal Bemiddeling op voor BemiddeldeInstellingID
-  getBemiddelingVoorBemiddedeInstelling(bemiddeldeInstellingID:UUID!): [BemiddeldeInstelling!]!
+  getBemiddelingVoorBemiddedeInstelling(bemiddeldeInstellingID:UUID!): BemiddeldeInstelling!
 }
 
 "Objects"
 type Client {
-  id: ID!
+  clientID: UUID! #
   bsn: String!
   # partnerOpname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
   leefeenheid: String #COD478: Leefeenheid - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD478
@@ -63,7 +63,7 @@ type BemiddeldeInstelling {
 interface ZorgToewijzing {
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
-  vaststellingstijdstip: DateTime!
+  vaststellingsmoment: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
 }
@@ -73,7 +73,7 @@ type ZorgInNatura implements ZorgToewijzing {
   leveringsvorm: String! #COD578: Leveringsvorm - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD578
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
-  vaststellingstijdstip: DateTime!
+  vaststellingsmoment: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
   opname: String! #COD260: Ja of nee - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/tree/main/codelijsten/COD260
@@ -81,13 +81,14 @@ type ZorgInNatura implements ZorgToewijzing {
   etmalen: String #COD755 Etmalen - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD755/
   instellingBestemming: String!
   soortToewijzing: String! #COD165: Soort toewijzing - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD165
+  bemiddeldeInstelling: BemiddeldeInstelling!
 }
 
 type Pgb implements ZorgToewijzing {
   pgbID: UUID!
   zzpCode: String! #COD163: Zorgzwaartepakket - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD163
   toewijzingIngangsdatum: Date!
-  vaststellingstijdstip: DateTime!
+  vaststellingsmoment: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
 }
@@ -126,8 +127,8 @@ type overdrachtspecificatie {
   leveringsstatus: String! #COD167: Leveringsstatus - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD167
   leveringsstatusClassificatie: String #COD168: LeveringsstatusClassificatie: https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD168
   oorspronkelijkeToewijzingEinddatum: Date
-  zorgInNatura: [ZorgInNatura]
-  pgb: [Pgb]
+  zorgInNatura: ZorgInNatura
+  pgb: Pgb
 }
 
 type Contact {
