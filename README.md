@@ -1,6 +1,16 @@
 # iWlz-bemiddeling
 Koppelvlak specificatie Bemiddelingsregister
 
+> 
+> **Status Koppelvlakspecificatie:** *in ontwikkeling* 
+>
+> d.d. 23 maart 2023
+> 
+> Het deel met de witte entiteiten (over de bemiddeling) is meerdere malen besproken in verschillende werkgroepen. **Status:** *STABIEL*
+> 
+> De roze gemarkeerde entiteiten gaan over de contactgegevens en contactpersoongegevens van een client. **Status:** * REVIEW* 
+
+
 ## Versies
 Laatste versie: ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/iStandaarden/iWlz-bemiddeling?include_prereleases&style=flat-square)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/iStandaarden/iWlz-bemiddeling?style=flat-square)
@@ -8,7 +18,7 @@ Laatste versie: ![GitHub release (latest by date including pre-releases)](https:
 Versie overzicht zie: [Changelog](CHANGELOG.md)
 
 ## Documentatie
-De specificaties zijn gebaseerd op het volgende ERD:
+De specificaties zijn gebaseerd op het volgende ERD - versie 22-03-2023:
 ![ERD](ERD-bemiddeling-inclSleutels.svg "ERD bemiddeling")
 
 Informatiemodel iStandaarden iWlz 2.4: [Informatiemodellen](https://informatiemodellen.istandaarden.nl/)
