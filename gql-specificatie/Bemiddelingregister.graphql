@@ -118,7 +118,7 @@ type Overdracht {
   verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor - https://github.com/iStandaarden/iWlz-codelijsten-APiWlz/blob/main/codelijsten/COD001
   overdrachtDatum: Date!
   verhuisDatum: Date!
-  overdrachtspecificatie: [Overdrachtspecificatie!]!
+  overdrachtspecificatie: [Overdrachtspecificatie]
   client: Client!
 }
 

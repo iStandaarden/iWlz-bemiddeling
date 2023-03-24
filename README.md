@@ -19,7 +19,7 @@ Versie overzicht zie: [Changelog](CHANGELOG.md)
 
 ## Documentatie
 De specificaties zijn gebaseerd op het volgende ERD - versie 22-03-2023:
-![ERD](ERD-bemiddeling-inclSleutels.svg "ERD bemiddeling")
+![ERD](ERD-bemiddeling-inclSleutels.png "ERD bemiddeling")
 
 Informatiemodel iStandaarden iWlz 2.4: [Informatiemodellen](https://informatiemodellen.istandaarden.nl/)
 
