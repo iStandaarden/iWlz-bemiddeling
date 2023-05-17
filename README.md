@@ -19,9 +19,9 @@ Versie overzicht zie: [Changelog](CHANGELOG.md)
 
 ## Documentatie
 De specificaties van het onderdeel Bemiddeling zijn gebaseerd op het het ERD:
-![ERD](erd/erd_bemiddelingsregister.png "ERD bemiddeling")
+![ERD](erd/erd_bemiddelingsregister.svg "ERD bemiddeling")
 
-De specificaties van het onderdeel Contactgegevens zijn gebaseerd op het ERD: 
+De specificaties van het onderdeel Contactgegevens zijn gebaseerd op het ERD (roze gemarkeerde klassen): 
 ![ERD](erd/ERD-bemiddeling-inclSleutels.png "ERD bemiddeling+contact")
 
 Informatiemodel iStandaarden iWlz 2.4: [Informatiemodellen](https://informatiemodellen.istandaarden.nl/)
