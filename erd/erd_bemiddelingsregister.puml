@@ -1,8 +1,8 @@
 @startuml 
 
 note as Versioning
-    Diagramversion: 1.1
-    Date: 2023-04-24
+    Diagramversion: 1.x
+    Date: 2023-05-09
 end note
 
 class Client {
@@ -38,7 +38,7 @@ class ZorgInNatura {
     +leveringsvorm: LDT_Leveringsvorm {id}
     +zzpCode: LDT_ZzpCode {id}
     +toewijzingIngangsdatum: LDT_Datum {id}
-    vaststellingsmoment: LDT_Moment
+    vaststellingmoment: LDT_Moment
     toewijzingEinddatum: LDT_Datum[0..1]
     percentage: LDT_Percentage
     opname: LDT_JaNee[0..1] 
@@ -48,12 +48,12 @@ class ZorgInNatura {
     soortToewijzing: LDT_SoortToewijzing
 }
 
-class PGB {
+class Pgb {
     +{static}pgbID: LDT_UUID
     __
     +zzpCode: LDT_ZzpCode {id}
     +toewijzingIngangsdatum: LDT_Datum {id}
-    vaststellingsmoment: LDT_Moment
+    vaststellingmoment: LDT_Moment
     toewijzingEinddatum: LDT_Datum[0..1]
     percentage: LDT_Percentage
 }
@@ -90,15 +90,15 @@ class Overdrachtspecificatie {
     oorspronkelijkeToewijzingEinddatum: LDT_Datum[0..1]
 }
 
-Bemiddeling "1..*" -left- "1" Client
-Bemiddeling "1" -- "0..*" BemiddeldeInstelling
-Bemiddeling "1" -- "0..*" PGB
-BemiddeldeInstelling "1" -- "1..*" ZorgInNatura
-Overdracht "0..1" -- "1" Bemiddeling
-Overdracht "1" -- "0..*" Overdrachtspecificatie
-Overdrachtspecificatie "0..1" -- "1" PGB
-Overdrachtspecificatie "0..1" -- "1" ZorgInNatura
-Client "1" -- "0..*" Dossierhouder
-Client "1" -- "0..*" CoordinatorZorgThuis
+Bemiddeling "1..*" <|-- "1" Client
+Bemiddeling "1" --|> "0..*" BemiddeldeInstelling
+Bemiddeling "1" --|> "0..*" Pgb
+BemiddeldeInstelling "1" --|> "1..*" ZorgInNatura
+Overdracht "0..1" <|-- "1" Bemiddeling
+Overdracht "1" --|> "0..*" Overdrachtspecificatie
+Overdrachtspecificatie "0..1" <|-- "1" Pgb
+Overdrachtspecificatie "0..1" <|-- "1" ZorgInNatura
+Client "1" --|> "0..*" Dossierhouder
+Client "1" --|> "0..*" CoordinatorZorgThuis
 
 @enduml

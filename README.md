@@ -18,8 +18,11 @@ Laatste versie: ![GitHub release (latest by date including pre-releases)](https:
 Versie overzicht zie: [Changelog](CHANGELOG.md)
 
 ## Documentatie
-De specificaties zijn gebaseerd op het volgende ERD - versie 22-03-2023:
-![ERD](ERD-bemiddeling-inclSleutels.png "ERD bemiddeling")
+De specificaties van het onderdeel Bemiddeling zijn gebaseerd op het het ERD:
+![ERD](erd/erd_bemiddelingsregister.png "ERD bemiddeling")
+
+De specificaties van het onderdeel Contactgegevens zijn gebaseerd op het ERD: 
+![ERD](erd/ERD-bemiddeling-inclSleutels.png "ERD bemiddeling+contact")
 
 Informatiemodel iStandaarden iWlz 2.4: [Informatiemodellen](https://informatiemodellen.istandaarden.nl/)
 
@@ -34,6 +37,3 @@ Informatiemodel iStandaarden iWlz 2.4: [Informatiemodellen](https://informatiemo
 ## Licentie
 Copyright &copy; iStandaarden 2021
 Licensed under the [EUPL]
-
-## nieuwe ERD
-<!-- ![Diagram Image Link](.puml/UMLclassdiagram.puml) -->
