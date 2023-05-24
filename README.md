@@ -4,18 +4,19 @@ Koppelvlak specificatie Bemiddelingsregister
 > 
 > **Status Koppelvlakspecificatie:** *in ontwikkeling* 
 >
-> d.d. 23 maart 2023
+> d.d. 24 mei 2023
 > 
 > Het deel met de witte entiteiten (over de bemiddeling) is meerdere malen besproken in verschillende werkgroepen. **Status:** *STABIEL*
 > 
 > De roze gemarkeerde entiteiten gaan over de contactgegevens en contactpersoongegevens van een client. **Status:** * REVIEW* 
 
+Wijzigingsoverzicht zie: [Changelog](CHANGELOG.md)
 
 ## Versies
 Laatste versie: ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/iStandaarden/iWlz-bemiddeling?include_prereleases&style=flat-square)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/iStandaarden/iWlz-bemiddeling?style=flat-square)
 
-Versie overzicht zie: [Changelog](CHANGELOG.md)
+
 
 ## Documentatie
 De specificaties van het onderdeel Bemiddeling zijn gebaseerd op het het ERD:
