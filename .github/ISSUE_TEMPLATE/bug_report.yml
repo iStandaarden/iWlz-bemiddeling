@@ -1,6 +1,6 @@
 name: BUG report
 description: Issue voor opvoeren van een bug-report
-title: "korte bug omschrijving"
+title: "<korte bug omschrijving>"
 body:
   - type: input
     id: onderdeel
