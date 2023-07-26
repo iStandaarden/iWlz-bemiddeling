@@ -1,7 +1,7 @@
 """
 Graphql Schemadefinitie voor het Bemiddelingregister
-Versie 0.9
-Gebaseerd op ERD versie 230622
+Versie 0.9.1
+Gebaseerd op ERD versie 230721
 """
 scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122") # version 4
 scalar Date
@@ -19,10 +19,13 @@ type Query {
   getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): WlzBemiddeling!
   # Haal Contacten op voor bsn
   getContactVoorBsn(bsn: String!): [Contact!]
-  # Haal Bemiddeling op voor BemiddeldeInstellingID
-  getBemiddelingVoorBemiddedeInstelling(bemiddeldeInstellingID:UUID!): BemiddeldeInstelling!
-  # Haal WlzIndicatieID op voor een Innstelling met bemiddeling voor verificatie
-  #getWlzIndicatieIDvoorBemiddeldeInstelling
+  # Haal WlzIndicatieID op voor een Instelling met bemiddeling voor verificatie
+  
+  # Generieke query voor het ophalen van Bemiddeling informatie
+  getWlzBemiddeling(searchinput:WlzBemiddelingInput!): WlzBemiddeling!
+
+  # Generieke query voor het ophalen van overdracht informatie
+  getOverdrachtBemiddeling(searchinput: OverdrachtInput!) Overdracht!
 }
 
 "Objects"
@@ -84,9 +87,11 @@ type Pgb implements ZorgToewijzing {
   pgbID: UUID!
   zzpCode: String! #COD163: Zorgzwaartepakket
   toewijzingIngangsdatum: Date!
+  uitvoerendZorgkantoor: String! #COD001: Zorgkantoor 
   vaststellingmoment: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
+  soortToewijzing: String! #COD165: Soort toewijzing
   overdrachtspecificatie: Overdrachtspecificatie
 }
 
@@ -176,3 +181,21 @@ type Contactgegevens {
   einddatum: Date
 }
 
+# Searchinput
+type WlzBemiddelingInput {
+  filter: BemiddelingZoekfilters!
+}
+
+type BemiddelingZoekfilters {
+  bemiddelingID: UUID
+  zorgInNaturaID: UUID
+  bsn: String
+}
+
+type OverdrachtInput {
+  filter: OverdrachtZoekfilters!
+}
+
+type OverdrachtZoekfilters {
+  overdrachtID: UUID
+}
