@@ -1,6 +1,6 @@
 """
 Graphql Schemadefinitie voor het Bemiddelingregister
-Versie 0.9.1
+Versie 0.9.2
 Gebaseerd op ERD versie 230721
 """
 scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122") # version 4
@@ -16,16 +16,16 @@ type Query {
   # Haal alle bemiddelingen voor bsn
   getWlzBemiddelingenVoorBsn(bsn: String!): Client!
   # Haal WlzBemiddeling op voor BemiddelingID
-  getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): WlzBemiddeling!
+  getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): Bemiddeling!
   # Haal Contacten op voor bsn
-  getContactVoorBsn(bsn: String!): [Contact!]
+  getContactVoorBsn(bsn: String!): [Contactpersoon!]
   # Haal WlzIndicatieID op voor een Instelling met bemiddeling voor verificatie
   
   # Generieke query voor het ophalen van Bemiddeling informatie
-  getWlzBemiddeling(searchinput:WlzBemiddelingInput!): WlzBemiddeling!
+  getWlzBemiddeling(searchinput:WlzBemiddelingInput!): Bemiddeling!
 
   # Generieke query voor het ophalen van overdracht informatie
-  getOverdrachtBemiddeling(searchinput: OverdrachtInput!) Overdracht!
+  getOverdrachtBemiddeling(searchinput: OverdrachtInput!): Overdracht!
 }
 
 "Objects"
@@ -182,20 +182,20 @@ type Contactgegevens {
 }
 
 # Searchinput
-type WlzBemiddelingInput {
+input WlzBemiddelingInput {
   filter: BemiddelingZoekfilters!
 }
 
-type BemiddelingZoekfilters {
+input BemiddelingZoekfilters {
   bemiddelingID: UUID
   zorgInNaturaID: UUID
   bsn: String
 }
 
-type OverdrachtInput {
+input OverdrachtInput {
   filter: OverdrachtZoekfilters!
 }
 
-type OverdrachtZoekfilters {
+input OverdrachtZoekfilters {
   overdrachtID: UUID
 }
