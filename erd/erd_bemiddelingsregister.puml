@@ -2,7 +2,7 @@
 
 note as Versioning
     Diagramversion: 1.x
-    Date: 2023-05-09
+    Date: 2023-05-24
 end note
 
 class Client {
@@ -19,17 +19,9 @@ class Bemiddeling {
     +{static}bemiddelingID: LDT_UUID
     __
     +wlzIndicatieID: LDT_UUID {id}
-    besluitnummer: LDT_Besluitnummer
     +verantwoordelijkZorgkantoor: LDT_ZorgkantoorCode {id}
     +verantwoordelijkheidIngangsdatum: LDT_Datum {id}
     verantwoordelijkheidEinddatum: LDT_Datum [0..1]
-}
-
-class BemiddeldeInstelling {
-    +{static}bemiddeldeInstellingID: LDT_UUID
-    __
-    +instelling: LDT_AgbCode {id}
-    +uitvoerendZorgkantoor: LDT_ZorgkantoorCode {id}
 }
 
 class ZorgInNatura {
@@ -38,6 +30,8 @@ class ZorgInNatura {
     +leveringsvorm: LDT_Leveringsvorm {id}
     +zzpCode: LDT_ZzpCode {id}
     +toewijzingIngangsdatum: LDT_Datum {id}
+    +instelling: LDT_AgbCode {id}
+    +uitvoerendZorgkantoor: LDT_ZorgkantoorCode {id}
     vaststellingmoment: LDT_Moment
     toewijzingEinddatum: LDT_Datum[0..1]
     percentage: LDT_Percentage
@@ -91,9 +85,8 @@ class Overdrachtspecificatie {
 }
 
 Bemiddeling "1..*" <|-- "1" Client
-Bemiddeling "1" --|> "0..*" BemiddeldeInstelling
+Bemiddeling "1" --|> "0..*" ZorgInNatura
 Bemiddeling "1" --|> "0..*" Pgb
-BemiddeldeInstelling "1" --|> "1..*" ZorgInNatura
 Overdracht "0..1" <|-- "1" Bemiddeling
 Overdracht "1" --|> "0..*" Overdrachtspecificatie
 Overdrachtspecificatie "0..1" <|-- "1" Pgb

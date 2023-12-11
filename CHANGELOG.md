@@ -6,6 +6,13 @@ Kies een versie voor een uitgebreide vergelijking met de voorgaande versie.
 ## [Unreleased] - main
 
 ### Algemeen
+#### 24 mei 2023
+- herziening Bemiddelingsdeel Bemiddelingsregister
+    - Klasse BemiddeldeInstelling samengevoegd met de klasse ZorgInNatura
+    - Klasse PGB hernoemd naar Pgb (UpperCamelCase ipv FULLCapitals)
+    - Besluitnummer verwijderd uit Bemiddeling
+
+#### 23 maart 2023
 - Volledige herziening eerste versie n.a.v. werkgroep BMC en opgeleverde specificaties.
 
 ## [archive] - 2021-04-15 - Initiële Github versie

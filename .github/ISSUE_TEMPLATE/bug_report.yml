@@ -1,0 +1,56 @@
+name: BUG report
+description: Issue voor opvoeren van een bug-report
+title: "<korte bug omschrijving>"
+body:
+  - type: input
+    id: onderdeel
+    attributes:
+      label: Welk onderdeel/onderdelen
+      placeholder: "naam van het bestand"
+    validations:
+      required: true
+  - type: input
+    id: regel
+    attributes:
+      label: Regelnummer
+      description: Geef ongeveer de locatie aan van de bug
+      placeholder: regelnummer
+  - type: input
+    id: versie
+    attributes:
+      label: Versie
+      placeholder: versie
+  - type: textarea
+    id: bugomschrijving
+    attributes:
+      label: Beschrijf de fout
+      placeholder: Geef hier een omschrijving van de fout
+    validations:
+      required: true
+  - type: textarea
+    id: gewensteoplossing
+    attributes:
+      label: Gewenste oplossing
+      placeholder: Geef hier een omschrijving van de gewenste oplossing
+    validations:
+      required: true
+  - type: textarea
+    id: oplossing
+    attributes:
+      label: Beschrijf de doorgevoerde oplossing
+      placeholder: Geef hier een omschrijving van de doorgevoerde oplossing
+    validations:
+      required: true
+  - type: input
+    id: opgelostin
+    attributes:
+      label: Opgelost in versie
+      placeholder: versienummer
+  - type: checkboxes
+    id: project
+    attributes:
+      label: Selecteer in de kolom rechts het juiste project
+      description: onder 'Projects', klik op het 'tandwieltje'
+      options:
+        - label: done
+          required: true
