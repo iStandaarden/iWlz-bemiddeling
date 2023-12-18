@@ -1,34 +1,39 @@
 # iWlz-bemiddeling
-Koppelvlak specificatie Bemiddelingsregister
+
+**iWlz-bemiddeling bevat de [Graphql-schema](/gql-specificatie) koppelvlak specificatie voor het raadplegen van Wlz Bemiddelinggegevens in het bemiddelingsregister.**
+
+Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van het iWlz-netwerkmodel.
+
+De koppelvlak specificatie van het Bemiddelingsregister maakt onderdeel uit van de **iStandaard iWlz**. De specificaties van de andere onderdelen, zoals ERD, regels, procesbeschrijving, autorisatieregels, notificatie-typen staan in het [Informatiemodel iWlz](https://informatiemodel.istandaarden.nl/) dat te vinden is via de website: [https://informatiemodel.istandaarden.nl/](https://informatiemodel.istandaarden.nl/)
+
+## Versies en Status 
+
+Er zijn altijd minimaal twee versies actueel. Een versie die in productie is, status is *Lopend* en een versie die in ontwikkeling is, status is *In ontwikkeling*.
 
 > 
-> **Status Koppelvlakspecificatie:** *Release Candidate 1* 
+> **Status Koppelvlakspecificatie:** *In Ontwikkeling Bemiddeingsregister 1* 
 >
-> d.d. 17 juli 2023
-> 
-> Koppelvlak is bijgewerkt naar de laatste versie van het ERD Bemiddelingsregister versie 23-06-2023
+> Het Bemiddelingsregister is nog in ontwikkeling. Momenteel is er nog geen versie in productie en ontbreekt er daarom een versie lopend.
 >  
 
-Wijzigingsoverzicht zie: [Changelog](CHANGELOG.md)
 
-## Versies
-Laatste versie: ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/iStandaarden/iWlz-bemiddeling?include_prereleases&style=flat-square)
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/iStandaarden/iWlz-bemiddeling?style=flat-square)
+| iWlz Release | versie koppelvlak | Status |
+|:-- |:-- | :-- |
+| |  | **Lopend** |
+| [Bemiddelingsregister 1](https://informatiemodel.istandaarden.nl/iWlz-Bemiddeling-1/) | [v1.0.0](https://github.com/iStandaarden/iWlz-bemiddeling/tree/v1.0) ([main](https://github.com/iStandaarden/iWlz-bemiddeling)) | In ontwikkeling | 
+
+Volledig versie overzicht zie: [Changelog](CHANGELOG.md)
 
 ## Documentatie
-De specificaties van het onderdeel Bemiddeling zijn gebaseerd op het het ERD:
-![ERD](erd/ERD-bemiddeling-inclSleutels.png "ERD bemiddeling+contact")
+Ondersteunende documentatie is te vinden in het Informatiemodel, via de website [https://informatiemodel.istandaarden.nl/](https://informatiemodel.istandaarden.nl/) en daar de gewenste versie te selecteren (zie ook in de tabel hierboven voor een directe verwijzing).
 
-
-
-## Bronnen
-* Actieprogramma iWlz: van keten naar netwerk: [lees hier meer over het Actieprogramma iWlz](https://www.istandaarden.nl/actieprogramma-iwlz "Actieprogramma iWlz")
-* Portaal voor iStandaarden in de Zorg en Ondersteuning: [homepagina iStandaarden](https://www.istandaarden.nl)
+## Meer informatie
+* Actieprogramma iWlz: van keten naar netwerk: [het Actieprogramma iWlz](https://www.istandaarden.nl/iwlz/actieprogramma/index "Over Actieprogramma iWlz")
+* Informatiemodel iStandaarden iWlz: [Informatiemodellen](https://informatiemodel.istandaarden.nl)
+* Portaal voor iStandaarden in de
+Zorg en Ondersteuning: [homepagina iStandaarden](https://www.istandaarden.nl)
 
 ## Contactpersonen:
 * Hilko Jacobse - [@hilkojacobse](https://github.com/HilkoJacobse)
+* Dennis de Gouw - [@dennisdegouw](http://github.com/dennisdegouw)
 * Remo van Rest - [@rvanrest](https://github.com/rvanrest)
-
-## Licentie
-Copyright &copy; iStandaarden 2021
-Licensed under the [EUPL]
