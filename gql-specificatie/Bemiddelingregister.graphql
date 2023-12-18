@@ -50,8 +50,6 @@ type Bemiddeling {
   verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor 
   verantwoordelijkheidIngangsdatum: Date!
   verantwoordelijkheidEinddatum: Date
-  zorgInNatura: [ZorgInNatura]
-  pgb: [Pgb]
   overdracht: Overdracht
   client: Client!
 }
@@ -167,7 +165,7 @@ input WlzBemiddelingInput {
 
 input BemiddelingZoekfilters {
   bemiddelingID: UUID
-  zorgInNaturaID: UUID
+  bemiddelingspecificatieID: UUID
   bsn: String
 }
 
