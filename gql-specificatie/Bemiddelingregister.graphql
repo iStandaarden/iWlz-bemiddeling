@@ -50,6 +50,7 @@ type Bemiddeling {
   verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor 
   verantwoordelijkheidIngangsdatum: Date!
   verantwoordelijkheidEinddatum: Date
+  bemiddelingspecificatie: [Bemiddelingspecificatie]
   overdracht: Overdracht
   client: Client!
 }
