@@ -32,7 +32,6 @@ type Query {
 type Client {
   clientID: UUID! #
   bsn: String!
-  # partnerOpname: String! #COD260: Ja of nee 
   leefeenheid: String #COD478: Leefeenheid 
   huisarts: String
   communicatievorm: String #COD747: Communicatievorm 
