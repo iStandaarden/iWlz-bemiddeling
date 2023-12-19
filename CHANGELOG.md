@@ -10,7 +10,9 @@ Kies een versie voor een uitgebreide vergelijking met de voorgaande versie.
 ### [commit-history-v1]
 
 ### Issues
-- Issue #6 - [link](https://github.com/iStandaarden/iWlz-bemiddeling/issues/6)
+- Issue #6  - [link](https://github.com/iStandaarden/iWlz-bemiddeling/issues/6)
+- Issue #12 - [link](https://github.com/iStandaarden/iWlz-bemiddeling/issues/12)
+- Issue #
 
 ### Aangepast
 - Alle verouderde documentatie verwijderd. (ERD, Mapping)
