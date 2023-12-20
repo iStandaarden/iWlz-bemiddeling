@@ -10,9 +10,12 @@ Kies een versie voor een uitgebreide vergelijking met de voorgaande versie.
 ### [commit-history-v1]
 
 ### Issues
-- Issue #6  - [link](https://github.com/iStandaarden/iWlz-bemiddeling/issues/6)
-- Issue #12 - [link](https://github.com/iStandaarden/iWlz-bemiddeling/issues/12)
-- Issue #
+- [Issue #3: Specificatie fouten](https://github.com/iStandaarden/iWlz-bemiddeling/issues/3)
+- [Issue #6: Samenvoeging ZorgInNatura en Pgb](https://github.com/iStandaarden/iWlz-bemiddeling/issues/6)
+- [Issue #12: Scalar Date specification toevoegen ](https://github.com/iStandaarden/iWlz-bemiddeling/issues/12)
+- [Issue #13: Queries in lijn brengen met notificaties](https://github.com/iStandaarden/iWlz-bemiddeling/issues/13) 
+- [Issue #14: naming convention doorvoeren](https://github.com/iStandaarden/iWlz-bemiddeling/issues/14)
+- [Issue #15: Geen nullable input parameters in query](https://github.com/iStandaarden/iWlz-bemiddeling/issues/15)
 
 ### Aangepast
 - Alle verouderde documentatie verwijderd. (ERD, Mapping)

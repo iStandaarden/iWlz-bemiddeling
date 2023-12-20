@@ -14,18 +14,21 @@ schema {
 """ de volgende bevragingen zijn er gedefinieerd """
 type Query {
   # Haal alle bemiddelingen voor bsn
-  getWlzBemiddelingenVoorBsn(bsn: String!): Client! 
+  getWlzBemiddelingenVoorBsn(bsn: String!): Client! @deprecated(reason: "'open' vragen met niet specifieke resultaten zijn voorlopig niet toegestaan")
+  
   # Haal WlzBemiddeling op voor BemiddelingID
-  getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): Bemiddeling!
+  getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): Bemiddeling! 
+  
   # Haal Contacten op voor bsn
   getContactVoorBsn(bsn: String!): [Contactpersoon!]
+
   # Haal WlzIndicatieID op voor een Instelling met bemiddeling voor verificatie
   
   """ Generieke query voor het ophalen van Bemiddeling informatie """
-  getWlzBemiddeling(searchinput:WlzBemiddelingInput!): Bemiddeling!
+  getWlzBemiddeling(searchinput:WlzBemiddelingInput!): Bemiddeling! @deprecated(reason: "voldoet niet aan namingconvention Graphql gebruik 'WlzBemiddeling'")
 
   """ Generieke query voor het ophalen van overdracht informatie """
-  getOverdrachtBemiddeling(searchinput: OverdrachtInput!): Overdracht!
+  getOverdrachtBemiddeling(searchinput: OverdrachtInput!): Overdracht! @deprecated(reason: "voldoet niet aan namingconvention Graphql gebruik 'OverdrachtBemmiddeling'")
 }
 
 "Objects"
@@ -40,7 +43,7 @@ type Client {
   dossierhouder: [Dossierhouder]
   coordinatorZorgThuis: [CoordinatorZorgThuis]
   contactpersoon: [Contactpersoon]
-  contactgegevens: [Contactgegevens]
+  contactgegevens: [Contactgegevens] 
 }
 
 type Bemiddeling {
@@ -61,7 +64,7 @@ type Bemiddelingspecificatie {
   toewijzingIngangsdatum: Date!
   instelling: String
   uitvoerendZorgkantoor: String! #COD001: Zorgkantoor 
-  vaststellingmoment: DateTime!
+  vaststellingMoment: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
   opname: String #COD260: Ja of nee
@@ -166,7 +169,7 @@ input WlzBemiddelingInput {
 input BemiddelingZoekfilters {
   bemiddelingID: UUID
   bemiddelingspecificatieID: UUID
-  bsn: String
+  bsn: String @deprecated(reason: "nog geen raadpleeg mogelijkheid bsn voorzien")
 }
 
 input OverdrachtInput {
