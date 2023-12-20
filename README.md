@@ -17,10 +17,10 @@ Er zijn altijd minimaal twee versies actueel. Een versie die in productie is, st
 >  
 
 
-| iWlz Release | versie koppelvlak | Status |
+| iWlz Informatiemodel | Status | versie koppelvlak |
 |:-- |:-- | :-- |
-| |  | **Lopend** |
-| [Bemiddelingsregister 1](https://informatiemodel.istandaarden.nl/iWlz-Bemiddeling-1/) | [v1.0.0](https://github.com/iStandaarden/iWlz-bemiddeling/tree/v1.0) ([main](https://github.com/iStandaarden/iWlz-bemiddeling)) | In ontwikkeling | 
+| *nvt* | **Lopend** | *nvt* |
+| [Bemiddelingsregister 1](https://informatiemodel.istandaarden.nl/iWlz-Bemiddeling-1/) | In ontwikkeling | [v1.0.0](https://github.com/iStandaarden/iWlz-bemiddeling/tree/Bemiddelingsregister-1) ([main](https://github.com/iStandaarden/iWlz-bemiddeling)) |
 
 Volledig versie overzicht zie: [Changelog](CHANGELOG.md)
 
