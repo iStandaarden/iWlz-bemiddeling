@@ -1,38 +1,80 @@
 """
 Graphql Schemadefinitie voor het Bemiddelingregister
-Versie 0.9.1
-Gebaseerd op ERD versie 230721
+Versie 1.0.0
+Gebaseerd op Bemiddelingregister 1
 """
+
 scalar UUID @specifiedBy(url: "https://tools.ietf.org/html/rfc4122") # version 4
-scalar Date
+scalar Date @specifiedBy(url: "https://scalars.graphql.org/andimarek/local-date") # YYYY-MM-DD
 scalar DateTime @specifiedBy(url: "https://scalars.graphql.org/andimarek/date-time")
 
 schema {
   query: Query
 }
 
-"de volgende bevragingen zijn er gedefinieerd"
+""" de volgende bevragingen zijn er gedefinieerd """
 type Query {
-  # Haal alle bemiddelingen voor bsn
-  getWlzBemiddelingenVoorBsn(bsn: String!): Client!
-  # Haal WlzBemiddeling op voor BemiddelingID
-  getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): Bemiddeling!
-  # Haal Contacten op voor bsn
-  getContactVoorBsn(bsn: String!): [Contactpersoon!]
-  # Haal WlzIndicatieID op voor een Instelling met bemiddeling voor verificatie
-  
-  # Generieke query voor het ophalen van Bemiddeling informatie
-  getWlzBemiddeling(searchinput:WlzBemiddelingInput!): Bemiddeling!
+  """ 
+    Raadplegen van gegevens op basis van bemiddelingspecificatieID en raadpleger optioneel
+  """
+  BemiddelingspecificatieByID(bemiddelingspecificatieID: UUID!, instelling: String, uitvoerendZorgkantoor: String): Bemiddelingspecificatie!
 
-  # Generieke query voor het ophalen van overdracht informatie
-  getOverdrachtBemiddeling(searchinput: OverdrachtInput!): Overdracht!
+  """
+    Raadplegen van gegevens op basis van bemiddelingID
+  """
+  BemiddelingByID(bemiddelingID: UUID!, verantwoordelijkZorgkantoor: String): Bemiddeling!
+
+  """
+    Raadplegen van gegevens door overdracht op basis van overdrachtID.
+  """
+  OverdrachtByID(overdrachtID: UUID!, verantwoordelijkZorgkantoor: String): Overdracht!
+
+  """
+    Controleer combinatie wlzIndicatieID en verantwoordelijkZorgkantoor
+  """
+  BemiddelingByWlzIndicatieID(wlzIndicatieID: UUID!, verantwoordelijkZorgkantoor: String!): Bemiddeling!
+
+  """
+    Raadplegen gegevens op basis van bsn - voor raadplegingen vanuit Client
+  """
+  BemiddelingenbyBsn(bsn: String!): Client! 
+
+  """
+    Haal Contacten op voor bsn voor raadplegingen vanuit Client
+  """
+  ContactgegevensByBsn(bsn: String!): Client! 
+
+  """
+    DEPRECATED - Raadplegen gegevens op basis van bsn
+  """
+  getWlzBemiddelingenVoorBsn(bsn: String!): Client! @deprecated(reason: "voldoet niet aan namingconvention gebruik 'BemiddelingenbyBsn'")
+
+  """
+    DEPRECATED - Haal Contacten op voor bsn
+  """
+  getContactVoorBsn(bsn: String!): [Contactpersoon!] @deprecated(reason: "voldoet niet aan namingconvention gebruik 'ContactgegevensByBsn'")
+  
+  """
+    DEPRECATED - Haal WlzBemiddeling op voor BemiddelingID
+  """
+  getWlzBemiddelingVoorBemiddelingID(bemiddelingID: UUID!): Bemiddeling! @deprecated(reason: "gebruik 'BemiddelingByID'")
+  
+  """ 
+    DEPRECATED - Generieke query voor het ophalen van Bemiddeling informatie 
+  """
+  getWlzBemiddeling(searchinput:WlzBemiddelingInput!): Bemiddeling! @deprecated(reason: "voldoet niet aan namingconvention Graphql gebruik 'BemiddelingByID'")
+
+  """ 
+    DEPRECATED - Generieke query voor het ophalen van overdracht informatie 
+  """
+  getOverdrachtBemiddeling(searchinput: OverdrachtInput!): Overdracht! @deprecated(reason: "voldoet niet aan namingconvention Graphql gebruik 'OverdrachtByID'")
+
 }
 
 "Objects"
 type Client {
   clientID: UUID! #
   bsn: String!
-  # partnerOpname: String! #COD260: Ja of nee 
   leefeenheid: String #COD478: Leefeenheid 
   huisarts: String
   communicatievorm: String #COD747: Communicatievorm 
@@ -41,7 +83,7 @@ type Client {
   dossierhouder: [Dossierhouder]
   coordinatorZorgThuis: [CoordinatorZorgThuis]
   contactpersoon: [Contactpersoon]
-  contactgegevens: [Contactgegevens]
+  contactgegevens: [Contactgegevens] 
 }
 
 type Bemiddeling {
@@ -50,28 +92,19 @@ type Bemiddeling {
   verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor 
   verantwoordelijkheidIngangsdatum: Date!
   verantwoordelijkheidEinddatum: Date
-  zorgInNatura: [ZorgInNatura]
-  pgb: [Pgb]
+  bemiddelingspecificatie: [Bemiddelingspecificatie]
   overdracht: Overdracht
   client: Client!
 }
 
-interface ZorgToewijzing {
-  zzpCode: String! #COD163: Zorgzwaartepakket 
-  toewijzingIngangsdatum: Date!
-  vaststellingmoment: DateTime!
-  toewijzingEinddatum: Date
-  percentage: Int!
-}
-
-type ZorgInNatura implements ZorgToewijzing {
-  zorgInNaturaID: UUID!
+type Bemiddelingspecificatie {
+  bemiddelingspecificatieID: UUID!
   leveringsvorm: String! #COD578: Leveringsvorm 
   zzpCode: String! #COD163: Zorgzwaartepakket 
   toewijzingIngangsdatum: Date!
-  instelling: String!
+  instelling: String
   uitvoerendZorgkantoor: String! #COD001: Zorgkantoor 
-  vaststellingmoment: DateTime!
+  vaststellingMoment: DateTime!
   toewijzingEinddatum: Date
   percentage: Int!
   opname: String #COD260: Ja of nee
@@ -80,18 +113,6 @@ type ZorgInNatura implements ZorgToewijzing {
   instellingBestemming: String
   soortToewijzing: String! #COD165: Soort toewijzing
   bemiddeling: Bemiddeling!
-  overdrachtspecificatie: Overdrachtspecificatie
-}
-
-type Pgb implements ZorgToewijzing {
-  pgbID: UUID!
-  zzpCode: String! #COD163: Zorgzwaartepakket
-  toewijzingIngangsdatum: Date!
-  uitvoerendZorgkantoor: String! #COD001: Zorgkantoor 
-  vaststellingmoment: DateTime!
-  toewijzingEinddatum: Date
-  percentage: Int!
-  soortToewijzing: String! #COD165: Soort toewijzing
   overdrachtspecificatie: Overdrachtspecificatie
 }
 
@@ -132,8 +153,7 @@ type Overdrachtspecificatie {
   leveringsstatusClassificatie: String #COD168: LeveringsstatusClassificatie
   oorspronkelijkeToewijzingEinddatum: Date
   overdracht: Overdracht!
-  zorgInNatura: ZorgInNatura
-  pgb: Pgb
+  bemiddelingspecificatie: Bemiddelingspecificatie!
 }
 
 type Contactpersoon {
@@ -188,8 +208,8 @@ input WlzBemiddelingInput {
 
 input BemiddelingZoekfilters {
   bemiddelingID: UUID
-  zorgInNaturaID: UUID
-  bsn: String
+  bemiddelingspecificatieID: UUID
+  bsn: String @deprecated(reason: "nog geen raadpleeg mogelijkheid bsn voorzien")
 }
 
 input OverdrachtInput {
