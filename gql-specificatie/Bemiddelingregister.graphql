@@ -143,6 +143,7 @@ type Overdracht {
   verantwoordelijkZorgkantoor: String! #COD001: Zorgkantoor
   overdrachtDatum: Date!
   verhuisDatum: Date!
+  vaststellingMoment: DateTime!
   overdrachtspecificatie: [Overdrachtspecificatie]
   bemiddeling: Bemiddeling!
 }
