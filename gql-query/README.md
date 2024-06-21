@@ -5,12 +5,13 @@ Het moment waarop een actor een rol heeft is afhankelijk van een notificatie.
 
 _De lijst is nog niet volledig._
 
+
 Op dit moment zijn de volgende rollen onderkent:
 | Deelnemer | rol | toelichting |
 | :-- | :-- |:-- |
-| Zorgaanbieder | uitvoerend | Een zorgaanbieder die betrokken is bij de uitvoering van zorg |
-| Zorgaanbieder | dossierhouder | Een zorgaanbieder die verantwoordelijk is voor de uitvoering van verblijfszorg |
-| Zorgaanbieder | coordinator zorg thuis | Een zorgaanbieder die verantwoordelijk is voor de uitvoering van zorg thuis (mpt) | 
+| Zorgaanbieder | [uitvoerend](#zorgaanbieder---uitvoerend) | Een zorgaanbieder die betrokken is bij de uitvoering van zorg |
+| Zorgaanbieder | [dossierhouder](#zorgaanbieder---dossierhouder) | Een zorgaanbieder die verantwoordelijk is voor de uitvoering van verblijfszorg |
+| Zorgaanbieder | [coordinator zorg thuis](#zorgaanbieder---coordinator-zorg-thuis) | Een zorgaanbieder die verantwoordelijk is voor de uitvoering van zorg thuis (mpt) | 
 | Zorgkantoor | verantwoordelijk | Een zorgkantoor die verantwoordelijk is van de client (i.c.m. de Wlz Indicatie) en zorgt voor de registratie van die gegevens in het bemiddelingsregister | 
 | Zorgkantoor | uitvoerend | Een zorgkantoor dat uitvoerend is betrokken bij de uitvoering van zorg i.v.m. zorg uit een andere regio | 
 | Zorgkantoor | nieuw verantwoordelijk | Het zorgkantoor dat de client krijgt overgedragen van het huidige verantwoordelijk zorgkantoor |
