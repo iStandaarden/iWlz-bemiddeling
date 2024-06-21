@@ -4,6 +4,21 @@
 
 Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van het iWlz-netwerkmodel.
 
+**Inhoud**
+- [iWlz-bemiddeling](#iwlz-bemiddeling)
+  - [Onderdelen](#onderdelen)
+    - [Graphql-schema](#graphql-schema)
+    - [Graphql-query](#graphql-query)
+    - [Open Agent Policy](#open-agent-policy)
+  - [Versies en Status](#versies-en-status)
+  - [Documentatie](#documentatie)
+    - [Informatiemodel](#informatiemodel)
+    - [GraphQL](#graphql)
+    - [Open Agent Policy](#open-agent-policy-1)
+  - [Meer informatie](#meer-informatie)
+  - [Contactpersonen:](#contactpersonen)
+
+
 ## Onderdelen
 De specificaties van het Bemiddelingsregister maakt onderdeel uit van de **iStandaard iWlz**. De specificaties van de andere onderdelen, zoals ERD, regels, procesbeschrijving, autorisatieregels, notificatie-typen staan in het [Informatiemodel iWlz](https://informatiemodel.istandaarden.nl/) dat te vinden is via de website: [https://informatiemodel.istandaarden.nl/](https://informatiemodel.istandaarden.nl/)
 
@@ -16,7 +31,7 @@ De [Graphql-schema specificatie](/gql-specificatie/) is bedoelt voor implementat
 ### Graphql-query
 De [Graphql-queries](/gql-query/) beschrijven het template hoe een raadpleger vanuit zijn rol informatie kan raadplegen. Deze template volgt altijd het GraphQL-schema maar moet op bepaalde momenten aan vaste patronen voldoen vanwege de geldende autorisatie. Gaat een raadpleger buiten dit patroon dan zal de vraag worden afgekeurd en krijgt de raadpleger geen inzicht in de data. 
 
-In de folder [/gql-query](/gql-query/) staat een overzicht van de beschikbare templates.
+In de folder [/gql-query](/gql-query/) staat een overzicht van de beschikbare templates inclusief een toelichting voor welke partij de template is.
 
 ### Open Agent Policy
 De Open Agent Policy controleert of een query voldoet aan de daarvoor afgesproken template. De policy is gebaseerd op de autorisatieregels van dat register. 
