@@ -82,7 +82,8 @@ type Bemiddelingspecificatie {
   uitvoerendZorgkantoor: String! #COD001: Zorgkantoor
   vaststellingMoment: DateTime!
   toewijzingEinddatum: Date
-  percentage: Int!
+  percentage: Int
+  pgbPercentage: Int
   opname: String #COD260: Ja of nee
   redenIntrekking: String #COD172: Reden intrekking
   etmalen: String #COD755: Etmalen
@@ -157,28 +158,6 @@ type Contactpersoon {
   einddatum: Date
   client: Client!
 }
-
-"""
-type Contactgegevens {
-  contactgegevensID: UUID!
-  straatnaam: String
-  huisnummer: Int
-  huisletter: String
-  huisnummertoevoeging: String
-  aanduidingWoonadres: String #NUM061
-  postcode: String
-  plaatsnaam: String
-  land: String #COD032
-  adressoort: String! #COD757
-  telefoonnummer01: String
-  landnummer01: String
-  telefoonnummer02: String
-  landnummer02: String
-  emailadres: String
-  ingangsdatum: Date!
-  einddatum: Date
-}
-"""
 
 type ClientContactgegevens {
   clientContactgegevensID: UUID!
@@ -430,6 +409,7 @@ input BemiddelingspecificatieFilterInput {
   uitvoerendZorgkantoor: StringOperationFilterInput
   vaststellingMoment: DateTimeOperationFilterInput
   percentage: IntOperationFilterInput
+  pgbPercentage: IntOperationFilterInput
   opname: StringOperationFilterInput
   redenIntrekking: StringOperationFilterInput
   etmalen: StringOperationFilterInput
@@ -449,6 +429,7 @@ input BemiddelingspecificatieSortInput {
   uitvoerendZorgkantoor: SortEnumType
   vaststellingMoment: SortEnumType
   percentage: SortEnumType
+  pgbPercentage: SortEnumType
   opname: SortEnumType
   redenIntrekking: SortEnumType
   etmalen: SortEnumType
