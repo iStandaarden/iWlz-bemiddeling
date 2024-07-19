@@ -27,6 +27,7 @@ type Query {
   bemiddeling(where: BemiddelingFilterInput): [Bemiddeling!]!
   bemiddelingspecificatie(where: BemiddelingspecificatieFilterInput): [Bemiddelingspecificatie!]!
   overdracht(where: OverdrachtFilterInput): [Overdracht!]!
+  regiehouder(where: RegiehouderFilterInput): [Regiehouder!]!
 }
 
 """ OBJECT types """
@@ -43,14 +44,6 @@ type Client {
     where: ClientContactgegevensFilterInput
     order: [ClientContactgegevensSortInput!]
   ): [ClientContactgegevens!]
-  coordinatorZorgThuis(
-    where: CoordinatorZorgThuisFilterInput
-    order: [CoordinatorZorgThuisSortInput!]
-  ): [CoordinatorZorgThuis!]
-  dossierhouder(
-    where: DossierhouderFilterInput
-    order: [DossierhouderSortInput!]
-  ): [Dossierhouder!]
   clientID: UUID!
   bsn: String!
   leefeenheid: String #COD478: Leefeenheid
@@ -64,6 +57,10 @@ type Bemiddeling {
     where: BemiddelingspecificatieFilterInput
     order: [BemiddelingspecificatieSortInput!]
   ): [Bemiddelingspecificatie!]
+  regiehouder(
+    where: RegiehouderFilterInput
+    order: [RegiehouderSortInput!]
+  ): [Regiehouder!]
   bemiddelingID: UUID!
   client: Client!
   wlzIndicatieID: UUID!
@@ -93,19 +90,12 @@ type Bemiddelingspecificatie {
   overdrachtspecificatie: Overdrachtspecificatie
 }
 
-type CoordinatorZorgThuis {
-  coordinatorZorgThuisID: UUID!
+type Regiehouder {
+  regiehouderID: UUID!
   instelling: String!
   ingangsdatum: Date!
   einddatum: Date
-  client: Client!
-}
-
-type Dossierhouder {
-  dossierhouderID: UUID!
-  instelling: String!
-  ingangsdatum: Date!
-  einddatum: Date
+  regierol: String!
   client: Client!
 }
 
@@ -361,36 +351,18 @@ input ClientContactgegevensSortInput {
   einddatum: SortEnumType
 }
 
-input CoordinatorZorgThuisFilterInput {
-  and: [CoordinatorZorgThuisFilterInput!]
-  or: [CoordinatorZorgThuisFilterInput!]
-  coordinatorZorgThuisID: UuidOperationFilterInput
+input RegiehouderFilterInput {
+  and: [RegiehouderFilterInput!]
+  or: [RegiehouderFilterInput!]
+  regiehouderID: UuidOperationFilterInput
   instelling: StringOperationFilterInput
   ingangsdatum: DateOperationFilterInput
   einddatum: DateOperationFilterInput
   client: ClientFilterInput
 }
 
-input CoordinatorZorgThuisSortInput {
-  coordinatorZorgThuisID: SortEnumType
-  instelling: SortEnumType
-  ingangsdatum: SortEnumType
-  einddatum: SortEnumType
-  client: ClientSortInput
-}
-
-input DossierhouderFilterInput {
-  and: [DossierhouderFilterInput!]
-  or: [DossierhouderFilterInput!]
-  dossierhouderID: UuidOperationFilterInput
-  instelling: StringOperationFilterInput
-  ingangsdatum: DateOperationFilterInput
-  einddatum: DateOperationFilterInput
-  client: ClientFilterInput
-}
-
-input DossierhouderSortInput {
-  dossierhouderID: SortEnumType
+input RegiehouderSortInput {
+  regiehouderID: SortEnumType
   instelling: SortEnumType
   ingangsdatum: SortEnumType
   einddatum: SortEnumType
@@ -472,8 +444,7 @@ input ClientFilterInput {
   communicatievorm: StringOperationFilterInput
   taal: StringOperationFilterInput
   bemiddeling: ListFilterInputTypeOfBemiddelingFilterInput
-  dossierhouder: ListFilterInputTypeOfDossierhouderFilterInput
-  coordinatorZorgThuis: ListFilterInputTypeOfCoordinatorZorgThuisFilterInput
+  regiehouder: ListFilterInputTypeOfRegiehouderFilterInput
   contactgegevens: ListFilterInputTypeOfClientContactgegevensFilterInput
   contactpersoon: ListFilterInputTypeOfContactpersoonFilterInput
 }
@@ -527,17 +498,10 @@ input ListFilterInputTypeOfBemiddelingFilterInput {
   any: Boolean
 }
 
-input ListFilterInputTypeOfDossierhouderFilterInput {
-  all: DossierhouderFilterInput
-  none: DossierhouderFilterInput
-  some: DossierhouderFilterInput
-  any: Boolean
-}
-
-input ListFilterInputTypeOfCoordinatorZorgThuisFilterInput {
-  all: CoordinatorZorgThuisFilterInput
-  none: CoordinatorZorgThuisFilterInput
-  some: CoordinatorZorgThuisFilterInput
+input ListFilterInputTypeOfRegiehouderFilterInput {
+  all: RegiehouderFilterInput
+  none: RegiehouderFilterInput
+  some: RegiehouderFilterInput
   any: Boolean
 }
 
