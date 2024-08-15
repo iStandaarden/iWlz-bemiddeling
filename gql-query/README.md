@@ -21,7 +21,7 @@ Op dit moment zijn de volgende rollen onderkent:
 ## Beschikbare templates per rol
 
 ### Zorgaanbieder - uitvoerend
-Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER*.
+Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER*. 
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | **Autorisatie** |
 |---|---|---|---|---|
