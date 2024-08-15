@@ -1,8 +1,8 @@
 # QBR-0001-ZA.graphql
 # Query voor Zorgaanbieder op Bemiddelingsregister
 # Verplichte input:
-#   - bemiddelingspecificatieID
-#   - agbcode instelling
+#   - bemiddelingspecificatieID = te raadplegen bemiddelingsspecificatie
+#   - agbcode instelling = eigen agbcode raadpleger
 
 query Bemiddelingspecificatie(
   $BemiddelingspecificatieID: UUID!
