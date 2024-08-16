@@ -12,14 +12,12 @@ query Bemiddelingspecificatie(
   $BemiddelingspecificatieID: UUID!
   $Instelling: String!
   $ToewijzingIngangsdatum: Date!
-  $ToewijzingEinddatum: Date
 ) {
   bemiddelingspecificatie(
     where: {
       bemiddelingspecificatieID: { eq: $BemiddelingspecificatieID }
       instelling: { eq: $Instelling }
       toewijzingIngangsdatum: { eq: $ToewijzingIngangsdatum }
-      toewijzingEinddatum: { eq: $ToewijzingEinddatum }
     }
   ) {
     bemiddelingspecificatieID

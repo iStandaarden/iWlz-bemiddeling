@@ -21,12 +21,15 @@ Op dit moment zijn de volgende rollen onderkent:
 ## Beschikbare templates per rol
 
 ### Zorgaanbieder - uitvoerend
-Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER*. 
+Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER* of ad-hoc om complete toewijzing te raadplegen.
 
-| **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | **Autorisatie** |
+| **Query ID** | **Beschrijving ** | **Verplichte input** | **resultaat** | **Autorisatie** |
 |---|---|---|---|---|
-| [QBR-0001-ZA](/gql-query/QBR-0001-ZA.graphql) | Op basis van de (ontvangen) bemiddelingspecificatieID en eigen identificatie, de bijbehorende Bemiddelingspecificatie, Bemiddeling en Cliënt gegevens raadplegen | bemiddelingspecificatieID (V),  AGBcode (V) | Bemiddelingspecificatie Bemiddeling Client | BRA0001 |
-| [QBR-0002-ZA](/gql-query/QBR-0002-ZA.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie, ingang- en einddatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | bemiddelingspecificatieID (V),  AGBcode (V), Ingangsdatum bemiddelingsspecificatie (V), Einddatum (O) | Bemiddelingspecificatie Bemiddeling Client Dossierhouder Coordinator zorg thuis Contactgegevens | BRA0002, BRA0004, BRA0005 |
+| **QBR-0001-ZA** | Op basis van de (ontvangen) bemiddelingspecificatieID en eigen identificatie, de bijbehorende Bemiddelingspecificatie, Bemiddeling en Cliënt gegevens raadplegen | bemiddelingspecificatieID (V),  AGBcode (V) | Bemiddelingspecificatie /  Bemiddeling /  Client | BRA0001 |
+| **QBR-0002-ZA** | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingIngangdatum en toewijzingeinddatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | bemiddelingspecificatieID (V),  AGBcode (V), toewijzingIngangsdatum (V), toewijzingEinddatum(V) | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | BRA0002, BRA0004, BRA0005 |
+| **QBR-0003-ZA** | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingIngangdatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | bemiddelingspecificatieID (V),  AGBcode (V), toewijzingIngangsdatum (V) | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | BRA0002, BRA0004, BRA0005 |
+
+![img](../src/Zorgaanbieder_Uitvoerend.png)
 
 ### Zorgaanbieder - dossierhouder
 Na ontvangst van de notificatie: _ROL_DOSSIERHOUDER_ZORGAANBIEDER_
