@@ -1,17 +1,15 @@
-name: generate plantuml
-on: [push]
+name: Generate PlantUML Diagrams
+on:
+  push:
 
 jobs:
-  generate_plantuml:
+  plantuml:
     runs-on: ubuntu-latest
-    name: plantuml
     steps:
-      - name: checkout
+      - name: Checkout Source
         uses: actions/checkout@v2
-      - name: plantuml
-        id: plantuml
-        uses: grassedge/generate-plantuml-action@master
+
+      - name: Generate SVG Diagrams
+        uses: holowinski/plantuml-github-action@main
         with:
-          path: src
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          args: -v -tsvg src/*.puml
