@@ -1,13 +1,6 @@
 name: generate plantuml
-on:
-  push:
-    branches:
-      - main
-      - lopend
-      - ontwikkeling
-      - autorisatie
-    paths: 
-      - 'src/**.puml'
+on: [push]
+
 jobs:
   generate_plantuml:
     runs-on: ubuntu-latest
