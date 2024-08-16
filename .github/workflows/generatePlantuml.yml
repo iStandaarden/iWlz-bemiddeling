@@ -12,6 +12,6 @@ jobs:
         id: plantuml
         uses: grassedge/generate-plantuml-action@master
         with:
-          path: erd
+          path: src
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
