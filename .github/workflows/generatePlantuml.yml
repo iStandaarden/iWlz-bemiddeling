@@ -13,3 +13,5 @@ jobs:
         uses: holowinski/plantuml-github-action@main
         with:
           args: -v -tsvg src/*.puml
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
