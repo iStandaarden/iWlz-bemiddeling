@@ -3,7 +3,11 @@ on:
   push:
     branches:
       - main
-      - v0.0.2
+      - lopend
+      - ontwikkeling
+      - autorisatie
+    paths: 
+      - 'src/**.puml'
 jobs:
   generate_plantuml:
     runs-on: ubuntu-latest
