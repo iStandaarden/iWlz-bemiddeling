@@ -1,18 +1,16 @@
-
-
-
-
-
-
-
-
-
+# QBR-0002-ZA.grapql
+# Query voor Zorgaanbieder op Bemiddelingsregister
+# Verplichte input:
+#   - bemiddelingspecificatieID - eigen bemiddelingsspecificatie
+#   - agbcode instelling
+#   - toewijzing Ingangsdatum bijv. 2020-02-19
 
 query Bemiddelingspecificatie(
   $BemiddelingspecificatieID: UUID!
   $Instelling: String!
   $ToewijzingIngangsdatum: Date!
 ) {
+  # Eigen bemiddelingspecificatie
   bemiddelingspecificatie(
     where: {
       bemiddelingspecificatieID: { eq: $BemiddelingspecificatieID }
@@ -34,14 +32,17 @@ query Bemiddelingspecificatie(
     etmalen
     instellingBestemming
     soortToewijzing
+    # Bemiddeling
     bemiddeling {
       bemiddelingID
       wlzIndicatieID
       verantwoordelijkZorgkantoor
       verantwoordelijkheidIngangsdatum
       verantwoordelijkheidEinddatum
+      # Client
       client {
         bsn
+        # Contactpersoon
         contactpersoon(
           where: {
             and: [
@@ -73,6 +74,7 @@ query Bemiddelingspecificatie(
           geboortedatumgebruik
           ingangsdatum
           einddatum
+          # Contactgegevens Contactpersoon
           contactgegevens(
             where: {
               and: [
@@ -108,6 +110,7 @@ query Bemiddelingspecificatie(
         huisarts
         communicatievorm
         taal
+        # Contactgegevens Cleint
         contactgegevens(
           where: {
             and: [
@@ -138,6 +141,7 @@ query Bemiddelingspecificatie(
           ingangsdatum
           einddatum
         }
+        # Dossierhouder
         dossierhouder(
           where: {
             and: [
@@ -155,6 +159,7 @@ query Bemiddelingspecificatie(
           ingangsdatum
           einddatum
         }
+        # Coordinator Zorg Thuis
         coordinatorZorgThuis(
           where: {
             and: [
@@ -174,6 +179,7 @@ query Bemiddelingspecificatie(
         }
         clientID
       }
+      # Overlappende bemiddelingspecificaties (informatieve zorgtoewijzingen)
       bemiddelingspecificatie(
         where: {
           and: [
