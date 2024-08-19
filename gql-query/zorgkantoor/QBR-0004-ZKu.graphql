@@ -34,6 +34,7 @@ query Bemiddelingspecificatie(
       verantwoordelijkZorgkantoor
       verantwoordelijkheidIngangsdatum
       verantwoordelijkheidEinddatum
+      # Overige Bemiddelingspecificaties van de bemiddeling mag je niet ophalen zonder datumfilter
       client {
         bsn
         clientID
@@ -41,6 +42,7 @@ query Bemiddelingspecificatie(
         communicatievorm
         huisarts
         leefeenheid
+      # Sub entiteiten van de client mag je niet ophalen zonder datumfilter
       }
     }
   }
