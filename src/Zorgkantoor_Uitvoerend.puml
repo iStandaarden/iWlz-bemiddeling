@@ -1,0 +1,25 @@
+@startuml Zorgkantoor_uitvoerend
+
+start
+
+if (bemiddelingspecificatieID, toewijzingIngangsdatum en toewijzingEinddatum bekend?) then (nee)
+   :Ontvangst notificatie:\nNIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR;
+
+   :Raadpleeg Bemiddelingspecificatie, Bemiddeling en Client \nmet gegevens uit notificatie;
+
+   #lightgreen:__QBR-0004-ZKu__;
+
+   else (ja)
+
+   :Raadpleeg aanvullende gegevens\n(Informatieve zorgtoewijzingen, DH, CZT, contactgegevens));
+
+   if (toewijzingEinddatum eigen bemiddelingspecficatie gevuld? \n(zie QBR-0004_ZKu)) then (ja)
+      #lightgreen:__QBR-0005-ZKu__;
+   else (nee)
+      #lightgreen:__QBR-0006-Zku__;
+   endif
+
+endif
+stop
+
+@enduml
