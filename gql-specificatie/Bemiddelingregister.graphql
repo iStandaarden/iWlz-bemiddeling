@@ -96,7 +96,7 @@ type Regiehouder {
   ingangsdatum: Date!
   einddatum: Date
   regierol: String!
-  client: Client!
+  bemiddeling: Bemiddeling!
 }
 
 type Overdracht {
