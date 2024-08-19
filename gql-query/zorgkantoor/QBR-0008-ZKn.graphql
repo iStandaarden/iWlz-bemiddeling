@@ -1,5 +1,9 @@
-
-
+# QBR-0008-ZKn.graphql
+# Query voor nieuw verantwoordelijk Zorgkantoor op Bemiddelingsregister
+# Verplichte input:
+#   - overdrachtID = te raadplegen overdracht
+#   - eigen uzovicode nieuw verantwoordelijke zorgkantoor
+#   - overdrachtDatum
 
 query Overdracht($overdrachtID: UUID!, $verantwoordelijkZorgkantoor: String!, $overdrachtDatum: Date!) {
   overdracht(
