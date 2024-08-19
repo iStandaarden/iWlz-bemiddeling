@@ -1,4 +1,8 @@
-
+# QBR-0004-ZKu.graphql
+# Query voor uitvoerend Zorgkantoor op Bemiddelingsregister
+# Verplichte input:
+#   - bemiddelingspecificatieID = te raadplegen bemiddelingsspecificatie
+#   - uitvoerendZorgkantoor = eigen uzovi code raadpleger
 
 query Bemiddelingspecificatie(
   $bemiddelingspecificatieId: UUID!
