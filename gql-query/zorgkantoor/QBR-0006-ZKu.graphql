@@ -1,0 +1,187 @@
+# QBR-0006-ZKu.grapql
+# Query voor uitvoerend Zorgkantoor op Bemiddelingsregister
+# Verplichte input:
+#   - bemiddelingspecificatieID - eigen bemiddelingsspecificatie
+#   - uzovicode zorgkantoor
+#   - toewijzing Ingangsdatum bijv. 2020-02-19
+
+query Bemiddelingspecificatie(
+    $bemiddelingspecificatieId: UUID!
+    $uitvoerendZorgkantoor: String!
+    $ToewijzingIngangsdatum: Date!
+) {
+    bemiddelingspecificatie(
+        where: {
+            bemiddelingspecificatieID: { eq: $bemiddelingspecificatieId }
+            uitvoerendZorgkantoor: { eq: $uitvoerendZorgkantoor }
+            toewijzingIngangsdatum: { eq: $ToewijzingIngangsdatum }
+            toewijzingEinddatum: { eq: $ToewijzingEinddatum }
+        }
+    ) {
+        bemiddelingspecificatieID
+        leveringsvorm
+        zzpCode
+        toewijzingIngangsdatum
+        toewijzingEinddatum
+        instelling
+        uitvoerendZorgkantoor
+        vaststellingMoment
+        percentage
+        opname
+        redenIntrekking
+        etmalen
+        instellingBestemming
+        soortToewijzing
+        bemiddeling {
+            bemiddelingID
+            wlzIndicatieID
+            verantwoordelijkZorgkantoor
+            verantwoordelijkheidIngangsdatum
+            verantwoordelijkheidEinddatum
+            client {
+                bsn
+                contactpersoon(
+                    where: {
+                        and: [
+                            {
+                                or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
+                            }
+                        ]
+                    }
+                ) {
+                    contactpersoonID
+                    relatienummer
+                    volgorde
+                    soortRelatie
+                    rol
+                    relatie
+                    geslachtsnaam
+                    voorvoegselGeslachtsnaam
+                    partnernaam
+                    voorvoegselPartnernaam
+                    voornamen
+                    voorletters
+                    roepnaam
+                    naamgebruik
+                    geslacht
+                    geboortedatum
+                    geboortedatumgebruik
+                    ingangsdatum
+                    einddatum
+                    contactgegevens(
+                        where: {
+                            and: [
+                                {
+                                    or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
+                                }
+                            ]
+                        }
+                    ) {
+                        contactpersoonContactgegevensID
+                        adresSoort
+                        straatnaam
+                        huisnummer
+                        huisletter
+                        huisnummerToevoeging
+                        postcode
+                        plaatsnaam
+                        land
+                        aanduidingWoonadres
+                        emailadres
+                        telefoonnummer01
+                        landnummer01
+                        telefoonnummer02
+                        landnummer02
+                        ingangsdatum
+                        einddatum
+                    }
+                }
+                leefeenheid
+                huisarts
+                communicatievorm
+                taal
+                contactgegevens(
+                    where: {
+                        and: [
+                            {
+                                or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
+                            }
+                        ]
+                    }
+                ) {
+                    clientContactgegevensID
+                    adresSoort
+                    straatnaam
+                    huisnummer
+                    huisletter
+                    huisnummerToevoeging
+                    postcode
+                    plaatsnaam
+                    land
+                    aanduidingWoonadres
+                    emailadres
+                    telefoonnummer01
+                    landnummer01
+                    telefoonnummer02
+                    landnummer02
+                    ingangsdatum
+                    einddatum
+                }
+                dossierhouder(
+                    where: {
+                        and: [
+                            {
+                                or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
+                            }
+                        ]
+                    }
+                ) {
+                    dossierhouderID
+                    instelling
+                    ingangsdatum
+                    einddatum
+                }
+                coordinatorZorgThuis(
+                    where: {
+                        and: [
+                            {
+                                or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
+                            }
+                        ]
+                    }
+                ) {
+                    coordinatorZorgThuisID
+                    instelling
+                    ingangsdatum
+                    einddatum
+                }
+                clientID
+            }
+            bemiddelingspecificatie(
+                    where: {
+                        and: [
+                            {
+                                or: [{ toewijzingEinddatum: { eq: null } }, { toewijzingEinddatum: { gte: $ToewijzingIngangsdatum } }]
+                            }
+                        ]
+                    }
+                ) {
+                bemiddelingspecificatieID
+                leveringsvorm
+                zzpCode
+                toewijzingIngangsdatum
+                toewijzingEinddatum
+                instelling
+                uitvoerendZorgkantoor
+                vaststellingMoment
+                percentage
+                pgbPercentage
+                opname
+                redenIntrekking
+                etmalen
+                instellingBestemming
+                soortToewijzing
+            }
+        }
+    }
+}
