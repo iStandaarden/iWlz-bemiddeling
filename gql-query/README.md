@@ -41,10 +41,11 @@ Na ontvangst van de notificatie: _ROL_COORDINATORZORGTHUIS_ZORGAANBIEDER_
 |---|---|---|---|---|
 
 ### Zorgkantoor - verantwoordelijk
+Het verantwoordelijke zorgkantoor is eigenaar van de eigen gegevens en mag daarom alle gegevens van het eigen zorgkantoor raadplegen zonder beperking. 
+
 Na de ontvangst van de notificatie: *NIEUWE_INDICATIE_ZORGKANTOOR*. Deze notificatie is afkomstig van het CIZ en geeft aan dat een client uit de regio van het zorgkantoor een (nieuwe) Wlz Indicatie heeft ontvangen. Met gegevens kan het zorgkantoor de indicatie raadplegen en bemiddeling registreren in het Bemiddelingsregister. Hieruit volgen weer nieuwe notificaties. 
 
-| **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | **Autorisatie** |
-|---|---|---|---|---|
+Zie voor de query-template voor het opvragen van de Indicatie de reposistory van het [Koppelvlak Indicatieregister](https://github.com/iStandaarden/iWlz-indicatie).
 
 ### Zorgkantoor - uitvoerend
 Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR* of ad-hoc om complete toewijzing te raadplegen.
