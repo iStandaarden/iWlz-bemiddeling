@@ -22,7 +22,7 @@ Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER* 
 
 ![img](../src/Zorgaanbieder_Uitvoerend.svg)
 
-| **Query ID** | **Beschrijving ** | **Verplichte input** | **resultaat** | **Autorisatie** |
+| **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | **Autorisatie** |
 |---|---|---|---|---|
 | [**QBR-0001-ZA**](zorgaanbieder/QBR-0001-ZA.graphql) | Op basis van de (ontvangen) bemiddelingspecificatieID en eigen identificatie, de bijbehorende Bemiddelingspecificatie, Bemiddeling en Cliënt gegevens raadplegen | bemiddelingspecificatieID (V),  AGBcode (V) | Bemiddelingspecificatie /  Bemiddeling /  Client | BRA0001 |
 | [**QBR-0002-ZA**](zorgaanbieder/QBR-0002-ZA.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingIngangdatum en toewijzingeinddatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | bemiddelingspecificatieID (V),  AGBcode (V), toewijzingIngangsdatum (V), toewijzingEinddatum(V) | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | BRA0002, BRA0004, BRA0005 |
@@ -47,7 +47,10 @@ Na de ontvangst van de notificatie: *NIEUWE_INDICATIE_ZORGKANTOOR*. Deze notific
 |---|---|---|---|---|
 
 ### Zorgkantoor - uitvoerend
-Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR*
+Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR* of ad-hoc om complete toewijzing te raadplegen.
+
+![img](../src/Zorgkantoor_Uitvoerend.svg)
+
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | **Autorisatie** |
 |---|---|---|---|---|
