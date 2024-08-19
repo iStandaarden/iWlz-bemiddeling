@@ -58,7 +58,11 @@ Na ontvangst van de notificatie: *NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR* of
 | [**QBR-0006-ZKu**](zorgkantoor/QBR-0006-ZKu.graphql) | Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | bemiddelingspecificatieID (V),  Uzovicode (V), Ingangsdatum bemiddelingsspecificatie (V), | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | BRA0007, BRA0008, BRA0009 |
 
 ### Zorgkantoor - nieuw verantwoordelijk
-Na ontvangst van de notificatie: *OVERDRACHT_ZORGKANTOOR*
+Na ontvangst van de notificatie: *OVERDRACHT_ZORGKANTOOR* of ad-hoc om complete overdracht te raadplegen.
+
+![img](../src/Zorgkantoor_Nieuw.svg)
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | **Autorisatie** |
 |---|---|---|---|---|
+| **QBR-0007-ZKn** | Op basis van de overdrachtID en eigen identificatie de overgedragen Bemiddeling, Bemiddelingspecificatie(s) en Client raadplegen | overdrachtID (V), uzovicode (V) | Overdracht / Overdrachtspecificatie / Bemiddeling / Bemiddelingspecificatie / Client | BRA0010 |
+| **QBR-0008-ZKn** | Op basis van de overdrachtID en eigen identificatie de overgedragen Bemiddeling, Bemiddelingspecificatie(s), Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | overdrachtID (V), uzovicode (V), overdrachtsdatum (V) | Overdracht Overdrachtspecificatie Bemiddeling Bemiddelingspecificatie Client Dossierhouder Coordinator zorg thuis Contactgegevens Contactpersoongegevens | BRA0010 |
