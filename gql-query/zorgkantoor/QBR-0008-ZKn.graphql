@@ -1,0 +1,69 @@
+
+
+
+query Overdracht($overdrachtID: UUID!, $verantwoordelijkZorgkantoor: String!, $overdrachtDatum: Date!) {
+  overdracht(
+    where: {
+      overdrachtID: { eq: $overdrachtID }
+      verantwoordelijkZorgkantoor: { eq: $verantwoordelijkZorgkantoor }
+      overdrachtDatum: { eq: $overdrachtDatum }
+    }
+  ) {
+    overdrachtID
+    verantwoordelijkZorgkantoor
+    overdrachtDatum
+    verhuisDatum
+    vaststellingMoment
+    bemiddeling {
+      bemiddelingID
+      wlzIndicatieID
+      verantwoordelijkZorgkantoor
+      verantwoordelijkheidIngangsdatum
+      verantwoordelijkheidEinddatum
+      client {
+        clientID
+        bsn
+        leefeenheid
+        huisarts
+        communicatievorm
+        taal
+        coordinatorZorgThuis(
+          where: {
+            ingangsdatum: { ngt: $overdrachtDatum }
+            or: [
+              { einddatum: { gt: $overdrachtDatum } }
+              { einddatum: { eq: null } }
+            ]
+          }
+        ) {
+          coordinatorZorgThuisID
+          instelling
+          ingangsdatum
+          einddatum
+        }
+      }
+    }
+    overdrachtspecificatie {
+      overdrachtspecificatieID
+      leveringsstatus
+      leveringsstatusClassificatie
+      oorspronkelijkeToewijzingEinddatum
+      bemiddelingspecificatie {
+        bemiddelingspecificatieID
+        leveringsvorm
+        zzpCode
+        toewijzingIngangsdatum
+        toewijzingEinddatum
+        instelling
+        uitvoerendZorgkantoor
+        vaststellingMoment
+        percentage
+        opname
+        redenIntrekking
+        etmalen
+        instellingBestemming
+        soortToewijzing
+      }
+    }
+  }
+}
