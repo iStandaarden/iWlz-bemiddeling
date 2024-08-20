@@ -132,7 +132,6 @@ type Contactpersoon {
   soortRelatie: String! #COD472!: Soort relatie
   rol: String #COD1003: Rol
   relatie: String #COD1002: Relatie
-  organisatienaam: String
   geslachtsnaam: String
   voorvoegselGeslachtsnaam: String
   partnernaam: String

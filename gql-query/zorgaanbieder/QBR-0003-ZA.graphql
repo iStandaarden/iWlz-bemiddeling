@@ -88,11 +88,11 @@ query Bemiddelingspecificatie(
             }
           ) {
             contactpersoonContactgegevensID
-            adresSoort
+            adressoort
             straatnaam
             huisnummer
             huisletter
-            huisnummerToevoeging
+            huisnummertoevoeging
             postcode
             plaatsnaam
             land
@@ -124,11 +124,11 @@ query Bemiddelingspecificatie(
           }
         ) {
           clientContactgegevensID
-          adresSoort
+          adressoort
           straatnaam
           huisnummer
           huisletter
-          huisnummerToevoeging
+          huisnummertoevoeging
           postcode
           plaatsnaam
           land
@@ -138,42 +138,6 @@ query Bemiddelingspecificatie(
           landnummer01
           telefoonnummer02
           landnummer02
-          ingangsdatum
-          einddatum
-        }
-        # Dossierhouder
-        dossierhouder(
-          where: {
-            and: [
-              {
-                or: [
-                  { einddatum: { eq: null } }
-                  { einddatum: { gte: $ToewijzingIngangsdatum } }
-                ]
-              }
-            ]
-          }
-        ) {
-          dossierhouderID
-          instelling
-          ingangsdatum
-          einddatum
-        }
-        # Coordinator Zorg Thuis
-        coordinatorZorgThuis(
-          where: {
-            and: [
-              {
-                or: [
-                  { einddatum: { eq: null } }
-                  { einddatum: { gte: $ToewijzingIngangsdatum } }
-                ]
-              }
-            ]
-          }
-        ) {
-          coordinatorZorgThuisID
-          instelling
           ingangsdatum
           einddatum
         }
@@ -207,6 +171,24 @@ query Bemiddelingspecificatie(
         instellingBestemming
         soortToewijzing
       }
+      regiehouder(
+          where: {
+            and: [
+              {
+                or: [
+                  { einddatum: { eq: null } }
+                  { einddatum: { gte: $ToewijzingIngangsdatum } }
+                ]
+              }
+            ]
+          }
+        ) {
+          regiehouderID
+          instelling
+          ingangsdatum
+          einddatum
+          regierol
+        }
     }
   }
 }

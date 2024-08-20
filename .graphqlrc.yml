@@ -1,1 +1,2 @@
 schema: 'gql-specificatie/Bemiddelingregister.graphql'
+documents: 'gql-query/**/*.graphql'
