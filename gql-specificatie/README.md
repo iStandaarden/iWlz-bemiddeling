@@ -1,3 +1,3 @@
 [Schema](/gql-specificatie/Bemiddelingregister.graphql)
 
-![Graphql-specificatie-v1.0.0.rc1](/src/Bemiddelingsregister.graphql-v1.0.1.svg)
+![Graphql-specificatie](/src/Bemiddelingsregister_graph-v1.0.1.svg)
