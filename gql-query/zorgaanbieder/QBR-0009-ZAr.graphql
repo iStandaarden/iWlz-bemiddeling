@@ -1,7 +1,7 @@
 # QBR-0009-ZAr.graphql
 # Query voor Zorgaanbieder op Bemiddelingsregister
 # Verplichte input:
-#   - bemiddelingspecificatieID = te raadplegen Regiehouder
+#   - regiehouderID = te raadplegen Regiehouder
 #   - agbcode instelling = eigen agbcode raadpleger
 
 query Regiehouder(
@@ -25,7 +25,7 @@ query Regiehouder(
       verantwoordelijkZorgkantoor
       verantwoordelijkheidIngangsdatum
       verantwoordelijkheidEinddatum
-      # Overige Bemiddelingspecificaties van de bemiddeling mag je niet ophalen zonder datumfilter - zie QBR-0002-ZA.graphql
+      # Sub entiteiten van de bemiddeling mag je niet ophalen zonder datumfilter - zie QBR-0002-ZA.graphql
       client {
         bsn
         clientID
