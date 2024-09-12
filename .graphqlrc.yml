@@ -1,2 +1,2 @@
-schema: 'gql-specificatie/Bemiddelingregister.graphql'
+schema: 'gql-specificatie/*.graphql'
 documents: 'gql-query/**/*.graphql'
