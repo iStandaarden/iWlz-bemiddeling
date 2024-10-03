@@ -1,12 +1,13 @@
-# iWlz-bemiddeling
+# iWlz bemiddeling 1
 
 **iWlz-bemiddeling bevat de [Graphql-schema](/gql-specificatie) koppelvlak specificatie en voorgeschreven [GraphQL-query templates](/gql-query/) voor het raadplegen van Wlz Bemiddelinggegevens in het bemiddelingsregister.**
 
 Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van het iWlz-netwerkmodel.
 
 **Inhoud**
-- [iWlz-bemiddeling](#iwlz-bemiddeling)
+- [iWlz bemiddeling 1](#iwlz-bemiddeling-1)
   - [Onderdelen](#onderdelen)
+    - [Schematisch](#schematisch)
     - [Graphql-schema](#graphql-schema)
     - [Graphql-query](#graphql-query)
     - [Open Agent Policy](#open-agent-policy)
@@ -20,8 +21,9 @@ Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van he
 
 
 ## Onderdelen
-De specificaties van het Bemiddelingsregister maakt onderdeel uit van de **iStandaard iWlz**. De specificaties van de andere onderdelen, zoals ERD, regels, procesbeschrijving, autorisatieregels, notificatie-typen staan in het [Informatiemodel iWlz](https://informatiemodel.istandaarden.nl/) dat te vinden is via de website: [https://informatiemodel.istandaarden.nl/](https://informatiemodel.istandaarden.nl/)
+Deze specificaties van het Bemiddelingsregister maken onderdeel uit van de **iStandaard iWlz**. De specificaties van de andere onderdelen, zoals ERD, regels, procesbeschrijving, autorisatieregels, notificatie-typen staan in het [Informatiemodel iWlz](https://informatiemodel.istandaarden.nl/) dat te vinden is via de website: [https://informatiemodel.istandaarden.nl/iWlz-Bemiddeling-1/](https://informatiemodel.istandaarden.nl/iWlz-Bemiddeling-1/)
 
+### Schematisch
 ![onderdelen](/src/Onderdelen_Netwerk.png)
 v.l.n.r. Raadpleger doet via GraphQL-query een raadpleging. Open Policy agent controleert of query voldoet aan autorisatie-regels van dat register. GraphQL-schema definieert het data-schema van het register.
 
@@ -43,19 +45,19 @@ De policy is beschikbaar in: @@@ nog te bepalen.
 
 Er zijn altijd minimaal twee versies actueel. Een versie die in productie is, status is *Lopend* en een versie die in ontwikkeling is, status is *In ontwikkeling*.
 
+
+| iWlz Informatiemodel | Status | versie koppelvlak |
+|:-- |:-- | :-- |
+| *nvt* | *Lopend* | *nvt* |
+| **Bemiddelingsregister 1** | In ontwikkeling | v1.1.0 (03-10-2024) |
+
+Volledig versie overzicht zie: [Changelog](CHANGELOG.md)
+
 > 
 > **Status Koppelvlakspecificatie:** *In Ontwikkeling Bemiddeingsregister 1* 
 >
 > Het Bemiddelingsregister is nog in ontwikkeling. Momenteel is er nog geen versie in productie en ontbreekt er daarom een versie lopend.
->  
-
-
-| iWlz Informatiemodel | Status | versie koppelvlak |
-|:-- |:-- | :-- |
-| *nvt* | **Lopend** | *nvt* |
-| [Bemiddelingsregister 1]() | In ontwikkeling |  |
-
-Volledig versie overzicht zie: [Changelog](CHANGELOG.md)
+> 
 
 ## Documentatie
 
