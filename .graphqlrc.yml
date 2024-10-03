@@ -1,2 +1,2 @@
-// .graphqlrc.yml
-schema: '/gql-specificatie/*.graphql'
+schema: 'gql-specificatie/*.graphql'
+documents: 'gql-query/**/*.graphql'

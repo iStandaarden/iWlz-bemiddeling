@@ -1,0 +1,20 @@
+@startuml Zorgkantoor_nieuw
+start
+
+if (overdrachtID en overdrachtDatum bekend?) then (nee)
+   :Ontvangst notificatie:\nOVERDRACHT_ZORGKANTOOR;
+
+   :Raadpleeg Overdracht, Overdrachtspecificatie(s) en Client \nmet gegevens uit notificatie;
+
+   #lightgreen:__QBR-0007-ZKn__;
+
+   else (ja)
+
+   :Raadpleeg volledige Overdracht gegevens;
+
+   #lightgreen:__QBR-0008-ZKn__;
+   
+endif
+stop
+
+@enduml

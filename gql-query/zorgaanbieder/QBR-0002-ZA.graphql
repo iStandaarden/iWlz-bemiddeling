@@ -1,0 +1,240 @@
+# QBR-0002-ZA.grapql
+# Query voor Zorgaanbieder op Bemiddelingsregister
+# Verplichte input:
+#   - bemiddelingspecificatieID
+#   - agbcode instelling
+#   - toewijzing Ingangsdatum bijv. 2020-02-19
+#   - toewijzing Einddatum bijv. 2024-03-17
+#   - toewijzing Einddatum + 2 jaar bijv. 2026-03-17
+#   - toewijzing Einddatum + 31 mei volgend jaar bijv. 2025-05-31
+
+# Query
+query Bemiddelingspecificatie(
+  $BemiddelingspecificatieID: UUID!
+  $Instelling: String!
+  $ToewijzingIngangsdatum: Date!
+  $ToewijzingEinddatum: Date!
+  $ToewijzingEinddatum2Jaar: Date!
+  $ToewijzingEinddatum31Mei: Date!
+) {
+  bemiddelingspecificatie(
+    where: {
+      bemiddelingspecificatieID: { eq: $BemiddelingspecificatieID }
+      instelling: { eq: $Instelling }
+      toewijzingIngangsdatum: { eq: $ToewijzingIngangsdatum }
+      toewijzingEinddatum: { eq: $ToewijzingEinddatum }
+    }
+  ) {
+    bemiddelingspecificatieID
+    leveringsvorm
+    zzpCode
+    toewijzingIngangsdatum
+    toewijzingEinddatum
+    instelling
+    uitvoerendZorgkantoor
+    vaststellingMoment
+    percentage
+    opname
+    redenIntrekking
+    etmalen
+    instellingBestemming
+    soortToewijzing
+    bemiddeling {
+      bemiddelingID
+      wlzIndicatieID
+      verantwoordelijkZorgkantoor
+      verantwoordelijkheidIngangsdatum
+      verantwoordelijkheidEinddatum
+      client {
+        bsn
+        contactpersoon(
+          where: {
+            and: [
+              {
+                or: [
+                  { einddatum: { eq: null } }
+                  { einddatum: { gte: $ToewijzingIngangsdatum } }
+                ]
+              }
+              { ingangsdatum: { ngt: $ToewijzingEinddatum2Jaar } }
+            ]
+          }
+        ) {
+          contactpersoonID
+          relatienummer
+          volgorde
+          soortRelatie
+          rol
+          relatie
+          geslachtsnaam
+          voorvoegselGeslachtsnaam
+          partnernaam
+          voorvoegselPartnernaam
+          voornamen
+          voorletters
+          roepnaam
+          naamgebruik
+          geslacht
+          geboortedatum
+          geboortedatumgebruik
+          ingangsdatum
+          einddatum
+          contactgegevens(
+            where: {
+              and: [
+                {
+                  or: [
+                    { einddatum: { eq: null } }
+                    { einddatum: { gte: $ToewijzingIngangsdatum } }
+                  ]
+                }
+                { ingangsdatum: { ngt: $ToewijzingEinddatum2Jaar } }
+              ]
+            }
+          ) {
+            contactpersoonContactgegevensID
+            adressoort
+            straatnaam
+            huisnummer
+            huisletter
+            huisnummertoevoeging
+            postcode
+            plaatsnaam
+            land
+            aanduidingWoonadres
+            emailadres
+            telefoonnummer01
+            landnummer01
+            telefoonnummer02
+            landnummer02
+            ingangsdatum
+            einddatum
+          }
+        }
+        leefeenheid
+        huisarts
+        communicatievorm
+        taal
+        contactgegevens(
+          where: {
+            and: [
+              {
+                or: [
+                  { einddatum: { eq: null } }
+                  { einddatum: { gte: $ToewijzingIngangsdatum } }
+                ]
+              }
+              { ingangsdatum: { ngt: $ToewijzingEinddatum2Jaar } }
+            ]
+          }
+        ) {
+          clientContactgegevensID
+          adressoort
+          straatnaam
+          huisnummer
+          huisletter
+          huisnummertoevoeging
+          postcode
+          plaatsnaam
+          land
+          aanduidingWoonadres
+          emailadres
+          telefoonnummer01
+          landnummer01
+          telefoonnummer02
+          landnummer02
+          ingangsdatum
+          einddatum
+        }
+        # dossierhouder(
+        #   where: {
+        #     and: [
+        #       {
+        #         or: [
+        #           { einddatum: { eq: null } }
+        #           { einddatum: { gte: $ToewijzingIngangsdatum } }
+        #         ]
+        #       }
+        #       { ingangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
+        #     ]
+        #   }
+        # ) {
+        #   dossierhouderID
+        #   instelling
+        #   ingangsdatum
+        #   einddatum
+        # }
+        # coordinatorZorgThuis(
+        #   where: {
+        #     and: [
+        #       {
+        #         or: [
+        #           { einddatum: { eq: null } }
+        #           { einddatum: { gte: $ToewijzingIngangsdatum } }
+        #         ]
+        #       }
+        #       { ingangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
+        #     ]
+        #   }
+        # ) {
+        #   coordinatorZorgThuisID
+        #   instelling
+        #   ingangsdatum
+        #   einddatum
+        # }
+        clientID
+      }
+      bemiddelingspecificatie(
+        where: {
+          and: [
+            {
+              or: [
+                { toewijzingEinddatum: { eq: null } }
+                { toewijzingEinddatum: { gte: $ToewijzingIngangsdatum } }
+              ]
+            }
+            { toewijzingIngangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
+          ]
+        }
+      ) {
+        bemiddelingspecificatieID
+        leveringsvorm
+        zzpCode
+        toewijzingIngangsdatum
+        toewijzingEinddatum
+        instelling
+        uitvoerendZorgkantoor
+        vaststellingMoment
+        percentage
+        opname
+        redenIntrekking
+        etmalen
+        instellingBestemming
+        soortToewijzing
+      }
+      regiehouder(
+          where: {
+            and: [
+              {
+                or: [
+                  { einddatum: { eq: null } }
+                  { einddatum: { gte: $ToewijzingIngangsdatum } }
+                ]
+              }
+              { ingangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
+            ]
+          }
+        ) {
+          regiehouderID
+          instelling
+          ingangsdatum
+          einddatum
+          regierol
+        }
+        
+        
+      }
+
+    }
+  }
+

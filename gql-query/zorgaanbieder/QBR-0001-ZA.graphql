@@ -1,0 +1,49 @@
+# QBR-0001-ZA.graphql
+# Query voor Zorgaanbieder op Bemiddelingsregister
+# Verplichte input:
+#   - bemiddelingspecificatieID = te raadplegen bemiddelingsspecificatie
+#   - agbcode instelling = eigen agbcode raadpleger
+
+query Bemiddelingspecificatie(
+  $BemiddelingspecificatieID: UUID!
+  $Instelling: String!
+) {
+  bemiddelingspecificatie(
+    where: {
+      bemiddelingspecificatieID: { eq: $BemiddelingspecificatieID }
+      instelling: { eq: $Instelling }
+    }
+  ) {
+    bemiddelingspecificatieID
+    leveringsvorm
+    zzpCode
+    toewijzingIngangsdatum
+    toewijzingEinddatum
+    instelling
+    uitvoerendZorgkantoor
+    vaststellingMoment
+    percentage
+    opname
+    redenIntrekking
+    etmalen
+    instellingBestemming
+    soortToewijzing
+    bemiddeling {
+      bemiddelingID
+      wlzIndicatieID
+      verantwoordelijkZorgkantoor
+      verantwoordelijkheidIngangsdatum
+      verantwoordelijkheidEinddatum
+      # Overige Bemiddelingspecificaties van de bemiddeling mag je niet ophalen zonder datumfilter - zie QBR-0002-ZA.graphql
+      client {
+        bsn
+        clientID
+        taal
+        communicatievorm
+        huisarts
+        leefeenheid
+        # Sub entiteiten van de client mag je niet ophalen zonder datumfilter - zie QBR-0002-ZA.graphql
+      }
+    }
+  }
+}

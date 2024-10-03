@@ -1,0 +1,49 @@
+# QBR-0004-ZKu.graphql
+# Query voor uitvoerend Zorgkantoor op Bemiddelingsregister
+# Verplichte input:
+#   - bemiddelingspecificatieID = te raadplegen bemiddelingsspecificatie
+#   - uitvoerendZorgkantoor = eigen uzovi code raadpleger
+
+query Bemiddelingspecificatie(
+  $bemiddelingspecificatieId: UUID!
+  $uitvoerendZorgkantoor: String!
+) {
+  bemiddelingspecificatie(
+    where: {
+      bemiddelingspecificatieID: { eq: $bemiddelingspecificatieId }
+      uitvoerendZorgkantoor: { eq: $uitvoerendZorgkantoor }
+    }
+  ) {
+    bemiddelingspecificatieID
+    leveringsvorm
+    zzpCode
+    toewijzingIngangsdatum
+    toewijzingEinddatum
+    instelling
+    uitvoerendZorgkantoor
+    vaststellingMoment
+    percentage
+    opname
+    redenIntrekking
+    etmalen
+    instellingBestemming
+    soortToewijzing
+    bemiddeling {
+      bemiddelingID
+      wlzIndicatieID
+      verantwoordelijkZorgkantoor
+      verantwoordelijkheidIngangsdatum
+      verantwoordelijkheidEinddatum
+      # Overige Bemiddelingspecificaties van de bemiddeling mag je niet ophalen zonder datumfilter
+      client {
+        bsn
+        clientID
+        taal
+        communicatievorm
+        huisarts
+        leefeenheid
+      # Sub entiteiten van de client mag je niet ophalen zonder datumfilter
+      }
+    }
+  }
+}

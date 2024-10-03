@@ -1,0 +1,156 @@
+# QBR-0008-ZKn.graphql
+# Query voor nieuw verantwoordelijk Zorgkantoor op Bemiddelingsregister
+# Verplichte input:
+#   - overdrachtID = te raadplegen overdracht
+#   - eigen uzovicode nieuw verantwoordelijke zorgkantoor
+#   - overdrachtDatum
+
+query Overdracht(
+  $overdrachtID: UUID!
+  $verantwoordelijkZorgkantoor: String!
+  $overdrachtDatum: Date!
+) {
+  overdracht(
+    where: {
+      overdrachtID: { eq: $overdrachtID }
+      verantwoordelijkZorgkantoor: { eq: $verantwoordelijkZorgkantoor }
+      overdrachtDatum: { eq: $overdrachtDatum }
+    }
+  ) {
+    overdrachtID
+    verantwoordelijkZorgkantoor
+    overdrachtDatum
+    verhuisDatum
+    vaststellingMoment
+    bemiddeling {
+      bemiddelingID
+      wlzIndicatieID
+      verantwoordelijkZorgkantoor
+      verantwoordelijkheidIngangsdatum
+      verantwoordelijkheidEinddatum
+      client {
+        clientID
+        bsn
+        leefeenheid
+        huisarts
+        communicatievorm
+        taal
+        contactgegevens(
+          where: {
+            ingangsdatum: { ngt: $overdrachtDatum }
+            or: [
+              { einddatum: { gt: $overdrachtDatum } }
+              { einddatum: { eq: null } }
+            ]
+          }
+        ) {
+          clientContactgegevensID
+          adressoort
+          straatnaam
+          huisnummer
+          huisletter
+          huisnummertoevoeging
+          postcode
+          plaatsnaam
+          land
+          emailadres
+          telefoonnummer01
+          landnummer01
+          telefoonnummer02
+          landnummer02
+          ingangsdatum
+          einddatum
+        }
+        contactpersoon(
+          where: {
+            ingangsdatum: { ngt: $overdrachtDatum }
+            or: [
+              { einddatum: { gt: $overdrachtDatum } }
+              { einddatum: { eq: null } }
+            ]
+          }
+        ) {
+          contactpersoonID
+          contactgegevens(
+            where: {
+            ingangsdatum: { ngt: $overdrachtDatum }
+            or: [
+              { einddatum: { gt: $overdrachtDatum } }
+              { einddatum: { eq: null } }
+            ]
+          }
+          ) {
+            contactpersoonContactgegevensID
+            adressoort
+            straatnaam
+            huisnummer
+            huisnummertoevoeging
+            postcode
+            plaatsnaam
+            land
+            emailadres
+            telefoonnummer01
+            landnummer01
+            telefoonnummer02
+            landnummer02
+            ingangsdatum
+            einddatum
+          }
+          relatienummer
+          volgorde
+          soortRelatie
+          rol
+          relatienummer
+          geslachtsnaam
+          voorvoegselGeslachtsnaam
+          voornamen
+          voorletters
+          roepnaam
+          naamgebruik
+          geslacht
+          geboortedatum
+          geboortedatumgebruik
+          ingangsdatum
+          einddatum
+        }
+      }
+      regiehouder(
+        where: {
+          ingangsdatum: { ngt: $overdrachtDatum }
+          or: [
+            { einddatum: { gt: $overdrachtDatum } }
+            { einddatum: { eq: null } }
+          ]
+        }
+      ) {
+        regiehouderID
+        instelling
+        ingangsdatum
+        einddatum
+        regierol
+      }
+    }
+    overdrachtspecificatie {
+      overdrachtspecificatieID
+      leveringsstatus
+      leveringsstatusClassificatie
+      oorspronkelijkeToewijzingEinddatum
+      bemiddelingspecificatie {
+        bemiddelingspecificatieID
+        leveringsvorm
+        zzpCode
+        toewijzingIngangsdatum
+        toewijzingEinddatum
+        instelling
+        uitvoerendZorgkantoor
+        vaststellingMoment
+        percentage
+        opname
+        redenIntrekking
+        etmalen
+        instellingBestemming
+        soortToewijzing
+      }
+    }
+  }
+}
