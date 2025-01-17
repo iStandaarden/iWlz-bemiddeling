@@ -28,7 +28,7 @@ Deze specificaties van het Bemiddelingsregister maken onderdeel uit van de **iSt
 v.l.n.r. Raadpleger doet via GraphQL-query een raadpleging. Open Policy agent controleert of query voldoet aan autorisatie-regels van dat register. GraphQL-schema definieert het data-schema van het register.
 
 ### Graphql-schema 
-De [Graphql-schema specificatie](/gql-specificatie/) is bedoelt voor implementatie door de bronhouder en beschrijft hoe de data aan elkaar is gerelateerd. De specificatie is te vinden in de folder [/gql-specificatie](/gql-specificatie/). 
+De [Graphql-schema specificatie](/gql-specificatie/) is bedoeld voor implementatie door de bronhouder en beschrijft hoe de data aan elkaar is gerelateerd. De specificatie is te vinden in de folder [/gql-specificatie](/gql-specificatie/). 
 
 ### Graphql-query
 De [Graphql-queries](/gql-query/) beschrijven het template hoe een raadpleger vanuit zijn rol informatie kan raadplegen. Deze template volgt altijd het GraphQL-schema maar moet op bepaalde momenten aan vaste patronen voldoen vanwege de geldende autorisatie. Gaat een raadpleger buiten dit patroon dan zal de vraag worden afgekeurd en krijgt de raadpleger geen inzicht in de data. 
