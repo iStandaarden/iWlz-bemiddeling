@@ -1,0 +1,18 @@
+# QBR-0010-CIZ.graphql
+# Query voor CIZ op Bemiddelingsregister
+# Verplichte input:
+#   - wlzIndicatieID 
+#   
+
+query Bemiddeling(
+  $wlzIndicatieID: UUID!
+) {
+  bemiddeling(
+    where: {
+      wlzIndicatieID: { eq: $wlzIndicatieID }
+    }
+  ) {
+    wlzIndicatieID
+    verantwoordelijkZorgkantoor
+  }
+}
