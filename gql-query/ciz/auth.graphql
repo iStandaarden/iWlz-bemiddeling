@@ -1,0 +1,9 @@
+query Overdracht {
+  overdracht{
+    verantwoordelijkZorgkantoor
+    bemiddeling{
+      wlzIndicatieID
+    }
+  }
+
+}
