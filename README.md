@@ -11,6 +11,7 @@ Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van he
     - [Graphql-schema](#graphql-schema)
     - [Graphql-query](#graphql-query)
     - [Open Agent Policy](#open-agent-policy)
+    - [Notificaties](#notificaties)
   - [Versies en Status](#versies-en-status)
   - [Documentatie](#documentatie)
     - [Informatiemodel](#informatiemodel)
@@ -40,6 +41,11 @@ De Open Agent Policy controleert of een query voldoet aan de daarvoor afgesproke
 
 De policy is beschikbaar in: @@@ nog te bepalen.
 
+### Notificaties
+Met een notificatie wordt een netwerk-deelnemer op de hoogte gebracht door een bronhouder dat er nieuwe (of gewijzigde) informatie is die directe of afgeleide betrekking heeft op die deelnemer. De notificatie bevat informatie die de deelnemer in staat stelt de relevante informatie te raadplegen bij de bron. Een notificatie loopt altijd van bron naar deelnemer.
+
+> [!NOTE]
+> De notificaties vanuit het Indicatieregister zijn te vinden in de folder [**/notificaties**](/notificaties/)
 
 ## Versies en Status 
 
