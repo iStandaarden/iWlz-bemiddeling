@@ -462,7 +462,6 @@ input BemiddelingFilterInput {
   or: [BemiddelingFilterInput!]
   bemiddelingID: UuidOperationFilterInput
   client: ClientFilterInput
-  clientID: UuidOperationFilterInput
   wlzIndicatieID: UuidOperationFilterInput
   verantwoordelijkZorgkantoor: StringOperationFilterInput
   verantwoordelijkheidIngangsdatum: DateOperationFilterInput
@@ -474,7 +473,6 @@ input BemiddelingFilterInput {
 input BemiddelingSortInput {
   bemiddelingID: SortEnumType
   client: ClientSortInput
-  clientID: SortEnumType
   wlzIndicatieID: SortEnumType
   verantwoordelijkZorgkantoor: SortEnumType
   verantwoordelijkheidIngangsdatum: SortEnumType
