@@ -357,7 +357,8 @@ input RegiehouderFilterInput {
   instelling: StringOperationFilterInput
   ingangsdatum: DateOperationFilterInput
   einddatum: DateOperationFilterInput
-  client: ClientFilterInput
+  regierol: StringOperationFilterInput
+  bemiddeling: BemiddelingFilterInput
 }
 
 input RegiehouderSortInput {
@@ -365,7 +366,8 @@ input RegiehouderSortInput {
   instelling: SortEnumType
   ingangsdatum: SortEnumType
   einddatum: SortEnumType
-  client: ClientSortInput
+  regierol: SortEnumType
+  bemiddeling: BemiddelingSortInput
 }
 
 input BemiddelingspecificatieFilterInput {
@@ -443,7 +445,6 @@ input ClientFilterInput {
   communicatievorm: StringOperationFilterInput
   taal: StringOperationFilterInput
   bemiddeling: ListFilterInputTypeOfBemiddelingFilterInput
-  regiehouder: ListFilterInputTypeOfRegiehouderFilterInput
   contactgegevens: ListFilterInputTypeOfClientContactgegevensFilterInput
   contactpersoon: ListFilterInputTypeOfContactpersoonFilterInput
 }
@@ -468,6 +469,7 @@ input BemiddelingFilterInput {
   verantwoordelijkheidEinddatum: DateOperationFilterInput
   bemiddelingspecificatie: ListFilterInputTypeOfBemiddelingspecificatieFilterInput
   overdracht: OverdrachtFilterInput
+  regiehouder: ListFilterInputTypeOfRegiehouderFilterInput
 }
 
 input BemiddelingSortInput {
