@@ -1,7 +1,8 @@
 # Changelog
 
 
-
+## Versie 1.1.1 koppelvlakspecificatie - 22-04-2025
+Bevinding [B107: Aanpasing naar Regiehouder (vanuit DH en CZT) niet volledig verwerkt in Schemaspecificatie mbt verschillende FilterInput- en SortInput-typen](https://github.com/iStandaarden/iWlz_RequestForChange/issues/107) opgelost
 
 ## [Versie 1.1.0](https://github.com/iStandaarden/iWlz-bemiddeling/releases/tag/v1.1.0) - 2024-10-03
 Publicatie van informatiemodel Bemiddelingsregister 1 - versie informatiemodel 1.3

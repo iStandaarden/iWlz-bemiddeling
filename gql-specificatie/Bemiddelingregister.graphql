@@ -1,7 +1,7 @@
 """
 Graphql Schemadefinitie voor het Bemiddelingregister
-Versie 1.1.0
-datum 2024-10-03
+Versie 1.1.1
+datum 2025-04-04
 Gebaseerd op Bemiddelingregister 1
 """
 
@@ -357,7 +357,8 @@ input RegiehouderFilterInput {
   instelling: StringOperationFilterInput
   ingangsdatum: DateOperationFilterInput
   einddatum: DateOperationFilterInput
-  client: ClientFilterInput
+  regierol: StringOperationFilterInput
+  bemiddeling: BemiddelingFilterInput
 }
 
 input RegiehouderSortInput {
@@ -365,7 +366,8 @@ input RegiehouderSortInput {
   instelling: SortEnumType
   ingangsdatum: SortEnumType
   einddatum: SortEnumType
-  client: ClientSortInput
+  regierol: SortEnumType
+  bemiddeling: BemiddelingSortInput
 }
 
 input BemiddelingspecificatieFilterInput {
@@ -443,7 +445,6 @@ input ClientFilterInput {
   communicatievorm: StringOperationFilterInput
   taal: StringOperationFilterInput
   bemiddeling: ListFilterInputTypeOfBemiddelingFilterInput
-  regiehouder: ListFilterInputTypeOfRegiehouderFilterInput
   contactgegevens: ListFilterInputTypeOfClientContactgegevensFilterInput
   contactpersoon: ListFilterInputTypeOfContactpersoonFilterInput
 }
@@ -462,19 +463,18 @@ input BemiddelingFilterInput {
   or: [BemiddelingFilterInput!]
   bemiddelingID: UuidOperationFilterInput
   client: ClientFilterInput
-  clientID: UuidOperationFilterInput
   wlzIndicatieID: UuidOperationFilterInput
   verantwoordelijkZorgkantoor: StringOperationFilterInput
   verantwoordelijkheidIngangsdatum: DateOperationFilterInput
   verantwoordelijkheidEinddatum: DateOperationFilterInput
   bemiddelingspecificatie: ListFilterInputTypeOfBemiddelingspecificatieFilterInput
   overdracht: OverdrachtFilterInput
+  regiehouder: ListFilterInputTypeOfRegiehouderFilterInput
 }
 
 input BemiddelingSortInput {
   bemiddelingID: SortEnumType
   client: ClientSortInput
-  clientID: SortEnumType
   wlzIndicatieID: SortEnumType
   verantwoordelijkZorgkantoor: SortEnumType
   verantwoordelijkheidIngangsdatum: SortEnumType
