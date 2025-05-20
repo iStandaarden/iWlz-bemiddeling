@@ -12,6 +12,7 @@ Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van he
     - [Graphql-query](#graphql-query)
     - [Open Agent Policy](#open-agent-policy)
     - [Notificaties](#notificaties)
+  - [**Raadplegen Bemiddelingsregister**](#raadplegen-bemiddelingsregister)
   - [Versies en Status](#versies-en-status)
   - [Documentatie](#documentatie)
     - [Informatiemodel](#informatiemodel)
@@ -46,6 +47,17 @@ Met een notificatie wordt een netwerk-deelnemer op de hoogte gebracht door een b
 
 > [!NOTE]
 > De notificaties vanuit het Indicatieregister zijn te vinden in de folder [**/notificaties**](/notificaties/)
+
+## **Raadplegen Bemiddelingsregister**
+
+Het raadplegen van het Bemiddelingsregister is gebonden aan voorwaarden. De raadpleger moet bevoegd zijn én het vastgestelde raadpleegpatroon volgen. Dit patroon is essentieel voor het valideren van de toestemming. 
+
+Als dat patroon niet wordt gevolgd — bijvoorbeeld door ontbrekende autorisatie, onjuiste of incomplete input, of het opvragen van ongeoorloofde gegevens — wordt de toegang geweigerd of het resultaat beperkt.
+
+Use-cases beschrijven hoe een deelnemer het register correct raadpleegt.
+
+> [!NOTE]
+> De functionele beschrijving beschikbare raadpleging per deelnemer is beschikbaar in de folder **[/raadplegen](/raadplegen/)**
 
 ## Versies en Status 
 

@@ -56,8 +56,6 @@ Kies een use-case voor de beschrijving van het raadplegen of controleren van de 
 | Regiehouder rol en periode (na notificatie) | **Als** zorgaanbieder die een notificatie over `regiehouder` heeft ontvangen, **wil ik** de rol, de geldigheidsperiode, de bijbehorende bemiddeling en de cliënt kunnen raadplegen, **zodat** ik mijn taken als regiehouder correct en tijdig kan uitvoeren. | [UCBR-0009-raadplegen](/raadplegen/zorgaanbieder/UCBR-0009-raadplegen.md) | [UCBR-0009-toegangscontrole](/raadplegen/zorgaanbieder/UCBR-0009-toegangscontrole.md) |
 
 
-
-
 ### Zorgkantoor
 | Doel | toelichting | raadplegen | toegangscontrole |
 | :-- |:-- | :-- | :-- |
@@ -67,4 +65,8 @@ Kies een use-case voor de beschrijving van het raadplegen of controleren van de 
 | Complete dossieroverdracht | **Als** (nieuwe verantwoordelijk) zorgkantoor dat een cliënt overgedragen krijgt van een ander zorgkantoor, **wil ik** naast de zorg ook de contactgegevens en regiehouder raadplegen, **zodat** ik inzage heb in het volledige overgedragen dossier  |  [UCBR-0008-raadplegen](/raadplegen/zorgkantoor/UCBR-0008-raadplegen.md) | [UCBR-0008-toegangscontrole](/raadplegen/zorgkantoor/UCBR-0008-toegangscontrole.md) |
 
 
+---
+Terug naar [HOME](/README.md)
 
+
+[^1]: PDP: Policy Decision Point. [Afsprakenstelsel iWlz - Raadplegen](https://wlz.atlassian.net/wiki/x/KgpgAQ)
