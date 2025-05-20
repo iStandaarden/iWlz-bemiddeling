@@ -1,4 +1,4 @@
-# Toegangscontrole: Raadplegen van de eigen bemiddelingspecificatie door (uitvoerende) Zorgaanbieder (UCBR-0001) 
+# Toegangscontrole: Raadplegen van de eigen en overlappende Bemiddelingspecificatie(s) en overige informatie door de Zorgaanbieder (UCBR-0002_3)
 
 Beschrijving van de **toegangscontrole** door de Policy Decision Point (PDP) en indien van toepassing Policy Information Point (PIP).
 
@@ -7,47 +7,57 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 ## Toegangscontrole PDP
 ### Subject
 - **Entiteit:** Zorgaanbieder (toegewezen)
-- **Kenmerk:** In bezit van een access-token met daarin de eigen `agbcode`
+- **Kenmerk:** In bezit van een access-token met eigen `agbcode`
 
 
 ### **Action**
 - **Type:** `raadplegen` (read)
-- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0001-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0001-ZA.graphql) op het bemiddelingsregister door een zorgaanbieder
+- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0002-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0002-ZA.graphql) of [`QBR-0003-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0003-ZA.graphql) (wanneer de eigen `bemiddelingspecificatie` een einddatum heeft) op het bemiddelingsregister door een zorgaanbieder. 
 
 
 ### **Resource**
 - **Type:** `Bemiddelingsregister`
 - **ID:** `bemiddelingspecificatieID`
-- **Beperking:** Alleen toegang tot gegevens waarvoor de zorgaanbieder een toewijzing heeft (op basis van agbcode en bemiddelingspecificatieID)
-- **Inhoud:** Alleen de nodes Bemiddelingspecificatie en de gerelateerde Bemiddeling en Client die horen bij de opgevraagde Bemiddelingspecificatie, mogen direct worden opgevraagd.
+- **Beperking:** Toegang tot gegevens waarvoor de zorgaanbieder een toewijzing heeft en de gegevens die overlap hebben met die toewijzing
+- **Inhoud:** De nodes Bemiddelingspecificatie en de gerelateerde Bemiddeling en Client die horen bij de opgevraagde Bemiddelingspecificatie, en de Regiehouder, contactgegevens, contactpersoon en Bemiddelingspecificaties van andere aanbieders die in periode overlap hebben met de eigen Bemiddelingspecificatie, mogen direct worden opgevraagd.
 
 
 ### **Context**
-- **Query-parameters vereist:** De `bemiddelingspecificatieID` en de `agbcode` moeten aanwezig zijn in de query
+- **Query-parameters vereist:** 
+  | QBR-0002-ZA                   | QBR-0003-ZA                   |
+  | :---------------------------- | :---------------------------- |
+  | - `bemiddelingspecificatieID` | - `bemiddelingspecificatieID` |
+  | - `instelling`                | - `instelling`                |
+  | - `toewijzingIngangsdatum`    | - `toewijzingIngangsdatum`    |
+  | - `toewijzingEinddatum`       |                               |
+  | - `ToewijzingEinddatum2Jaar`  |                               |
+  | - `ToewijzingEinddatum31Mei`  |                               |
+
 - **Toegangsvoorwaarde:**  Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
-  - De parameter `bemiddelingspecificatieID` is aanwezig in de query;
-  - De parameter `agbcode` is aanwezig in de query;
+  - De parameters zoals hierboven zijn aanwezig
   - De **access-token** bevat een geldige `agbcode` van de zorgaanbieder;
-  - De in de query meegegeven `agbcode` komt overeen met de `agbcode` in de access-token;
+  - De `agbcode` van de in de query meegegeven `instelling` komt overeen met de `agbcode` in de access-token;
 
 
 ### Resultaat
 
-> Toegang tot het Bemiddelingsregister via query [`QBR-0001-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0001-ZA.graphql) is **alleen toegestaan** als:
+> Toegang tot het Bemiddelingsregister via query [`QBR-0002-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0002-ZA.graphql) of [`QBR-0003-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0003-ZA.graphql) is **alleen toegestaan** als:
 >
-> - Parameter **`bemiddelingspecificatieID`** is meegegeven in de query
-> - Parameter **`agbcode`** is meegegeven in de query
+> - De relevante parameters aanwezig zijn per query;
 > - De access-token bevat een geldige **`agbcode`**
-> - De in de query meegegeven `agbcode` komt overeen met de `agbcode` in de access-token; 
+> - De in de query meegegeven `agbcode` in `instelling` komt overeen met de `agbcode` in de access-token;
 > 
-> Als aan alle voorwaarden is voldaan, mogen de nodes `Bemiddelingspecificatie`, `Bemiddeling` en `Client` die horen bij deze `Bemiddelingspecificatie` direct worden opgevraagd.
+>
+> Als aan deze voorwaarden is voldaan, mogen de volgende gegevens worden opgevraagd:
+> - De `Bemiddelingspecificatie`, de bijbehorende `Bemiddeling` en `Client`;
+> - De `Contactpersoon`, `Contactgegevens`, `Regiehouder`, en andere `Bemiddelingspecificaties` binnen dezelfde Bemiddeling, mits deze een periode-overlap hebben met de eigen toewijzing.
 
 
-## Toegangscontrole-flows Zorgaanbieder: QBR-0001-ZA.graphql
+## Toegangscontrole-flows Zorgaanbieder: QBR-0002-ZA.graphql of QBR-0003-ZA.graphql
 
 Beschrijving van het autorisatieproces door de PEP.
 
-### **schematisch:**
+**schematisch:**
 
 ```mermaid
 ---
@@ -86,14 +96,13 @@ stateDiagram
   
   PEP:Autorisatie controle PEP
   PDP:Toegangscontrole PDP
-  indienen: Ontvang QBR-0001-ZA + Access token
+  indienen: Ontvang QBR-0002-ZA of QBR-003-ZA + Access token
   validerenT: Valideer access token
   validerenR: Valideer Request
-  checkInput01:Check input aanwezig?
-  checkInput01:- BemiddelingspecificatieID
-  checkInput01:- Instelling
+  checkInput01:Check  verplichte input aanwezig?
+
   checkInput02:Check
-  checkInput02:input Instelling matcht 
+  checkInput02:input Instelling matcht met
   checkInput02: waarde in Access token
   error:geen toegang tot Resource
 
@@ -125,4 +134,4 @@ nvt
 
 
 ---
-Ga naar [UC beschrijving raadplegen](UCBR-0001-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
+Ga naar [UC beschrijving raadplegen](UCBR-0002_3-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)

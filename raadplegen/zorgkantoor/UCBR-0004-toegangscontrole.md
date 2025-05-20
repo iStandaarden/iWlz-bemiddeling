@@ -1,4 +1,4 @@
-# Toegangscontrole: Raadplegen van de eigen bemiddelingspecificatie door (uitvoerende) Zorgaanbieder (UCBR-0001) 
+# Toegangscontrole: Raadplegen van de **eigen** Bemiddelingspecificatie door het (bovenregionaal) uitvoerend zorgkantoor (UCBR-0004)  
 
 Beschrijving van de **toegangscontrole** door de Policy Decision Point (PDP) en indien van toepassing Policy Information Point (PIP).
 
@@ -6,44 +6,44 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 ## Toegangscontrole PDP
 ### Subject
-- **Entiteit:** Zorgaanbieder (toegewezen)
-- **Kenmerk:** In bezit van een access-token met daarin de eigen `agbcode`
+- **Entiteit:** Zorgkantoor (bovenregionaal)
+- **Kenmerk:** In bezit van een access-token met daarin de eigen `uzovicode`
 
 
 ### **Action**
 - **Type:** `raadplegen` (read)
-- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0001-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0001-ZA.graphql) op het bemiddelingsregister door een zorgaanbieder
+- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0004-ZK.graphql`](/gql-query/zorgkantoor/QBR-0004-ZKu.graphql) op het bemiddelingsregister door een zorgkantoor.
 
 
 ### **Resource**
 - **Type:** `Bemiddelingsregister`
 - **ID:** `bemiddelingspecificatieID`
-- **Beperking:** Alleen toegang tot gegevens waarvoor de zorgaanbieder een toewijzing heeft (op basis van agbcode en bemiddelingspecificatieID)
+- **Beperking:** Alleen toegang tot gegevens waarvoor het zorgkantoor een toewijzing heeft (op basis van uzovicode en bemiddelingspecificatieID)
 - **Inhoud:** Alleen de nodes Bemiddelingspecificatie en de gerelateerde Bemiddeling en Client die horen bij de opgevraagde Bemiddelingspecificatie, mogen direct worden opgevraagd.
 
 
 ### **Context**
-- **Query-parameters vereist:** De `bemiddelingspecificatieID` en de `agbcode` moeten aanwezig zijn in de query
+- **Query-parameters vereist:** De `bemiddelingspecificatieID` en de `uzovicode` moeten aanwezig zijn in de query
 - **Toegangsvoorwaarde:**  Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
   - De parameter `bemiddelingspecificatieID` is aanwezig in de query;
-  - De parameter `agbcode` is aanwezig in de query;
-  - De **access-token** bevat een geldige `agbcode` van de zorgaanbieder;
-  - De in de query meegegeven `agbcode` komt overeen met de `agbcode` in de access-token;
+  - De parameter `uzovicode` is aanwezig in de query;
+  - De **access-token** bevat een geldige `uzovicode` van het zorgkantoor;
+  - De in de query meegegeven `uzovicode` komt overeen met de `uzovicode` in de access-token;
 
 
 ### Resultaat
 
-> Toegang tot het Bemiddelingsregister via query [`QBR-0001-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0001-ZA.graphql) is **alleen toegestaan** als:
+> Toegang tot het Bemiddelingsregister via query [`QBR-0004-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0004-ZKu.graphql) is **alleen toegestaan** als:
 >
 > - Parameter **`bemiddelingspecificatieID`** is meegegeven in de query
-> - Parameter **`agbcode`** is meegegeven in de query
-> - De access-token bevat een geldige **`agbcode`**
-> - De in de query meegegeven `agbcode` komt overeen met de `agbcode` in de access-token; 
+> - Parameter **`uzovicode`** is meegegeven in de query
+> - De access-token bevat een geldige **`uzovicode`**
+> - De in de query meegegeven `uzovicode` komt overeen met de `uzovicode` in de access-token; 
 > 
 > Als aan alle voorwaarden is voldaan, mogen de nodes `Bemiddelingspecificatie`, `Bemiddeling` en `Client` die horen bij deze `Bemiddelingspecificatie` direct worden opgevraagd.
 
 
-## Toegangscontrole-flows Zorgaanbieder: QBR-0001-ZA.graphql
+## Toegangscontrole-flows Zorgkantoor: QBR-0004-ZK.graphql
 
 Beschrijving van het autorisatieproces door de PEP.
 
@@ -86,15 +86,15 @@ stateDiagram
   
   PEP:Autorisatie controle PEP
   PDP:Toegangscontrole PDP
-  indienen: Ontvang QBR-0001-ZA + Access token
+  indienen: Ontvang QBR-0004-ZKu + Access token
   validerenT: Valideer access token
   validerenR: Valideer Request
   checkInput01:Check input aanwezig?
   checkInput01:- BemiddelingspecificatieID
-  checkInput01:- Instelling
+  checkInput01:- UitvoerendZorgkantoor
   checkInput02:Check
-  checkInput02:input Instelling matcht 
-  checkInput02: waarde in Access token
+  checkInput02:input uitvoerendZorgkantoor matcht 
+  checkInput02:met waarde in Access token
   error:geen toegang tot Resource
 
   access:toegang tot Resource
@@ -112,8 +112,8 @@ stateDiagram
 | --: | :-- |
 | 1. |Ontvangst GraphQL-request + access-token door **PEP** |
 | 2. |De **PEP** valideert de access-token en geeft na goedkeur het request door aan de PDP |
-| 3. |De **PDP** controleert op:<br/>1. Of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Of de **`agbcode`** in request overeenkomt met de waarde in de **`access-token`**;<br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
-| 4. | De zorgaanbieder krijgt toegang tot het bemiddelingsregister.|
+| 3. |De **PDP** controleert op:<br/>1. Of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Of de **`uzovicode`** in request overeenkomt met de waarde in de **`access-token`**;<br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
+| 4. | Het zorgkantoor krijgt toegang tot het bemiddelingsregister.|
 | 5. | *Einde* |
 
 
@@ -125,4 +125,4 @@ nvt
 
 
 ---
-Ga naar [UC beschrijving raadplegen](UCBR-0001-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
+Ga naar [UC beschrijving raadplegen](UCBR-0004-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
