@@ -23,7 +23,7 @@ Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van he
 
 
 ## Onderdelen
-Deze specificaties van het Bemiddelingsregister maken onderdeel uit van de **iStandaard iWlz**. De specificaties van de andere onderdelen, zoals ERD, regels, procesbeschrijving, autorisatieregels, notificatie-typen staan in het [Informatiemodel iWlz](https://informatiemodel.istandaarden.nl/) dat te vinden is via de website: [https://informatiemodel.istandaarden.nl/iWlz-Bemiddeling-1/](https://informatiemodel.istandaarden.nl/iWlz-Bemiddeling-1/)
+Deze specificaties van het Bemiddelingsregister maken onderdeel uit van de **iStandaard iWlz**. De specificaties van de andere onderdelen, zoals ERD, regels, procesbeschrijving, autorisatieregels, notificatie-typen staan in het [Informatiemodel iWlz](https://informatiemodel.istandaarden.nl/) dat te vinden is via de website: [https://informatiemodel.istandaarden.nl/](https://informatiemodel.istandaarden.nl/)
 
 ### Schematisch
 ![onderdelen](/src/Onderdelen_Netwerk.png)
