@@ -4,6 +4,7 @@
 #   - overdrachtID = te raadplegen overdracht
 #   - eigen uzovicode nieuw verantwoordelijke zorgkantoor
 #   - overdrachtDatum
+#   - overdrachtDatumMinus1Dag
 
 query Overdracht(
   $overdrachtID: UUID!
