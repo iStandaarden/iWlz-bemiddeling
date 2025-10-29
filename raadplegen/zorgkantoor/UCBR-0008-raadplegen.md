@@ -40,7 +40,7 @@ Het zorgkantoor mag de overdracht raadplegen.
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** |
 |---|---|---|---|
-| [QBR-0008_ZKn.graphql](/gql-query/zorgkantoor//QBR-0008-ZKn.graphql) | Op basis van de overdrachtID en eigen identificatie de overgedragen Bemiddeling, Bemiddelingspecificatie(s) en Client raadplegen  en de  Contactgegevens, Contactpersonen en Regiehouder die in periode overlap hebben met de Overdracht (op basis van overdrachtdatum) | `overdrachtID`, `overdrachtdatum`, `uzoviCode` | Overdracht /  Bemiddeling /  Overdrachtspecificatie / Bemiddelingspecificatie / Client / Contactpersoon / Contactgegevens / Regiehouder |
+| [QBR-0008_ZKn.graphql](/gql-query/zorgkantoor//QBR-0008-ZKn.graphql) | Op basis van de overdrachtID en eigen identificatie de overgedragen Bemiddeling, Bemiddelingspecificatie(s) en Client raadplegen  en de  Contactgegevens, Contactpersonen en Regiehouder die in periode overlap hebben met de Overdracht (op basis van overdrachtdatum) | `overdrachtID`, `overdrachtdatum`, `uzoviCode`, `overdrachtDatumMinus1Dag` | Overdracht /  Bemiddeling /  Overdrachtspecificatie / Bemiddelingspecificatie / Client / Contactpersoon / Contactgegevens / Regiehouder |
 
 ## **Proces raadplegen**
 
