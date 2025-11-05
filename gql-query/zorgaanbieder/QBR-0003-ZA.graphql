@@ -23,6 +23,7 @@ query Bemiddelingspecificatie(
       instelling: { eq: $Instelling }
       toewijzingIngangsdatum: { eq: $ToewijzingIngangsdatum }
       vaststellingMoment: { eq: $VaststellingMoment } 
+      toewijzingEinddatum: { eq: null }
     }
   ) {
     bemiddelingspecificatieID
@@ -204,4 +205,5 @@ query Bemiddelingspecificatie(
     }
   }
 }
+
 
