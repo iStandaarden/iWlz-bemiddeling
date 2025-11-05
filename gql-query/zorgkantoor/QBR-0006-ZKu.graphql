@@ -21,6 +21,7 @@ query Bemiddelingspecificatie(
             uitvoerendZorgkantoor: { eq: $uitvoerendZorgkantoor }
             toewijzingIngangsdatum: { eq: $ToewijzingIngangsdatum }
             vaststellingMoment: {eq: $VaststellingMoment }
+            toewijzingEinddatum: { eq: null } 
         }
     ) {
         bemiddelingspecificatieID
