@@ -40,7 +40,7 @@ Het zorgkantoor mag de overdracht raadplegen.
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** |
 |---|---|---|---|
-| [QBR-0008_ZKn.graphql](/gql-query/zorgkantoor//QBR-0008-ZKn.graphql) | Op basis van de overdrachtID en eigen identificatie de overgedragen Bemiddeling, Bemiddelingspecificatie(s) en Client raadplegen  en de  Contactgegevens, Contactpersonen en Regiehouder die in periode overlap hebben met de Overdracht (op basis van overdrachtdatum) | `overdrachtID`, `overdrachtdatum`, `uzoviCode` | Overdracht /  Bemiddeling /  Overdrachtspecificatie / Bemiddelingspecificatie / Client / Contactpersoon / Contactgegevens / Regiehouder |
+| [QBR-0008_ZKn.graphql](/gql-query/zorgkantoor//QBR-0008-ZKn.graphql) | Op basis van de overdrachtID en eigen identificatie de overgedragen Bemiddeling, Bemiddelingspecificatie(s) en Client raadplegen  en de  Contactgegevens, Contactpersonen en Regiehouder die in periode overlap hebben met de Overdracht (op basis van overdrachtdatum) | `overdrachtID`, `overdrachtdatum`, `uzoviCode`, `overdrachtDatumMinus1Dag` | Overdracht /  Bemiddeling /  Overdrachtspecificatie / Bemiddelingspecificatie / Client / Contactpersoon / Contactgegevens / Regiehouder |
 
 ## **Proces raadplegen**
 
@@ -81,7 +81,7 @@ stateDiagram
   idAvailable:overdrachtID bekend?
   andereflow:Ga naar de andere beschrijving
   anderequery: UCBR-0007-raadplegen
-  qinput: Gebruik overdrachtID + overdrachtDatum + UzoviCode
+  qinput: Gebruik overdrachtID + overdrachtDatum + overdrachtDatumMinus1Dag + UzoviCode
   query: QBR-0008-ZKn
   PEP:Toegangscontrole PEP
   datum: overdrachtDatum bekend?
@@ -103,7 +103,7 @@ stateDiagram
 | 1. | *Start* raadplegen **Overdracht**  | 
 | 2. | Is de **`overdrachtID`** bekend? <br/> - **Ja** →  Ga verder naar de volgende stap. <br/> - **Nee** → Ga naar de andere beschrijving: [UCBR-0007-raadplegen](UCBR-0007-raadplegen.md)   | 
 | 3. | Overdrachtdatum bekend? <br/> - **Ja** →  Ga verder naar volgende stap. <br/> - **Nee** → Ga naar de andere beschrijving: [UCBR-0007-raadplegen](UCBR-0007-raadplegen.md) |
-| 4. | Het zorgkantoor vult de verplichte **`overdrachtID`**, **`overdrachtDatum`** en **`verantwoordelijkZorgkantoor`** in query-template [QBR-0008_ZKn.graphql](/gql-query/zorgkantoor//QBR-0008-ZKn.graphql) en initieert een raadpleging van de Overdracht in het Bemiddelingsregister. | 
+| 4. | Het zorgkantoor vult de verplichte **`overdrachtID`**, **`overdrachtDatum`**, **`overdrachtDatumMinus1Dag`** en **`verantwoordelijkZorgkantoor`** in query-template [QBR-0008_ZKn.graphql](/gql-query/zorgkantoor//QBR-0008-ZKn.graphql) en initieert een raadpleging van de Overdracht in het Bemiddelingsregister. | 
 | 5. | Het zorgkantoor stuurt Graphql-request + Access-token naar het Policy Enforcement Point (PEP) |
 | 6. | De PEP voert de [toegangscontrole](UCBR-0008-toegangscontrole.md) uit en stuurt bij toegang het request door naar het Bemiddelingsregister. |
 | 7. | Het zorgkantoor ontvangt response van de PEP (bij ongeldig verzoek) of vanuit het Bemiddelingsregister (resource) |
