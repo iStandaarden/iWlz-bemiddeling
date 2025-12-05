@@ -114,7 +114,7 @@ stateDiagram
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | **Autorisatie-regel** | **Autorisatie-flow** |
 |---|---|---|---|---|---|
-| [**QBR-0009-ZAr**](zorgaanbieder/QBR-0009-ZAr.graphql) |  | regiehouderID, AGBcode | Regiehouder / Bemiddeling / Client | [BRA0012](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0012/) | [autorisatie controle](/gql-query/zorgaanbieder/QBR-0009-ZA-autorisatie.md)
+| [**QBR-0009-ZAr**](QBR-0009-ZAr.graphql) |  | regiehouderID, AGBcode | Regiehouder / Bemiddeling / Client | [BRA0012](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0012/) | [autorisatie controle](/gql-query/zorgaanbieder/QBR-0009-ZA-autorisatie.md)
 
 
 ---

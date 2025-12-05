@@ -24,7 +24,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 ### **Context**
 - **Query-parameters vereist:** 
-  | QBR-0005-ZA                   | QBR-0006-ZA                   |
+  | QBR-0005-ZKu                   | QBR-0006-ZKu                   |
   | :---------------------------- | :---------------------------- |
   | - `bemiddelingspecificatieID` | - `bemiddelingspecificatieID` |
   | - `uitvoerendZorgkantoor`     | - `uitvoerendZorgkantoor`     |

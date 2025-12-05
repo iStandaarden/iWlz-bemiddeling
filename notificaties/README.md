@@ -24,10 +24,10 @@ Per notificatie is beschreven wat de aanleiding is voor het versturen van een no
 | :-- | :-- | :-- | :-- |
 | [NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](/notificaties/nieuwe_bemiddelingspecificatie_zorgkantoor.md) | Zorgkantoor | Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een nieuwe Bemiddelingspecificatie voor een gecontracteerde zorgaanbieder (van dit uitvoerende zorgkantoor) heeft geregistreerd. | VERPLICHT |
 | [GEWIJZIGDE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](/notificaties/gewijzigde_bemiddelingspecificatie_zorgkantoor.md) | Zorgkantoor | Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een Bemiddelingspecificatie van een gecontracteerde zorgaanbieder (van dit uitvoerende zorgkantoor)heeft gewijzigd. | VERPLICHT |
-| [VERWIJDERDE_OVERDRACHT_ZORGKANTOOR](/notificaties/verwijderde_bemiddelingspecificatie_zorgkantoor.md) | Zorgkantoor | Notificatie aan het nieuwe verantwoordelijke zorgkantoor als het huidige (oude) verantwoordelijke zorgkantoor een Overdracht heeft verwijderd. | VERPLICHT |
+| [VERWIJDERDE_OVERDRACHT_ZORGKANTOOR](/notificaties/verwijderde_overdracht_zorgkantoor.md) | Zorgkantoor | Notificatie aan het nieuwe verantwoordelijke zorgkantoor als het huidige (oude) verantwoordelijke zorgkantoor een Overdracht heeft verwijderd. | VERPLICHT |
 | [NIEUWE_OVERDRACHT_ZORGKANTOOR](/notificaties/nieuwe_overdracht_zorgkantoor.md) | Zorgkantoor | Notificatie aan het nieuwe verantwoordelijke zorgkantoor als het huidige (oude) verantwoordelijke zorgkantoor een Overdracht heeft geregistreerd. | VERPLICHT |
 | [GEWIJZIGDE_OVERDRACHT_ZORGKANTOOR](/notificaties/gewijzigde_overdracht_zorgkantoor.md) | Zorgkantoor | Notificatie aan het nieuwe verantwoordelijke zorgkantoor als het huidige (oude) verantwoordelijke zorgkantoor een Overdracht heeft gewijzigd. | VERPLICHT |
-| [VERWIJDERDE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](/notificaties/verwijderde_overdracht_zorgkantoor.md) | Zorgkantoor | Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een Bemiddelingspecificatie van een gecontracteerde zorgaanbieder (van dit uitvoerende zorgkantoor) heeft verwijderd. | VERPLICHT |
+| [VERWIJDERDE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](/notificaties/verwijderde_bemiddelingspecificatie_zorgkantoor.md) | Zorgkantoor | Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een Bemiddelingspecificatie van een gecontracteerde zorgaanbieder (van dit uitvoerende zorgkantoor) heeft verwijderd. | VERPLICHT |
 
 
 
