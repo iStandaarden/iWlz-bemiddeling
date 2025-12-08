@@ -162,7 +162,7 @@ query Bemiddelingspecificatie(
               or: [
                 { toewijzingEinddatum: { eq: null } }
                 { toewijzingEinddatum: { gte: $ToewijzingIngangsdatum } }
-                { einddatum: { gte: $DagVaststellingMoment } }
+                { toewijzingEinddatum: { gte: $DagVaststellingMoment } }
               ]
             }
           ]
