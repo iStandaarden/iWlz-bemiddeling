@@ -13,7 +13,7 @@ query Bemiddelingspecificatie(
   $Instelling: String!
   $ToewijzingIngangsdatum: Date!
   $VaststellingMoment: DateTime!
-  $DagVaststellingMoment: Data!
+  $DagVaststellingMoment: Date!
 
 ) {
   # Eigen bemiddelingspecificatie
@@ -205,5 +205,6 @@ query Bemiddelingspecificatie(
     }
   }
 }
+
 
 
