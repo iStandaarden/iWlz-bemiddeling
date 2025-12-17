@@ -1,8 +1,16 @@
 # Changelog
 
+## Versie 1.2 - 2025-12-17
+Bevinding:
+- [B129: Afspraken over afhandelen van Contactgegevens bij dossieroverdracht door nieuw verantwoordelijk zorgkantoor niet in lijn met afspraken voor huidig verantwoordelijk zorgkantoor](https://github.com/iStandaarden/iWlz_RequestForChange/issues/129)
+- [B130: Correctie op selectie van Regiehouder in de query-template na dossieroverdracht](https://github.com/iStandaarden/iWlz_RequestForChange/issues/130)
+- [B139: Bevindingen rondom UCBR-0002_3 en UCBR-0005_6](https://github.com/iStandaarden/iWlz_RequestForChange/issues/139)
+
+Wijzigingsverzoek:
+- [RFC25141 Mogelijk maken om Silvester te kunnen notificeren om een 'informatieve' AW33 te kunnen generen](https://github.com/iStandaarden/iWlz_RequestForChange/issues/141) 
 
 ## Versie 1.1.1 koppelvlakspecificatie - 22-04-2025
-Bevinding [B107: Aanpasing naar Regiehouder (vanuit DH en CZT) niet volledig verwerkt in Schemaspecificatie mbt verschillende FilterInput- en SortInput-typen](https://github.com/iStandaarden/iWlz_RequestForChange/issues/107) opgelost
+- Bevinding [B107: Aanpasing naar Regiehouder (vanuit DH en CZT) niet volledig verwerkt in Schemaspecificatie mbt verschillende FilterInput- en SortInput-typen](https://github.com/iStandaarden/iWlz_RequestForChange/issues/107) 
 
 ## [Versie 1.1.0](https://github.com/iStandaarden/iWlz-bemiddeling/releases/tag/v1.1.0) - 2024-10-03
 Publicatie van informatiemodel Bemiddelingsregister 1 - versie informatiemodel 1.3
