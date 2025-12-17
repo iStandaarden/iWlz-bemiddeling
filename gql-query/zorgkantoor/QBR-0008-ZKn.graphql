@@ -4,11 +4,13 @@
 #   - overdrachtID = te raadplegen overdracht
 #   - eigen uzovicode nieuw verantwoordelijke zorgkantoor
 #   - overdrachtDatum
+#   - overdrachtDatumMinus1Dag
 
 query Overdracht(
   $overdrachtID: UUID!
   $verantwoordelijkZorgkantoor: String!
   $overdrachtDatum: Date!
+  $overdrachtDatumMinus1Dag: Date!
 ) {
   overdracht(
     where: {
@@ -37,9 +39,8 @@ query Overdracht(
         taal
         contactgegevens(
           where: {
-            ingangsdatum: { ngt: $overdrachtDatum }
             or: [
-              { einddatum: { gt: $overdrachtDatum } }
+              { einddatum: { gte: $overdrachtDatumMinus1Dag } }
               { einddatum: { eq: null } }
             ]
           }
@@ -63,9 +64,8 @@ query Overdracht(
         }
         contactpersoon(
           where: {
-            ingangsdatum: { ngt: $overdrachtDatum }
             or: [
-              { einddatum: { gt: $overdrachtDatum } }
+              { einddatum: { gte: $overdrachtDatumMinus1Dag } }
               { einddatum: { eq: null } }
             ]
           }
@@ -73,9 +73,8 @@ query Overdracht(
           contactpersoonID
           contactgegevens(
             where: {
-            ingangsdatum: { ngt: $overdrachtDatum }
             or: [
-              { einddatum: { gt: $overdrachtDatum } }
+              { einddatum: { gt: $overdrachtDatumMinus1Dag } }
               { einddatum: { eq: null } }
             ]
           }
@@ -118,7 +117,7 @@ query Overdracht(
         where: {
           ingangsdatum: { ngt: $overdrachtDatum }
           or: [
-            { einddatum: { gt: $overdrachtDatum } }
+            { einddatum: { gte: $overdrachtDatumMinus1Dag } }
             { einddatum: { eq: null } }
           ]
         }
