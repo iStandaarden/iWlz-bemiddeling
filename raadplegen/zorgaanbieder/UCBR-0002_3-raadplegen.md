@@ -25,7 +25,7 @@ flowchart LR
 ### Precondities:
 - De Bemiddelingspecificatie is opgenomen in het Bemiddelingsregister.
 - De zorgaanbieder is door het verantwoordelijk zorgkantoor betrokken bij de levering van zorg aan de client door de registratie van een bemiddelingspecificatie.
-- De zorgaanbieder weet de toewijzing ingangsdatum en de toewijzing einddatum van de eigen bemiddelingspecificatie.
+- De zorgaanbieder weet de toewijzing ingangsdatum, het vaststellingMoment en de toewijzing einddatum van de eigen bemiddelingspecificatie.
 
 
 ### Autorisatie:
@@ -41,12 +41,12 @@ Een zorgaanbieder mag voor het leveren van zorg aan een cliënt de eigen toewijz
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** |
 |---|---|---|---|
-| [**QBR-0002-ZA**](/gql-query/zorgaanbieder/QBR-0002-ZA.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum en toewijzingeinddatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `AGBcode`, `toewijzingIngangsdatum`, `toewijzingEinddatum`, `toewijzingEinddatum + 2Jaar`, `toewijzingEinddatum + 31mei volgend jr` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | [BRA0002](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0002/), [BRA0004](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0004/), [BRA0005](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0005/) | [Autorisatie controle](/gql-query/zorgaanbieder/QBR-0002-ZA-autorisatie.md) |
-| [**QBR-0003-ZA**](/gql-query/zorgaanbieder/QBR-0003-ZA.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `AGBcode`, `toewijzingIngangsdatum` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | [BRA0002](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0002/), [BRA0004](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0004/), [BRA0005](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0005/) | [Autorisatie controle](/gql-query/zorgaanbieder/QBR-0003-ZA-autorisatie.md) |
+| [**QBR-0002-ZA**](/gql-query/zorgaanbieder/QBR-0002-ZA.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum en toewijzingeinddatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `AGBcode`, `toewijzingIngangsdatum`, `vaststellingMoment`, `dagVaststellingMoment`, `toewijzingEinddatum` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | [BRA0002](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0002/), [BRA0004](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0004/), [BRA0005](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0005/) | [Autorisatie controle](/gql-query/zorgaanbieder/QBR-0002-ZA-autorisatie.md) |
+| [**QBR-0003-ZA**](/gql-query/zorgaanbieder/QBR-0003-ZA.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `AGBcode`, `toewijzingIngangsdatum`, `vaststellingMoment`, `dagVaststellingMoment` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | [BRA0002](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0002/), [BRA0004](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0004/), [BRA0005](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0005/) | [Autorisatie controle](/gql-query/zorgaanbieder/QBR-0003-ZA-autorisatie.md) |
 
 ## **Proces raadplegen**
 
-Een zorgaanbieder is bij de zorg van een client betrokken door het zorgkantoor. Hiervoor heeft die zorgaanbieder een (eigen) bemiddelingsspecificatie voor het leveren van zorg (zie ook: [UCBR-0001-raadplegen](UCBR-0001-raadplegen.md)). Met de aanvullende informatie uit de eigen bemiddelingsspecificatie mag de aanbieder ook de bemiddelingspecificaties van de andere betrokken zorgaanbieders raadplegen. Hiervoor zijn naast de eigen `bemiddelingspecificatieID` en de eigen `Agbcode`,  ook de `toewijzingIngangsdatum` nodig en de `toewijzingEinddatum` zodra de eigen bemiddelingspecificatie een `toewijzingEinddatum` heeft. Deze informatie is nodig om de overlap met de andere bemiddelingsspecificaties met de eigen bemiddelingspecificatie te bepalen.  
+Een zorgaanbieder is bij de zorg van een client betrokken door het zorgkantoor. Hiervoor heeft die zorgaanbieder een (eigen) bemiddelingsspecificatie voor het leveren van zorg (zie ook: [UCBR-0001-raadplegen](UCBR-0001-raadplegen.md)). Met de aanvullende informatie uit de eigen bemiddelingsspecificatie mag de aanbieder ook de bemiddelingspecificaties van de andere betrokken zorgaanbieders raadplegen. Hiervoor zijn naast de eigen `bemiddelingspecificatieID` en de eigen `Agbcode`,  ook de `toewijzingIngangsdatum` en het `vaststellingMoment` nodig en de `toewijzingEinddatum` zodra de eigen bemiddelingspecificatie een `toewijzingEinddatum` heeft. Deze informatie is nodig om de overlap met de andere bemiddelingsspecificaties met de eigen bemiddelingspecificatie te bepalen.  
 
 
 > [!NOTE]
@@ -98,9 +98,9 @@ stateDiagram
     einddatum: (4) Heeft bemiddelingspecificatie een toewijzingEinddatum?
 
 
-    QBR0002ZAiq: (6) Gebruik bemiddelingspecificatieID + AgbCode + toewijzingIngangsdatum + toewijzingEinddatum
+    QBR0002ZAiq: (6) Gebruik bemiddelingspecificatieID + AgbCode + toewijzingIngangsdatum + vaststellingMoment + dagvaststellingMoment + toewijzingEinddatum
     QBR0002ZA: Gebruik template QBR-0002-ZA
-    QBR0003ZAiq: (5) Gebruik bemiddelingspecificatieID + AgbCode + toewijzingIngangsdatum
+    QBR0003ZAiq: (5) Gebruik bemiddelingspecificatieID + AgbCode + toewijzingIngangsdatum + vaststellingMoment + dagVaststellingMoment
     QBR0003ZA: Gebruik template QBR-0003-ZA
     SENT: (7) Insturen Query
     PEP: (8) Toegangscontrole PEP
@@ -118,8 +118,8 @@ stateDiagram
 | 2. | Zijn  **`bemiddelingspecificatieID`** en `toewijzingIngangsdatum`bekend? <br/> - **Ja** →  Ga verder naar stap 4. <br/> - **Nee** → Ga naar stap 3.   | 
 | 3. | Gebruik eerst query-template `QBR-0001-ZA` (zie beschrijving [`UCBR-0001-raadplegen`](UCBR-0001-raadplegen.md)) | 
 | 4. | Heeft de `bmemiddelingspecificatie` (inmiddels) een `toewijzingEinddatum`? <br/> - **Ja** →  Ga verder naar stap 6 <br/> - **Nee** → Ga naar stap 5.  | 
-| 5. | Gebruik query-template [`QBR-0003-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0003-ZA.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`.  |
-| 6. | Gebruik query-template [`QBR-0002-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0002-ZA.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`; <br/> - `toewijzingEinddatum`; <br/> - `ToewijzingEinddatum2Jaar`; <br/> - `ToewijzingEinddatum31Mei`.  | 
+| 5. | Gebruik query-template [`QBR-0003-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0003-ZA.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`; <br/> - `vaststellingMoment`; <br/> - `dagVaststellingMoment`.  |
+| 6. | Gebruik query-template [`QBR-0002-ZA.graphql`](/gql-query/zorgaanbieder/QBR-0002-ZA.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`; <br/> - `vaststellingMoment`; <br/> - `dagVaststellingMoment` ; <br/> - `toewijzingEinddatum`.  | 
 | 7. | De **Zorgaanbieder** stuurt Graphql-request + Access-token naar het Policy Enforcement Point (PEP) |
 | 8. | De PEP voert de [toegangscontrole](UCBR-0002_3-toegangscontrole.md) uit en stuurt bij toegang het request door naar het Bemiddelingsregister. |
 | 9. | De zorgaanbieder ontvangt response van de PEP (bij ongeldig verzoek) of vanuit het Bemiddelingsregister (resource) |

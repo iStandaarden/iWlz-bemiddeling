@@ -1,26 +1,28 @@
-# QBR-0005-ZKu.grapql
-# Query voor uitvoerend Zorgkantuur op Bemiddelingsregister
+# QBR-0005-ZKu.graphql
+# Query voor uitvoerend Zorgkantoor op Bemiddelingsregister
 # Verplichte input:
 #   - bemiddelingspecificatieID
 #   - uzovi code zorgkantoor
 #   - toewijzing Ingangsdatum bijv. 2020-02-19
+#   - vaststelling moment bijv. 2020-02-09T13:47:16+01:00
+#   - dag vaststelling moment bijv. 2020-02-09
 #   - toewijzing Einddatum bijv. 2024-03-17
-#   - toewijzing Einddatum + 2 jaar bijv. 2026-03-17
-#   - toewijzing Einddatum + 31 mei volgend jaar bijv. 2025-05-31
+
 
 query Bemiddelingspecificatie(
     $BemiddelingspecificatieID: UUID!
     $UitvoerendZorgkantoor: String!
     $ToewijzingIngangsdatum: Date!
+    $VaststellingMoment: DateTime!
+    $DagVaststellingMoment: Date! 
     $ToewijzingEinddatum: Date!
-    $ToewijzingEinddatum2Jaar: Date!
-    $ToewijzingEinddatum31Mei: Date!
-) {
+   ) {
     bemiddelingspecificatie(
         where: {
             bemiddelingspecificatieID: { eq: $BemiddelingspecificatieID }
             uitvoerendZorgkantoor: { eq: $UitvoerendZorgkantoor }
             toewijzingIngangsdatum: { eq: $ToewijzingIngangsdatum }
+            vaststellingMoment: { eq: $VaststellingMoment }
             toewijzingEinddatum: { eq: $ToewijzingEinddatum }
         }
     ) {
@@ -49,11 +51,13 @@ query Bemiddelingspecificatie(
                 contactpersoon(
                     where: {
                         and: [
-                            {
-                                or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
-                            }
-                            { ingangsdatum: { ngt: $ToewijzingEinddatum2Jaar } }
-                        ]
+                                {
+                                    or: [{ einddatum: { eq: null } }, 
+                                    { einddatum: { gte: $ToewijzingIngangsdatum } },
+                                    { einddatum: { gte: $DagVaststellingMoment } }]
+                                }
+                                { ingangsdatum: { ngt: $ToewijzingEinddatum } }
+                            ]
                     }
                 ) {
                     contactpersoonID
@@ -77,12 +81,14 @@ query Bemiddelingspecificatie(
                     einddatum
                     contactgegevens(
                         where: {
-                            and: [
-                                {
-                                    or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
-                                }
-                                { ingangsdatum: { ngt: $ToewijzingEinddatum2Jaar } }
-                            ]
+                            and:  [
+                            {
+                                or: [{ einddatum: { eq: null } }, 
+                                { einddatum: { gte: $ToewijzingIngangsdatum } },
+                                { einddatum: { gte: $DagVaststellingMoment } }]
+                            }
+                            { ingangsdatum: { ngt: $ToewijzingEinddatum } }
+                        ]
                         }
                     ) {
                         contactpersoonContactgegevensID
@@ -112,9 +118,11 @@ query Bemiddelingspecificatie(
                     where: {
                         and: [
                             {
-                                or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
+                                or: [{ einddatum: { eq: null } }, 
+                                { einddatum: { gte: $ToewijzingIngangsdatum } },
+                                { einddatum: { gte: $DagVaststellingMoment } }]
                             }
-                            { ingangsdatum: { ngt: $ToewijzingEinddatum2Jaar } }
+                            { ingangsdatum: { ngt: $ToewijzingEinddatum } }
                         ]
                     }
                 ) {
@@ -142,9 +150,11 @@ query Bemiddelingspecificatie(
                     where: {
                         and: [
                             {
-                                or: [{ toewijzingEinddatum: { eq: null } }, { toewijzingEinddatum: { gte: $ToewijzingIngangsdatum } }]
+                                or: [{ toewijzingEinddatum: { eq: null } }, 
+                                { toewijzingEinddatum: { gte: $ToewijzingIngangsdatum } },
+                                { toewijzingEinddatum: { gte: $DagVaststellingMoment } }]
                             }
-                            { toewijzingIngangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
+                            { toewijzingIngangsdatum: { ngt: $ToewijzingEinddatum } }
                         ]
                     }
                 ) {
@@ -168,9 +178,11 @@ query Bemiddelingspecificatie(
                     where: {
                         and: [
                             {
-                                or: [{ einddatum: { eq: null } }, { einddatum: { gte: $ToewijzingIngangsdatum } }]
+                                or: [{ einddatum: { eq: null } }, 
+                                { einddatum: { gte: $ToewijzingIngangsdatum } },
+                                { einddatum: { gte: $DagVaststellingMoment } }]
                             }
-                            { ingangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
+                            { ingangsdatum: { ngt: $ToewijzingEinddatum } }
                         ]
                     }
                 ) {
