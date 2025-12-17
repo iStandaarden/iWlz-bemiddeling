@@ -1,6 +1,6 @@
 # Changelog
 
-## Versie 1.2 - 2025-12-17
+## [Versie 1.2](https://github.com/iStandaarden/iWlz-bemiddeling/releases/tag/v1.2.0) - 2025-12-17
 Bevinding:
 - [B129: Afspraken over afhandelen van Contactgegevens bij dossieroverdracht door nieuw verantwoordelijk zorgkantoor niet in lijn met afspraken voor huidig verantwoordelijk zorgkantoor](https://github.com/iStandaarden/iWlz_RequestForChange/issues/129)
 - [B130: Correctie op selectie van Regiehouder in de query-template na dossieroverdracht](https://github.com/iStandaarden/iWlz_RequestForChange/issues/130)
