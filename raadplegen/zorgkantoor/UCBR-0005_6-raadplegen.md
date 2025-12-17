@@ -25,7 +25,7 @@ flowchart LR
 ### Precondities:
 - De Bemiddelingspecificatie is opgenomen in het Bemiddelingsregister.
 - Het Zorgkantoor is door het verantwoordelijk zorgkantoor betrokken bij de levering van zorg aan de client door de registratie van een bemiddelingspecificatie.
-- Het Zorgkantoor weet de toewijzing ingangsdatum en de toewijzing einddatum van de bemiddelingspecificatie.
+- Het Zorgkantoor weet de toewijzing ingangsdatum, het vaststellingsmoment en de toewijzing einddatum van de bemiddelingspecificatie.
 
 
 ### Autorisatie:
@@ -41,12 +41,12 @@ Een zorgkantoor mag voor het toeleiden van de client de Bemiddelingspecificatie 
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** | 
 |---|---|---|---| 
-| [**QBR-0005-ZKu**](/gql-query/zorgkantoor/QBR-0005-ZKu.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum en toewijzingendatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `uzoviCode`, `toewijzingIngangsdatum`, `toewijzingEinddatum`, `toewijzingEinddatum`, `toewijzingEinddatum + 2Jaar`, `toewijzingEinddatum + 31mei volgend jr` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | 
-| [**QBR-0006-ZKu**](/gql-query/zorgkantoor/QBR-0006-ZKu.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `uzoviCode`, `toewijzingIngangsdatum` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens |
+| [**QBR-0005-ZKu**](/gql-query/zorgkantoor/QBR-0005-ZKu.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum en toewijzingendatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `uzoviCode`, `toewijzingIngangsdatum`, `vaststellingMoment`, `dagVaststellingMoment`, `toewijzingEinddatum` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens | 
+| [**QBR-0006-ZKu**](/gql-query/zorgkantoor/QBR-0006-ZKu.graphql) | Op basis van de bemiddelingsspecificatieID, eigen identificatie en toewijzingingangsdatum, de (overlappende) Bemiddelingspecificatie(s), Bemiddeling, Client, Dossierhouder, CoordinatorZorgThuis, Contactpersoon en Contactgegevens raadplegen | `bemiddelingspecificatieID`,  `uzoviCode`, `toewijzingIngangsdatum`, `vaststellingMoment`, `dagVaststellingMoment` | Bemiddelingspecificatie /  Bemiddeling /  Client /  Dossierhouder /  Coordinator zorg thuis /  Contactgegevens |
 
 ## **Proces raadplegen**
 
-Een zorgaanbieder wordt bij de zorg van een client betrokken door het zorgkantoor. Het zorgkantoor registreert een bemiddelingspecificatie (toewijzing) voor het leveren van zorg door de zorgaanbieder. Als de zorgaanbieder contract heeft bij een zorgkantoor uit een andere regio (bovenregionaal) dan het verantwoordelijke zorgkantoor, heeft dat zorgkantoor een (eigen) bemiddelingsspecificatie voor het leveren van zorg (zie ook: [UCBR-0004-raadplegen](UCBR-0004-raadplegen.md)). Met de aanvullende informatie uit de eigen bemiddelingsspecificatie mag dat zorgkantoor ook de bemiddelingspecificaties van de andere betrokken zorgaanbieders raadplegen. Hiervoor zijn naast de eigen `bemiddelingspecificatieID` en de eigen `uzoviCode`,  ook de `toewijzingIngangsdatum` nodig en de `toewijzingEinddatum` zodra de eigen bemiddelingspecificatie een `toewijzingEinddatum` heeft. Deze informatie is nodig om de periode-overlap met de andere bemiddelingsspecificaties met de eigen bemiddelingspecificatie te bepalen.  
+Een zorgaanbieder wordt bij de zorg van een client betrokken door het zorgkantoor. Het zorgkantoor registreert een bemiddelingspecificatie (toewijzing) voor het leveren van zorg door de zorgaanbieder. Als de zorgaanbieder contract heeft bij een zorgkantoor uit een andere regio (bovenregionaal) dan het verantwoordelijke zorgkantoor, heeft dat zorgkantoor een (eigen) bemiddelingsspecificatie voor het leveren van zorg (zie ook: [UCBR-0004-raadplegen](UCBR-0004-raadplegen.md)). Met de aanvullende informatie uit de eigen bemiddelingsspecificatie mag dat zorgkantoor ook de bemiddelingspecificaties van de andere betrokken zorgaanbieders raadplegen. Hiervoor zijn naast de eigen `bemiddelingspecificatieID` en de eigen `uzoviCode`,  ook de `toewijzingIngangsdatum` en het `vaststellingMoment` nodig en de `toewijzingEinddatum` zodra de eigen bemiddelingspecificatie een `toewijzingEinddatum` heeft. Deze informatie is nodig om de periode-overlap met de andere bemiddelingsspecificaties met de eigen bemiddelingspecificatie te bepalen.  
 
 > [!NOTE]
 > Zie [UCBR-0004-raadplegen](UCBR-0004-raadplegen.md) voor het raadplegen van de `toewijzingIngangsdatum` en de `toewijzingEinddatum`.
@@ -97,9 +97,9 @@ stateDiagram
     einddatum: (4) Heeft bemiddelingspecificatie een toewijzingEinddatum?
 
 
-    QBR0002ZAiq: (6) Gebruik bemiddelingspecificatieID + UzoviCode + toewijzingIngangsdatum + toewijzingEinddatum
+    QBR0002ZAiq: (6) Gebruik bemiddelingspecificatieID + UzoviCode + toewijzingIngangsdatum + vaststellingMoment + dagVaststellingMoment + toewijzingEinddatum
     QBR0002ZA: Gebruik template QBR-0005-ZKu
-    QBR0003ZAiq: (5) Gebruik bemiddelingspecificatieID + UzoviCode + toewijzingIngangsdatum
+    QBR0003ZAiq: (5) Gebruik bemiddelingspecificatieID + UzoviCode + toewijzingIngangsdatum + vaststellingMoment + dagVaststellingMoment
     QBR0003ZA: Gebruik template QBR-0006-ZKu
     SENT: (7) Insturen Query
     PEP: (8) Toegangscontrole PEP
@@ -117,8 +117,8 @@ stateDiagram
 | 2. | Zijn  **`bemiddelingspecificatieID`** en `toewijzingIngangsdatum`bekend? <br/> - **Ja** →  Ga verder naar stap 4. <br/> - **Nee** → Ga naar stap 3.   | 
 | 3. | Gebruik eerst query-template `QBR-0004-ZKu` (zie beschrijving [`UCBR-0004-raadplegen`](UCBR-0004-raadplegen.md)) | 
 | 4. | Heeft de `bmemiddelingspecificatie` (inmiddels) een `toewijzingEinddatum`? <br/> - **Ja** →  Ga verder naar stap 6 <br/> - **Nee** → Ga naar stap 5.  | 
-| 5. | Gebruik query-template [`QBR-0006-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0006-ZKu.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`.  |
-| 6. | Gebruik query-template [`QBR-0005-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0005-ZKu.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`; <br/> - `toewijzingEinddatum`; <br/> - `ToewijzingEinddatum2Jaar`; <br/> - `ToewijzingEinddatum31Mei`.  | 
+| 5. | Gebruik query-template [`QBR-0006-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0006-ZKu.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`; <br/> - `vaststellingMoment`; <br/> - `dagVaststellingMoment`.  |
+| 6. | Gebruik query-template [`QBR-0005-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0005-ZKu.graphql) en vul de verplichte parameters: <br/> - `bemiddelingspecificatieID`; <br/> - `instelling`; <br/> - `toewijzingIngangsdatum`; <br/> - `vaststellingMoment`; <br/> - `dagVaststellingMoment`; <br/> - `toewijzingEinddatum`.  | 
 | 7. | Het Zorgkantoor stuurt Graphql-request + Access-token naar het Policy Enforcement Point (PEP) |
 | 8. | De PEP voert de [toegangscontrole](UCBR-0002_3-toegangscontrole.md) uit en stuurt bij toegang het request door naar het Bemiddelingsregister. |
 | 9. | Het Zorgkantoor ontvangt response van de PEP (bij ongeldig verzoek) of vanuit het Bemiddelingsregister (resource) |

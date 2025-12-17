@@ -19,15 +19,16 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 - **Type:** `Bemiddelingsregister`
 - **ID:** `overdrachtID`
 - **Beperking:** Alleen toegang tot gegevens waarvoor het zorgkantoor een Overdracht heeft (op basis van uzovicode, overdrachtID, overdrachtDatum)
-- **Inhoud:** Alleen de nodes Overdracht en de gerelateerde Bemiddeling en Overdrachtspecificatie en Bemiddelingspecificatie en de Client Contactgegevens, Contactpersonen en Regiehouder die in periode overlap hebben met de Overdracht (op basis van overdrachtdatum), mogen direct worden opgevraagd.
+- **Inhoud:** Alleen de nodes Overdracht en de gerelateerde Bemiddeling en Overdrachtspecificatie en Bemiddelingspecificatie en de Client Contactgegevens, Contactpersonen en Regiehouder die in periode overlap hebben met de Overdracht (op basis van overdrachtdatum minus 1 dag), mogen direct worden opgevraagd.
 
 
 
 ### **Context**
-- **Query-parameters vereist:** De `overdrachtID`, de `overdrachtDatum` en de `uzovicode` moeten aanwezig zijn in de query
+- **Query-parameters vereist:** De `overdrachtID`, de `overdrachtDatum`, de `overdrachtDatumMinus1Dag` en de `uzovicode` moeten aanwezig zijn in de query
 - **Toegangsvoorwaarde:**  Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
   - De parameter `overdrachtID` is aanwezig in de query;
   - De parameter `overdrachtDatum` is aanwezig in de query;
+  - De parameter `overdrachtDatumMinus1Dag` is aanwezig in de query;
   - De parameter `uzovicode` is aanwezig in de query;
   - De **access-token** bevat een geldige `uzovicode` van het zorgkantoor;
   - De in de query meegegeven `uzovicode` komt overeen met de `uzovicode` in de access-token;
@@ -39,11 +40,12 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 >
 > - Parameter **`overdrachtID`** is meegegeven in de query;
 > - Parameter **`overdrachtDatum`** is aanwezig in de query;
+> - Parameter **`overdrachtDatumMinus1Dag`** is aanwezig in de query;
 > - Parameter **`uzovicode`** is meegegeven in de query;
 > - De access-token bevat een geldige **`uzovicode`**;
 > - De in de query meegegeven `uzovicode` komt overeen met de `uzovicode` in de access-token; 
 > 
-> Als aan alle voorwaarden is voldaan, mogen de nodes `Overdrachtspecificatie`, `Bemiddeling`, `Bemiddelingspecificatie` en `Client` die horen bij deze `Overdracht` en de  `Contactgegevens`, `Contactpersonen` en `Regiehouder` die in periode overlap hebben met de `Overdracht` (op basis van `overdrachtdatum`), mogen direct worden opgevraagd.
+> Als aan alle voorwaarden is voldaan, mogen de nodes `Overdrachtspecificatie`, `Bemiddeling`, `Bemiddelingspecificatie` en `Client` die horen bij deze `Overdracht` en de  `Contactgegevens`, `Contactpersonen` en `Regiehouder` die in periode overlap hebben met de `Overdracht` (op basis van `overdrachtDatumMinus1Dag`), mogen direct worden opgevraagd.
 
 
 ## Toegangscontrole-flows Zorgkantoor: QBR-0008-ZKn.graphql
@@ -95,6 +97,7 @@ stateDiagram
   checkInput01:Check input aanwezig?
   checkInput01:- overdrachtID
   checkInput01:- overdrachtDatum
+  checkInput01:- overdrachtDatumMinus1Dag
   checkInput01:- verantwoordelijkZorgkantoor
   checkInput02:Check
   checkInput02:input verantwoordelijkZorgkantoor matcht 

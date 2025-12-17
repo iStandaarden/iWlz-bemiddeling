@@ -29,14 +29,16 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
   | - `bemiddelingspecificatieID` | - `bemiddelingspecificatieID` |
   | - `uitvoerendZorgkantoor`     | - `uitvoerendZorgkantoor`     |
   | - `toewijzingIngangsdatum`    | - `toewijzingIngangsdatum`    |
+  | - `vaststellingMoment`        | - `vaststellingMomemnt`       |
+  | - `DagVaststellingMoment`     | - `DagVaststellingMoment`     |
   | - `toewijzingEinddatum`       |                               |
-  | - `ToewijzingEinddatum2Jaar`  |                               |
-  | - `ToewijzingEinddatum31Mei`  |                               |
 
 - **Toegangsvoorwaarde:**  Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
   - De parameters zoals hierboven zijn aanwezig
   - De **access-token** bevat een geldige `uzovicode` van het zorgkantoor;
   - De `uzovicode` van de in de query meegegeven `uitvoerendZorgkantoor` komt overeen met de `uzovicode` in de access-token;
+  - Voor contactgegevens en contactpersonen geldt toegang tot en met EinddatumToewijzing + 2 jaar;
+  - Voor Bemiddelingspecificaties geldt toegang tot en met Einddatum + 31mei.
 
 
 ### Resultaat
@@ -50,7 +52,9 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 >
 > Als aan deze voorwaarden is voldaan, mogen de volgende gegevens worden opgevraagd:
 > - De `Bemiddelingspecificatie`, de bijbehorende `Bemiddeling` en `Client`;
-> - De `Contactpersoon`, `Contactgegevens`, `Regiehouder`, en andere `Bemiddelingspecificaties` binnen dezelfde Bemiddeling, mits deze een periode-overlap hebben met de eigen toewijzing.
+> - De `Contactpersoon`, `Contactgegevens`, `Regiehouder`, en andere `Bemiddelingspecificaties` binnen dezelfde Bemiddeling, mits deze een periode-overlap hebben met de eigen toewijzing;
+> - Voor contactgegevens en contactpersonen geldt toegang tot en met EinddatumToewijzing + 2 jaar;
+> - Voor Bemiddelingspecificaties geldt toegang tot en met Einddatum + 31mei.
 
 
 ## Toegangscontrole-flows Zorgkantoor: QBR-0005-ZKu.graphql of QBR-0006-ZKu.graphql
@@ -121,7 +125,7 @@ stateDiagram
 | --: | :-- |
 | 1. |Ontvangst GraphQL-request + access-token door **PEP** |
 | 2. |De **PEP** valideert de access-token en geeft na goedkeur het request door aan de PDP |
-| 3. |De **PDP** controleert op:<br/>1. Of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Of de **`uzovicode`** in request overeenkomt met de waarde in de **`access-token`**;<br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
+| 3. |De **PDP** controleert op:<br/>1. Of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Of de **`uzovicode`** in request overeenkomt met de waarde in de **`access-token`**;<br/>4. Of indien contactgegevens en Contactpersoon onderdeel zijn van het request, de datum van het request kleiner dan of gelijk is aan ToewijzingEinddatum + 2 jaar;<br/>5. Of indien Bemiddelingspecificatie onderdeel is van het request, de datum van het request kleiner dan of gelijk is aan ToewijzingEinddatum + 31 mei <br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
 | 4. | Het zorgkantoor krijgt toegang tot het bemiddelingsregister.|
 | 5. | *Einde* |
 

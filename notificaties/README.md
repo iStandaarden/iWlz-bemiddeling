@@ -20,7 +20,6 @@ Per notificatie is beschreven wat de aanleiding is voor het versturen van een no
 | [VERWIJDERDE_REGIEHOUDER_ZORGAANBIEDER](/notificaties/verwijderde_regiehouder_zorgaanbieder.md) | Notificatie aan de zorgaanbieder als het verantwoordelijke zorgkantoor deze zorgaanbieder als Regiehouder heeft verwijderd. | VERPLICHT |
 | [INFORMATIEVE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER](/notificaties/informatieve_bemiddelingspecificatie_zorgaanbieder.md) | Notificatie aan de zorgaanbieder die betrokken is bij de zorglevering aan een client waar er in de samenstelling van de zorglevering in de client een wijziging heeft plaatsgevonden. Dit kan een wijziging zijn in een overlappende bemiddelingspecificatie van een ander betrokken zorgaanbieder of de toevoeging van een nieuwe overlappende bemiddelingspecificatie (van een andere zorgaanbieder). | |
 
-
 ### Aan Zorgkantoor
 | Notificatie | Documentatie | Type |
 | :-- | :-- | :-- |
