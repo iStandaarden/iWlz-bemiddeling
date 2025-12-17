@@ -152,42 +152,6 @@ query Bemiddelingspecificatie(
           ingangsdatum
           einddatum
         }
-        # dossierhouder(
-        #   where: {
-        #     and: [
-        #       {
-        #         or: [
-        #           { einddatum: { eq: null } }
-        #           { einddatum: { gte: $ToewijzingIngangsdatum } }
-        #         ]
-        #       }
-        #       { ingangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
-        #     ]
-        #   }
-        # ) {
-        #   dossierhouderID
-        #   instelling
-        #   ingangsdatum
-        #   einddatum
-        # }
-        # coordinatorZorgThuis(
-        #   where: {
-        #     and: [
-        #       {
-        #         or: [
-        #           { einddatum: { eq: null } }
-        #           { einddatum: { gte: $ToewijzingIngangsdatum } }
-        #         ]
-        #       }
-        #       { ingangsdatum: { ngt: $ToewijzingEinddatum31Mei } }
-        #     ]
-        #   }
-        # ) {
-        #   coordinatorZorgThuisID
-        #   instelling
-        #   ingangsdatum
-        #   einddatum
-        # }
         clientID
       }
       bemiddelingspecificatie(
@@ -239,10 +203,7 @@ query Bemiddelingspecificatie(
           einddatum
           regierol
         }
-        
-        
       }
-
     }
   }
 

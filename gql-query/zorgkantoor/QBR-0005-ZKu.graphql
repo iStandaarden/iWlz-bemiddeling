@@ -1,5 +1,5 @@
-# QBR-0005-ZKu.grapql
-# Query voor uitvoerend Zorgkantuur op Bemiddelingsregister
+# QBR-0005-ZKu.graphql
+# Query voor uitvoerend Zorgkantoor op Bemiddelingsregister
 # Verplichte input:
 #   - bemiddelingspecificatieID
 #   - uzovi code zorgkantoor
