@@ -4,7 +4,7 @@
 #   - bemiddelingspecificatieID - eigen bemiddelingsspecificatie
 #   - agbcode instelling
 #   - toewijzing Ingangsdatum bijv. 2020-02-19
-#   - vaststelling moment bijv. 2020-02-09T13:47:16+01:00
+#   - vaststelling moment bijv. 2020-02-09T13:47:16.000+01:00
 #   - dag vaststelling moment bijv. 2020-02-09
 
 
@@ -205,6 +205,7 @@ query Bemiddelingspecificatie(
     }
   }
 }
+
 
 
 
