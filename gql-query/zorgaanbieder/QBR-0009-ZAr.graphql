@@ -6,12 +6,12 @@
 
 query Regiehouder(
   $regiehouderID: UUID!
-  $Instelling: String!
+  $instelling: String!
 ) {
   regiehouder(
     where: {
       regiehouderID: { eq: $regiehouderID }
-      instelling: { eq: $Instelling }
+      instelling: { eq: $instelling }
     }
   ) {
     regiehouderID

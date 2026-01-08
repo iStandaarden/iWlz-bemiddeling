@@ -9,20 +9,20 @@
 
 
 query Bemiddelingspecificatie(
-  $BemiddelingspecificatieID: UUID!
-  $Instelling: String!
-  $ToewijzingIngangsdatum: Date!
-  $VaststellingMoment: DateTime!
-  $DagVaststellingMoment: Date!
+  $bemiddelingspecificatieID: UUID!
+  $instelling: String!
+  $toewijzingIngangsdatum: Date!
+  $vaststellingMoment: DateTime!
+  $dagVaststellingMoment: Date!
 
 ) {
   # Eigen bemiddelingspecificatie
   bemiddelingspecificatie(
     where: {
-      bemiddelingspecificatieID: { eq: $BemiddelingspecificatieID }
-      instelling: { eq: $Instelling }
-      toewijzingIngangsdatum: { eq: $ToewijzingIngangsdatum }
-      vaststellingMoment: { eq: $VaststellingMoment } 
+      bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID }
+      instelling: { eq: $instelling }
+      toewijzingIngangsdatum: { eq: $toewijzingIngangsdatum }
+      vaststellingMoment: { eq: $vaststellingMoment } 
       toewijzingEinddatum: { eq: null }
     }
   ) {
@@ -57,8 +57,8 @@ query Bemiddelingspecificatie(
               {
                 or: [
                   { einddatum: { eq: null } }
-                  { einddatum: { gte: $ToewijzingIngangsdatum } }
-                  { einddatum: { gte: $DagVaststellingMoment } }
+                  { einddatum: { gte: $toewijzingIngangsdatum } }
+                  { einddatum: { gte: $dagVaststellingMoment } }
                 ]
               }
             ]
@@ -90,8 +90,8 @@ query Bemiddelingspecificatie(
                 {
                   or: [
                     { einddatum: { eq: null } }
-                    { einddatum: { gte: $ToewijzingIngangsdatum } }
-                    { einddatum: { gte: $DagVaststellingMoment } }
+                    { einddatum: { gte: $toewijzingIngangsdatum } }
+                    { einddatum: { gte: $dagVaststellingMoment } }
                   ]
                 }
               ]
@@ -127,8 +127,8 @@ query Bemiddelingspecificatie(
               {
                 or: [
                   { einddatum: { eq: null } }
-                  { einddatum: { gte: $ToewijzingIngangsdatum } }
-                  { einddatum: { gte: $DagVaststellingMoment } }
+                  { einddatum: { gte: $toewijzingIngangsdatum } }
+                  { einddatum: { gte: $dagVaststellingMoment } }
                 ]
               }
             ]
@@ -161,8 +161,8 @@ query Bemiddelingspecificatie(
             {
               or: [
                 { toewijzingEinddatum: { eq: null } }
-                { toewijzingEinddatum: { gte: $ToewijzingIngangsdatum } }
-                { toewijzingEinddatum: { gte: $DagVaststellingMoment } }
+                { toewijzingEinddatum: { gte: $toewijzingIngangsdatum } }
+                { toewijzingEinddatum: { gte: $dagVaststellingMoment } }
               ]
             }
           ]
@@ -189,8 +189,8 @@ query Bemiddelingspecificatie(
               {
                 or: [
                   { einddatum: { eq: null } }
-                  { einddatum: { gte: $ToewijzingIngangsdatum } }
-                  { einddatum: { gte: $DagVaststellingMoment } }
+                  { einddatum: { gte: $toewijzingIngangsdatum } }
+                  { einddatum: { gte: $dagVaststellingMoment } }
                 ]
               }
             ]

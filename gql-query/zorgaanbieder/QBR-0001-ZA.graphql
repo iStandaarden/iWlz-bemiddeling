@@ -5,13 +5,13 @@
 #   - agbcode instelling = eigen agbcode raadpleger
 
 query Bemiddelingspecificatie(
-  $BemiddelingspecificatieID: UUID!
-  $Instelling: String!
+  $bemiddelingspecificatieID: UUID!
+  $instelling: String!
 ) {
   bemiddelingspecificatie(
     where: {
-      bemiddelingspecificatieID: { eq: $BemiddelingspecificatieID }
-      instelling: { eq: $Instelling }
+      bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID }
+      instelling: { eq: $instelling }
     }
   ) {
     bemiddelingspecificatieID
