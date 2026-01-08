@@ -13,6 +13,6 @@ jobs:
  
       - uses: kamilkisiela/graphql-inspector@master
         with:
-          schema: 'Bemiddelingsregister-1:gql-specificatie/Bemiddelingregister.graphql'
+          schema: '${{ github.ref_name }}:gql-specificatie/Bemiddelingregister.graphql'
 
             
