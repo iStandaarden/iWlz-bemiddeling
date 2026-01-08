@@ -18,11 +18,11 @@
 # 7. ContactpersoonContactgegevens waarvan: einddatum = leeg OF einddatum >= selectiedatum
 
 query Bemiddeling(
-  $BemiddelingID: UUID!
+  $bemiddelingID: UUID!
   $vorigeSelectiemoment: DateTime!
-  $Selectiedatum: Date!
+  $selectiedatum: Date!
 ) {
-  bemiddeling(where: { bemiddelingID: { eq: $BemiddelingID } }) {
+  bemiddeling(where: { bemiddelingID: { eq: $bemiddelingID } }) {
     bemiddelingID
     wlzIndicatieID
     verantwoordelijkZorgkantoor
@@ -38,7 +38,7 @@ query Bemiddeling(
               {
                 or: [
                   { toewijzingEinddatum: { eq: null } }
-                  { toewijzingEinddatum: { lte: $Selectiedatum } }
+                  { toewijzingEinddatum: { lte: $selectiedatum } }
                 ]
               }
             ]
@@ -64,11 +64,11 @@ query Bemiddeling(
     regiehouder(
       where: {
         and: [
-          { ingangsdatum: { lte: $Selectiedatum } }
+          { ingangsdatum: { lte: $selectiedatum } }
           {
             or: [
               { einddatum: { eq: null } }
-              { einddatum: { gt: $Selectiedatum } }
+              { einddatum: { gt: $selectiedatum } }
             ]
           }
         ]
@@ -87,7 +87,7 @@ query Bemiddeling(
         where: {
           or: [
             { einddatum: { eq: null } }
-            { einddatum: { gte: $Selectiedatum } }
+            { einddatum: { gte: $selectiedatum } }
           ]
         }
       ) {
@@ -114,7 +114,7 @@ query Bemiddeling(
           where: {
             or: [
               { einddatum: { eq: null } }
-              { einddatum: { gte: $Selectiedatum } }
+              { einddatum: { gte: $selectiedatum } }
             ]
           }
         ) {
@@ -145,7 +145,7 @@ query Bemiddeling(
         where: {
           or: [
             { einddatum: { eq: null } }
-            { einddatum: { gte: $Selectiedatum } }
+            { einddatum: { gte: $selectiedatum } }
           ]
         }
       ) {
