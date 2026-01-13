@@ -46,7 +46,7 @@ De policy is beschikbaar in: @@@ nog te bepalen.
 Met een notificatie wordt een netwerk-deelnemer op de hoogte gebracht door een bronhouder dat er nieuwe (of gewijzigde) informatie is die directe of afgeleide betrekking heeft op die deelnemer. De notificatie bevat informatie die de deelnemer in staat stelt de relevante informatie te raadplegen bij de bron. Een notificatie loopt altijd van bron naar deelnemer.
 
 > [!NOTE]
-> De notificaties vanuit het Indicatieregister zijn te vinden in de folder [**/notificaties**](/notificaties/)
+> De notificaties vanuit het Bemiddelingsregister zijn te vinden in de folder [**/notificaties**](/notificaties/)
 
 ## **Raadplegen Bemiddelingsregister**
 
