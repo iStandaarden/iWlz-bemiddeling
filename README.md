@@ -13,6 +13,7 @@ Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van he
     - [Open Agent Policy](#open-agent-policy)
     - [Notificaties](#notificaties)
   - [**Raadplegen Bemiddelingsregister**](#raadplegen-bemiddelingsregister)
+    - [Autorisatieregels en autorisatiematrix](#autorisatieregels-en-autorisatiematrix)
   - [Versies en Status](#versies-en-status)
   - [Documentatie](#documentatie)
     - [Informatiemodel](#informatiemodel)
@@ -56,8 +57,15 @@ Als dat patroon niet wordt gevolgd — bijvoorbeeld door ontbrekende autorisatie
 
 Use-cases beschrijven hoe een deelnemer het register correct raadpleegt.
 
+## Autorisatieregels en autorisatiematrix
+De toegang tot gegevens is vastgelegd doormiddel van **Autorisatieregels** en de **Autorisatiematrix**. De [autorisatieregels](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/) zijn te vinden in het Informatiemodel Bemiddelingsregister (via [hier](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/)) en de [autorisatiematrix](/raadplegen/autorisatiematrix_bemiddelingsregister.md) is [hier](/raadplegen/autorisatiematrix_bemiddelingsregister.md) te vinden.
+
+
 > [!NOTE]
 > De functionele beschrijving beschikbare raadpleging per deelnemer is beschikbaar in de folder **[/raadplegen](/raadplegen/)**
+
+Meer informatie over de structuur van het raadplegen en het valideren ervan is te lezen in het [Afsprakenstelsel iWlz - Raadplegen](https://wlz.atlassian.net/wiki/x/KgpgAQ)
+
 
 ## Versies en Status 
 
