@@ -36,6 +36,8 @@ flowchart LR
 
 Meer informatie over de structuur van het raadplegen en het valideren ervan is te lezen in het [Afsprakenstelsel iWlz - Raadplegen](https://wlz.atlassian.net/wiki/x/KgpgAQ)
 
+## Autorisatieregels en autorisatiematrix
+De toegang tot gegevens is vastgelegd doormiddel van **Autorisatieregels** en de **Autorisatiematrix**. De [autorisatieregels](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/) zijn te vinden in het Informatiemodel Bemiddelingsregister (via [hier](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/)) en de [autorisatiematrix](/raadplegen/autorisatiematrix_bemiddelingsregister.md) is [hier](/raadplegen/autorisatiematrix_bemiddelingsregister.md) te vinden.
 
 
 ## Use cases raadplegen Bemiddelingsregister
