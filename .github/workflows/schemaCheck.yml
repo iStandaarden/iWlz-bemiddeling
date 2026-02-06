@@ -15,7 +15,7 @@ jobs:
         uses: graphql-hive/graphql-inspector@master
         with:
           # vergelijkt PR branch met base (via ref:path notatie)
-          schema: '${{ github.base_ref || github.ref_name }}:gql-specificatie/Bemiddelingsregister.graphql'
+          schema: '${{ github.ref_name }}:gql-specificatie/Bemiddelingsregister.graphql'
           # schema: '${{ github.ref_name }}:gql-specificatie/Bemiddelingsregister.graphql'
           rules: suppressRemovalOfDeprecatedField
           fail-on-breaking: true
