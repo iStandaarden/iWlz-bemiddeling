@@ -10,7 +10,7 @@ query search (
              {Bemiddeling: { verantwoordelijkZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
             ]
         },
-        {bemiddelingspecificatieID { eq: $bemiddelingspecificatieID }}
+        {bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID }}
     ]
   }
   ){
