@@ -28,6 +28,7 @@ type Query {
   bemiddelingspecificatie(where: BemiddelingspecificatieFilterInput): [Bemiddelingspecificatie!]!
   overdracht(where: OverdrachtFilterInput): [Overdracht!]!
   regiehouder(where: RegiehouderFilterInput): [Regiehouder!]!
+  search(filter: SearchFilter): [SearchFilter!]
 }
 
 """ OBJECT types """
@@ -480,6 +481,13 @@ input BemiddelingSortInput {
   verantwoordelijkheidIngangsdatum: SortEnumType
   verantwoordelijkheidEinddatum: SortEnumType
   overdracht: OverdrachtSortInput
+}
+
+input SearchFilter {
+  BemiddelingFilterInput:
+  BemiddelingspecificatieFilterInput:
+  and: [SearchFilter!]
+  OR: [SearchFilter!]
 }
 
 """ ListFilterInputType_FilterInput types """

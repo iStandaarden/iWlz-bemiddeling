@@ -1,0 +1,20 @@
+query Bemiddelingspecificatie(
+  $bemiddelingspecificatieID: UUID! # afkomstig uit query
+  $uzovicodeZorgkantoor: String! # afkomstig uit Access-token
+) {
+  Search(Filter: {
+    and: [
+        {
+            or: [
+             {Bemiddelingspecificatie: { uitvoerendZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
+             {Bemiddeling: { verantwoordelijkZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
+            ]
+        },
+        {bemiddelingspecificatieID { eq: $bemiddelingspecificatieID }}
+    ]
+  }
+  ){
+    bemiddelingspecificatieID
+  }
+}     
+
