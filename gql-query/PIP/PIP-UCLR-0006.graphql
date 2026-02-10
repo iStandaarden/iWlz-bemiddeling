@@ -14,7 +14,6 @@ query search (
     ]
   }
   ){
-      # bemiddelingspecificatieID
       bemiddelingspecificatie {
         bemiddelingspecificatieID
       }
