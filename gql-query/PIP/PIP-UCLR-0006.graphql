@@ -5,16 +5,18 @@ query search (
   search(filter: {
     and: [
         {
-            or: [
-             {bemiddelingspecificatie: { uitvoerendZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
-             {bemiddeling: { verantwoordelijkZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
-            ]
+          or: [
+            {bemiddelingspecificatie: { uitvoerendZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
+            {bemiddeling: { verantwoordelijkZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
+          ]
         },
         {bemiddelingspecificatie: { bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID }}}
     ]
   }
   ){
-    bemiddelingspecificatieID
+      # bemiddelingspecificatieID
+      bemiddelingspecificatie {
+        bemiddelingspecificatieID
+      }
+    }
   }
-}     
-
