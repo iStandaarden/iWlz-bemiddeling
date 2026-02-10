@@ -28,7 +28,7 @@ type Query {
   bemiddelingspecificatie(where: BemiddelingspecificatieFilterInput): [Bemiddelingspecificatie!]!
   overdracht(where: OverdrachtFilterInput): [Overdracht!]!
   regiehouder(where: RegiehouderFilterInput): [Regiehouder!]!
-  search(filter: SearchFilter): [SFoutput!]
+  PIPValidatie(filter: PIPValidatie): [PIPResult!]
 }
 
 """ OBJECT types """
@@ -483,16 +483,16 @@ input BemiddelingSortInput {
   overdracht: OverdrachtSortInput
 }
 
-input SearchFilter {
+input PIPValidatie {
   bemiddeling: BemiddelingFilterInput
   bemiddelingspecificatie: BemiddelingspecificatieFilterInput
-  and: [SearchFilter!]
-  or: [SearchFilter!]
+  and: [PIPValidatie!]
+  or: [PIPValidatie!]
 }
 
-type SFoutput {
-  bemiddelingspecificatie(where: SearchFilter): [Bemiddelingspecificatie]
-  bemiddeling(where: SearchFilter): Bemiddeling
+type PIPResult {
+  bemiddelingspecificatie(where: PIPValidatie): [Bemiddelingspecificatie]
+  bemiddeling(where: PIPValidatie): Bemiddeling
 }
 
 """ ListFilterInputType_FilterInput types """
