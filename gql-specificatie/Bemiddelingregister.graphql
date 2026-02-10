@@ -484,10 +484,10 @@ input BemiddelingSortInput {
 }
 
 input SearchFilter {
-  bemiddelingFilterInput: BemiddelingFilterInput
-  bemiddelingspecificatieFilterInput: BemiddelingspecificatieFilterInput
+  bemiddeling: BemiddelingFilterInput
+  bemiddelingspecificatie: BemiddelingspecificatieFilterInput
   and: [SearchFilter!]
-  OR: [SearchFilter!]
+  or: [SearchFilter!]
 }
 
 type SFoutput {

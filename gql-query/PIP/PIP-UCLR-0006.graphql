@@ -2,15 +2,15 @@ query search (
   $bemiddelingspecificatieID: UUID! # afkomstig uit query
   $uzovicodeZorgkantoor: String! # afkomstig uit Access-token
 ) {
-  Search(Filter: {
+  search(filter: {
     and: [
         {
             or: [
-             {Bemiddelingspecificatie: { uitvoerendZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
-             {Bemiddeling: { verantwoordelijkZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
+             {bemiddelingspecificatie: { uitvoerendZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
+             {bemiddeling: { verantwoordelijkZorgkantoor: {eq: $uzovicodeZorgkantoor}}}
             ]
         },
-        {bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID }}
+        {bemiddelingspecificatie: { bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID }}}
     ]
   }
   ){
