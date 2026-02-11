@@ -29,6 +29,7 @@ type Query {
   overdracht(where: OverdrachtFilterInput): [Overdracht!]!
   regiehouder(where: RegiehouderFilterInput): [Regiehouder!]!
   PIPValidatie(filter: PIPValidatie): [PIPResult!]
+  PIPValidatie0004(filter: PIPValidatie): [PIPResult]
 }
 
 """ OBJECT types """
