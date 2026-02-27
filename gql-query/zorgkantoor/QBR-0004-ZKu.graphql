@@ -5,12 +5,12 @@
 #   - uitvoerendZorgkantoor = eigen uzovi code raadpleger
 
 query Bemiddelingspecificatie(
-  $bemiddelingspecificatieId: UUID!
+  $bemiddelingspecificatieID: UUID!
   $uitvoerendZorgkantoor: String!
 ) {
   bemiddelingspecificatie(
     where: {
-      bemiddelingspecificatieID: { eq: $bemiddelingspecificatieId }
+      bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID }
       uitvoerendZorgkantoor: { eq: $uitvoerendZorgkantoor }
     }
   ) {
