@@ -1,4 +1,4 @@
-# QBR-0002-ZA.grapql
+# QBR-0003-ZA.grapql
 # Query voor Zorgaanbieder op Bemiddelingsregister
 # Verplichte input:
 #   - bemiddelingspecificatieID - eigen bemiddelingsspecificatie
@@ -205,6 +205,7 @@ query Bemiddelingspecificatie(
     }
   }
 }
+
 
 
 
