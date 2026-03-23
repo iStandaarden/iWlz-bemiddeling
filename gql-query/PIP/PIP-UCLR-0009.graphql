@@ -13,15 +13,18 @@
             uitvoerendZorgkantoor: {eq: $uitvoerendZorgkantoor}
             toewijzingIngangsdatum: {eq: $toewijzingIngangsdatum}
             vaststellingMoment: {eq: $vaststellingMoment}
-            toewijzingEinddatum: {eq: toewijzingEinddatum}
+            toewijzingEinddatum: {eq: $toewijzingEinddatum}
+            and: [ {
+                bemiddeling: {
+                    and: {
+                        bemiddelingID: {eq: $bemiddelingID}
+                    }
+                }
+            }]
          }
     ) {
         bemiddelingspecificatieID
-        bemiddeling(
-            where: {
-                bemiddelingID: {eq: $bemiddelingID}
-            }
-        ) {
+        bemiddeling{
             bemiddelingID
             bemiddelingspecificatie(
                 where: {
