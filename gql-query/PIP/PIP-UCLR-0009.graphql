@@ -5,6 +5,7 @@
     $vaststellingMoment: DateTime! # afkomstig uit query
     $dagVaststellingMoment: Date! # afkomstig uit query
     $toewijzingEinddatum: Date! # afkomstig uit query
+    $bemiddelingID: UUID! # afkomstig uit query
   ) {
     bemiddelingspecificatie(
         where: {
