@@ -23,11 +23,9 @@
             }
         ) {
             bemiddelingID
-           }
-        }
-        bemiddelingspecificatie(
-            where: {
-                and: [
+            bemiddelingspecificatie(
+                where: {
+                    and: [
                     {
                        or: [{ toewijzingEinddatum: { eq: null } }, 
                        { toewijzingEinddatum: { gte: $toewijzingIngangsdatum } },
@@ -37,6 +35,8 @@
                 ]
             }
         ){
-            bemiddelingspecificatieID
+                bemiddelingspecificatieID
         }
     }
+   }
+  }
