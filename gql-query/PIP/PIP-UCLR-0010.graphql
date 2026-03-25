@@ -1,0 +1,43 @@
+ query PIPValidatie0010(
+    $bemiddelingspecificatieIDEigen: UUID! # afkomstig uit query
+    $uitvoerendZorgkantoor: String! # afkomstig uit acces-token
+    $toewijzingIngangsdatum: Date! # afkomstig uit query
+    $vaststellingMoment: DateTime! # afkomstig uit query
+    $dagVaststellingMoment: Date! # afkomstig uit query
+    $bemiddelingID: UUID! # afkomstig uit query
+  ) {
+    bemiddelingspecificatie(
+        where: {
+            bemiddelingspecificatieID: {eq: $bemiddelingspecificatieIDEigen}
+            uitvoerendZorgkantoor: {eq: $uitvoerendZorgkantoor}
+            toewijzingIngangsdatum: {eq: $toewijzingIngangsdatum}
+            vaststellingMoment: {eq: $vaststellingMoment}
+            toewijzingEinddatum: {eq: null}
+            and: [ {
+                bemiddeling: {
+                    and: {
+                        bemiddelingID: {eq: $bemiddelingID}
+                    }
+                }
+            }]
+         }
+    ) {
+        bemiddelingspecificatieID
+        bemiddeling{
+            bemiddelingID
+            bemiddelingspecificatie(
+                where: {
+                    and: [
+                    {
+                       or: [{ toewijzingEinddatum: { eq: null } }, 
+                       { toewijzingEinddatum: { gte: $toewijzingIngangsdatum } },
+                       { toewijzingEinddatum: { gte: $dagVaststellingMoment } }]
+                    }
+             ]
+            }
+        ){
+                bemiddelingspecificatieID
+        }
+    }
+   }
+  }
