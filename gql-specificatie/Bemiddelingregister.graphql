@@ -31,6 +31,7 @@ type Query {
   PIPValidatie(filter: PIPValidatie): [PIPResult!]
   PIPValidatie0004(filter: PIPValidatie): [PIPResult]
   PIPValidatie0009(filter: PIPValidatie): [PIPResult]
+  PIPValidatie0001(filter: PIPValidatie): [PIPResult]
 }
 
 """ OBJECT types """
