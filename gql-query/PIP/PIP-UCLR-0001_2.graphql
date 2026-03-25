@@ -33,7 +33,6 @@ query PIPValidatie0001_2(
                        { toewijzingEinddatum: { gte: $toewijzingIngangsdatum } },
                        { toewijzingEinddatum: { gte: $dagVaststellingMoment } }]
                     }
-                    { toewijzingIngangsdatum: { ngt: $toewijzingEinddatum } }
                 ]
             }
         ){
