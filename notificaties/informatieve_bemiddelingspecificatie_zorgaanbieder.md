@@ -145,7 +145,7 @@ stateDiagram
 
 | Variabele | Waarde | Voorbeeld | 
 | :-- | :-- | :-- |
-| timestamp | {timestamp} | ```"timestamp": "2024-07-02T00:00:00Z"``` | 
+| timestamp | {timestamp} | ```"timestamp": "2024-07-02T00:00:00.000Z"``` | 
 | afzenderIDType | "UZOVI" | ```"afzenderIDType": "UZOVI"``` |
 | afzenderID | {uzovi-code ontvanger} | ```"afzenderID": "5050"``` |
 | ontvangerIDType | "AGBCODE" | ```"ontvangerIDType": "AGBCODE"``` |
