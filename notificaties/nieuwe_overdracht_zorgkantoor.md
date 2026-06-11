@@ -70,7 +70,7 @@ opstellen:- voor het nieuwe verantwoordelijkeZorgkantoor
 | :-- | :-- | :-- |
 | timestamp | {timestamp} | ```"timestamp": "2024-07-02T00:00:00.000Z"``` | 
 | afzenderIDType | "UZOVI" | ```"afzenderIDType": "UZOVI"``` |
-| afzenderID | {uzovi-code ontvanger} | ```"afzenderID": "5050"``` |
+| afzenderID | {uzovi-code afzender} | ```"afzenderID": "5050"``` |
 | ontvangerIDType | "UZOVI" | ```"ontvangerIDType": "UZOVI"``` |
 | ontvangerID | {uzovi-code ontvanger} | ```"ontvangerID": "5151"``` |
 | ontvangerKenmerk | NULL | |
