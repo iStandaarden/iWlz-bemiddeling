@@ -71,7 +71,7 @@ opstellen:- in de bemiddelingspecificatie
 | :-- | :-- | :-- |
 | timestamp | {timestamp} | ```"timestamp": "2024-07-02T00:00:00.000Z"``` | 
 | afzenderIDType | "UZOVI" | ```"afzenderIDType": "UZOVI"``` |
-| afzenderID | {uzovi-code ontvanger} | ```"afzenderID": "5050"``` |
+| afzenderID | {uzovi-code afzender} | ```"afzenderID": "5050"``` |
 | ontvangerIDType | "AGBCODE" | ```"ontvangerIDType": "AGBCODE"``` |
 | ontvangerID | {uzovi-code ontvanger} | ```"ontvangerID": "12345678"``` |
 | ontvangerKenmerk | NULL | |
