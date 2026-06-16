@@ -82,13 +82,13 @@ stateDiagram
 | # | Toelichting |
 | --: | :-- |
 | 1. | *Start* raadplegen Bemiddelingsregister | 
-| 6. | Het CIZ vult de verplichte **`wlzIndicatieID`** in query-template [QBR-0011-CIZ.graphql](@@@) en initieert een raadpleging van het Bemiddelingsregister. | 
+| 6. | Het CIZ vult de verplichte **`wlzIndicatieID`** in query-template [QBR-0011-CIZ.graphql](/gql-query/ciz/QBR-0011-CIZ.graphql) en initieert een raadpleging van het Bemiddelingsregister. | 
 | 7. | Het CIZ stuurt Graphql-request + Access-token naar het Policy Enforcement Point (PEP) |
-| 8. | De PEP voert de [toegangscontrole](@@@) uit en stuurt bij toegang het request door naar het Bemiddelingsregister. |
+| 8. | De PEP voert de [toegangscontrole](UCBR-0011-toegangscontrole.md) uit en stuurt bij toegang het request door naar het Bemiddelingsregister. |
 | 9. | Het CIZ ontvangt response van de PEP (bij ongeldig verzoek) of vanuit het Bemiddelingsregister (resource) |
 | 10. | *Einde proces* | 
 
 
 ---
 
-Ga naar beschrijving van de bijbehorende [toegangscontrole](@@@) | Terug naar [Raadplegen](/raadplegen/README.md)
+Ga naar beschrijving van de bijbehorende [toegangscontrole](UCBR-0011-toegangscontrole.md) | Terug naar [Raadplegen](/raadplegen/README.md)
