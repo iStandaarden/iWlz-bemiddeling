@@ -39,7 +39,7 @@ Het CIZ mag voor het beoordelen van recht op Wlz de entiteiten Bemiddeling en Be
 
 | Query ID | Beschrijving | Verplichte input | Resultaat |
 | :---- | :---- | :---- | :---- | 
-| [QBR-0011-CIZ](../gql-query/ciz/QBR-0011-CIZ.graphql) | Op basis van het wlzIndicatieID de zorgkantoren die als uitvoerend zorgkantoor betrokken zijn, zijn geweest raadplegen. | `wlzIndicatieID` |  Bemiddeling / Bemiddelingspecificatie | 
+| [QBR-0011-CIZ](/gql-query/ciz/QBR-0011-CIZ.graphql) | Op basis van het wlzIndicatieID de zorgkantoren die als uitvoerend zorgkantoor betrokken zijn, zijn geweest raadplegen. | `wlzIndicatieID` |  Bemiddeling / Bemiddelingspecificatie | 
 
 ## Proces raadplegen
 
