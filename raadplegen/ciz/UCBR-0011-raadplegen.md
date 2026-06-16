@@ -28,7 +28,7 @@ flowchart LR
 
 ### Autorisatie:
 
-Het CIZ mag voor het beoordelen van recht op Wlz de eniteiten Bemiddeling en Bemiddelingspecificatie in het Bemiddelingsregister raadplegen die horen bij de Wlz-indicatie waar een nieuwe, gewijzigde of verwijdere VervallenGeldidheid voor is geregistreerd.
+Het CIZ mag voor het beoordelen van recht op Wlz de entiteiten Bemiddeling en Bemiddelingspecificatie in het Bemiddelingsregister raadplegen die horen bij de Wlz-indicatie waar een nieuwe, gewijzigde of verwijdere VervallenGeldidheid voor is geregistreerd.
 - volledige autorisatieregel: [IRB00XX](@@@)
 - Autorisatiematrix: [IRB00XX](@@@)
 
