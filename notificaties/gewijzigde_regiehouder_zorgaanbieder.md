@@ -73,7 +73,7 @@ opstellen:- in de Regiehouder
 | afzenderIDType | "UZOVI" | ```"afzenderIDType": "UZOVI"``` |
 | afzenderID | {uzovi-code afzender} | ```"afzenderID": "5050"``` |
 | ontvangerIDType | "AGBCODE" | ```"ontvangerIDType": "AGBCODE"``` |
-| ontvangerID | {uzovi-code ontvanger} | ```"ontvangerID": "12345678"``` |
+| ontvangerID | {agb-code ontvanger} | ```"ontvangerID": "12345678"``` |
 | ontvangerKenmerk | NULL | |
 | eventType | "GEWIJZIGDE_REGIEHOUDER_ZORGAANBIEDER" | ```"eventType": "GEWIJZIGDE_REGIEHOUDER_ZORGAANBIEDER"``` |
 | subjectList |  | ```"subjectList": [{```|
