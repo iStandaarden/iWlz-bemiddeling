@@ -12,7 +12,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van deze bes
 
 ### Action
 - **Type:** `raadplegen` (read)
-- **Omschrijving:** Uitvoeren van GraphQL-query [QBR-0011-CIZ.graphql](@@@) op het bemiddelingsregister door het CIZ
+- **Omschrijving:** Uitvoeren van GraphQL-query [QBR-0011-CIZ.graphql](/gql-query/ciz/QBR-0011-CIZ.graphql) op het bemiddelingsregister door het CIZ
 
 ### Resource
 - **Type:** `Bemiddelingsregister`
@@ -28,7 +28,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van deze bes
 
 ### Resultaat
 
-> Toegang tot het Bemiddelingsregister via query [`QBR-0011-CIZ.graphql`](@@@) is **alleen toegestaan** als:
+> Toegang tot het Bemiddelingsregister via query [`QBR-0011-CIZ.graphql`](QBR-0011-CIZ.graphql) is **alleen toegestaan** als:
 >
 > - Parameter **`wlzIndicatieID`** is meegegeven in de query
 > - De **access-token** bevat een geldige `kvkcode` van het CIZ.
@@ -109,4 +109,4 @@ nvt
 
 
 ---
-Ga naar [UC beschrijving raadplegen](@@@) -- Terug naar [Raadplegen](/raadplegen/README.md)
+Ga naar [UC beschrijving raadplegen](UCBR-0011-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
