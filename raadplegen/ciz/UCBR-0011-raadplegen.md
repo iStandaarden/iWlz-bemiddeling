@@ -19,7 +19,7 @@ flowchart LR
 
 ## Use Case beschrijving
 
-**Titel:** Raadplegen van de zorgkantoren die als uitvoerend zorgkantoor betrokken zijn of waren bij de Wlz indicatie door CIZ </br>
+**Titel:** Raadplegen van de zorgkantoren die als uitvoerend zorgkantoor betrokken zijn of waren bij de Wlz indicatie door CIZ </br></br>
 **Actoren:** Het CIZ verantwoordelijk voor het op de hoogte stellen van de zorgkantoren die als uitvoerend zorgkantoor betrokken zijn of waren bij een nieuwe, gewijzigde of verwijdere VervallenGeldigheid.
 
 ### Precondities:
