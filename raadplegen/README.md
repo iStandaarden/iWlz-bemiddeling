@@ -49,7 +49,8 @@ Kies een use-case voor de beschrijving van het raadplegen of controleren van de 
 ### CIZ
 | Doel | toelichting | raadplegen | toegangscontrole |
 | :-- |:-- | :-- | :-- |
-| Bij Indicatie betrokken zorgkantoren raadplegen | **Als** CIZ, **wil ik** bij wijzigingen in een Wlz-indicatie het bemiddelingsregister kunnen raadplegen, **zodat** ik de betrokken zorgkantoren tijdig kan informeren over de wijziging. | [UCBR-0010-raadplegen](/raadplegen/ciz/UCBR-0010-raadplegen.md) | [UCBR-0010-toegangscontrole](/raadplegen/ciz/UCBR-0010-toegangscontrole.md) |
+| Bij Indicatie betrokken zorgkantoren raadplegen | **Als** CIZ, **wil ik** bij wijzigingen in een Wlz-indicatie het bemiddelingsregister kunnen raadplegen, **zodat** ik de betrokken zorgkantoren tijdig kan informeren over de wijziging. | [UCBR-0010-raadplegen](/raadplegen/ciz/UCBR-0010-raadplegen.md) | [UCBR-0010-toegangscontrole](/raadplegen/ciz/UCBR-0010-toegangscontrole.md) | 
+| Bij indicatie betrokken uitvoerende zorgkantoren raadplegen | **Als** CIZ, **wil ik** bij wijzigingen in VervallenGeldigheid het bemiddelingsregister raadplegen, **zodat** ik de betrokken uitvoerende zorgkantoren tijdig kan informeren over de wijziging. | [UCBR-0011-raadplegen](/raadplegen/ciz/UCBR-0011-raadplegen.md) | [UCBR-0011-toegangscontrole](/raadplegen/ciz/UCBR-0011-toegangscontrole.md) |
 
 ### Zorgaanbieder
 | Doel | toelichting | raadplegen | toegangscontrole |
