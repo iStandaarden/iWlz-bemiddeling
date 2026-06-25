@@ -4,6 +4,10 @@
 
 Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van het iWlz-netwerkmodel.
 
+> [!NOTE] 
+> [![Latest Release](https://img.shields.io/github/v/release/iStandaarden/iWlz-bemiddeling?label=latest%20release&style=flat-square)](https://github.com/iStandaarden/iWlz-bemiddeling/releases)
+> ![Release Date](https://img.shields.io/github/release-date/iStandaarden/iWlz-bemiddeling?style=flat-square)
+
 **Inhoud**
 - [iWlz bemiddeling 1](#iwlz-bemiddeling-1)
   - [Onderdelen](#onderdelen)
