@@ -42,7 +42,7 @@ Notificatie aan de zorgaanbieder die betrokken is bij de zorglevering aan een cl
 |---	|---	|
 | **Gegeven** 	| een bemiddeling met bestaande bemiddelingsspecificaties 	|
 | **Als** 	| er bij de bemiddeling een nieuwe bemiddelingsspecificatie wordt geregistreerd of een bestaande wordt gewijzigd (daarvoor wordt de notificatie verzonden met type NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER of GEWIJZIGDE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER) 	|
-| **En** 	| als er andere bemiddelingsspecificaties zijn binnen dezelfde bemiddeling die overlappen met de nieuwe of gewijzigd Bemiddelingspecificatie 	|
+| **En** 	| als er andere bemiddelingsspecificaties zijn binnen dezelfde bemiddeling die overlappen met de nieuwe of gewijzigde Bemiddelingspecificatie 	|
 | **En** 	| die overlappende bemiddelingspecificaties zijn, op het moment dat de nieuwe bemiddelingsspecificatie wordt geregistreerd of de gewijzigde bemiddelingsspecificatie wordt gewijzigd, niet beëindigd  	|
 | **Dan** 	| wordt er voor de zorgaanbieder(s) van die overlappende specificaties een notificatie INFORMATIEVE_BEMIDDELINGSPECIFICATIE_ZORGAANBIEDER opgesteld 	|
 | ~~*Als*~~   | ~~de ontvangende zorgaanbieder bij het verantwoordelijke zorgkantoor hoort~~ |
