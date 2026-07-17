@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - Bemiddelingsregister-*
+    # wanneer er bijvoorbeeld alleen wijzigingen in de gql-specificaties directory zijn, dan wordt er een release gemaakt  
+    # paths:
+    #   - 'gql-specificatie/**'
 jobs:
   publish:
     runs-on: ubuntu-latest
