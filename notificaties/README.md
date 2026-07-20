@@ -29,8 +29,11 @@ Per notificatie is beschreven wat de aanleiding is voor het versturen van een no
 | [NIEUWE_OVERDRACHT_ZORGKANTOOR](/notificaties/nieuwe_overdracht_zorgkantoor.md) | Notificatie aan het nieuwe verantwoordelijke zorgkantoor als het huidige (oude) verantwoordelijke zorgkantoor een Overdracht heeft geregistreerd. | VERPLICHT |
 | [GEWIJZIGDE_OVERDRACHT_ZORGKANTOOR](/notificaties/gewijzigde_overdracht_zorgkantoor.md) | Notificatie aan het nieuwe verantwoordelijke zorgkantoor als het huidige (oude) verantwoordelijke zorgkantoor een Overdracht heeft gewijzigd. | VERPLICHT |
 | [VERWIJDERDE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](/notificaties/verwijderde_bemiddelingspecificatie_zorgkantoor.md) | Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een Bemiddelingspecificatie van een gecontracteerde zorgaanbieder (van dit uitvoerende zorgkantoor) heeft verwijderd. | VERPLICHT |
+| [INFORMATIEVE_NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](informatieve_nieuwe_bemiddelingspecificatie_zorgkantoor.md) | Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een nieuwe Bemiddelingspecificatie  heeft geregistreerd ,die niet voor dat uitvoerende zorgkantoor is of voor het verantwoordelijke zorgkantoor zelf. | VERPLICHT* |
+| [INFORMATIEVE_GEWIJZIGDE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](./informatieve_gewijzigde_bemiddelingspecificatie_zorgkantoor.md) | Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een  Bemiddelingspecificatie heeft gewijzigd, die niet voor dat uitvoerende zorgkantoor is of voor het verantwoordelijke zorgkantoor zelf.  |VERPLICHT* |
+| [INFORMATIEVE_VERWIJDERDE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR](./informatieve_verwijderde_bemiddelingspecificatie_zorgkantoor.md) |Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een Bemiddelingspecificatie  heeft verwijderd, die niet van dat uitvoerende zorgkantoor is of voor het verantwoordelijke zorgkantoor zelf.) | VERPLICHT* |
 
-
+* *Verplicht zolang er geen abonnementenregistratie beschikbaar is*
 
 ## Meer informatie
 Meer informatie over notificeren in het [Afsprakenstelsel iWlz](https://wlz.atlassian.net/wiki/x/5AlgAQ?atlOrigin=eyJpIjoiNzMyN2E3MjM3YjQwNGQ4MmFkZDgwNWY0ZmE0MDIzMGEiLCJwIjoiYyJ9): [link](https://wlz.atlassian.net/wiki/x/5AlgAQ?atlOrigin=eyJpIjoiNzMyN2E3MjM3YjQwNGQ4MmFkZDgwNWY0ZmE0MDIzMGEiLCJwIjoiYyJ9)

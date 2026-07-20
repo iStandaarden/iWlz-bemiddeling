@@ -178,7 +178,7 @@ stateDiagram
 | --: | :-- |
 | 1. |Ontvangst GraphQL-request + access-token door **PEP** |
 | 2. |De **PEP** valideert de access-token en geeft na goedkeur het request door aan de PDP |
-| 3. |De **PDP** voert de volgende stappen uit:<br/>1. controleer of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Laat PIP context-data ophalen <br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
+| 3. |De **PDP** voert de volgende stappen uit:<br/>1. controleer of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Laat **PIP** context-data ophalen;<br/>4. Beoordeel de aanwezigheid van de context-data en de voorwaarden van toegang. <br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
 | 4. | Het zorgkantoor krijgt toegang tot het bemiddelingsregister.|
 | 5. | *Einde* |
 
@@ -191,4 +191,4 @@ nvt
 
 
 ---
-Ga naar [UC beschrijving raadplegen](UCBR-0004-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
+Ga naar [UC beschrijving raadplegen](UCBR-0012-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
