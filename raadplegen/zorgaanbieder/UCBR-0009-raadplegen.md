@@ -30,7 +30,7 @@ flowchart LR
 ### Autorisatie:
 Een zorgaanbieder mag de rol van Regiehouder raadplegen nadat deze aanbieder als Regiehouder is geregistreerd. 
 - Volledige autorisatieregel: [BRA0012](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0012/)
-- Autorisatiematrix: [BRA0012](https://github.com/iStandaarden/iWlz-Autorisatiematrix/blob/main/autorisatiematrix_bemiddelingsregister.md)
+- Autorisatiematrix: [BRA0012](../autorisatiematrix_bemiddelingsregister.md)
 
 **Trigger:**
 - Een zorgaanbieder wil de **eigen** toegekende regierol en periode raadplegen.
