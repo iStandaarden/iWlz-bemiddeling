@@ -30,7 +30,7 @@ flowchart LR
 ### Autorisatie:
 Het CIZ mag voor het beoordelen van recht op Wlz de entiteit Bemiddeling in het Bemiddelingsregister raadplegen die hoort bij de Wlz-indicatie waarin het CIZ een wijziging heeft doorgevoerd. 
 - Volledige autorisatieregel: [BRA0011](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0011/)
-- Autorisatiematrix: [BRA0011](https://github.com/iStandaarden/iWlz-Autorisatiematrix/blob/main/autorisatiematrix_bemiddelingsregister.md)
+- Autorisatiematrix: [BRA0011](../autorisatiematrix_bemiddelingsregister.md)
 
 **Trigger:**
 - Het CIZ wil raadplegen welk zorgkantoor betrokken is (geweest) bij een gewijzigde Wlz indicatie.

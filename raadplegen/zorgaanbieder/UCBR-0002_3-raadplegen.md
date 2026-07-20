@@ -31,7 +31,7 @@ flowchart LR
 ### Autorisatie:
 Een zorgaanbieder mag voor het leveren van zorg aan een cliënt de eigen toewijzing raadplegen. 
 - Volledige autorisatieregel: [BRA0002](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0002/), [BRA0004](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0004/), [BRA0005](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0005/), [BRA0012](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0012/)
-- Autorisatiematrix: [BRA0002, BRA0004, BRA0005, BRA0012](https://github.com/iStandaarden/iWlz-Autorisatiematrix/blob/main/autorisatiematrix_bemiddelingsregister.md)
+- Autorisatiematrix: [BRA0002, BRA0004, BRA0005, BRA0012](../autorisatiematrix_bemiddelingsregister.md)
 
 **Trigger:**
 - Een zorgaanbieder wil de **eigen** toegewezen bemiddelingspecificatie, de **informatieve** bemiddelingsspecificatie, de **regiehouder** en aanvullende client gegevens raadplegen voor het leveren van zorg aan een cliënt.
