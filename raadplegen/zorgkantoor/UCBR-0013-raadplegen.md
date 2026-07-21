@@ -1,4 +1,4 @@
-# Direct raadplegen van de Regiehouder door het (bovenregionaal) uitvoerend zorgkantoor n.a.v. Informatieve notificaties (UCBR-0012) 
+# Direct raadplegen van de Regiehouder door het (bovenregionaal) uitvoerend zorgkantoor n.a.v. Informatieve notificaties (UCBR-0013) 
 
 ```mermaid
 ---
@@ -23,7 +23,7 @@ flowchart LR
 **Actoren:** Zorgkantoor betrokken bij de levering van zorg aan een client uit een andere regio.   
 
 ### Precondities:
-- De Regihouder is opgenomen in het Bemiddelingsregister.
+- De Regiehouder is opgenomen in het Bemiddelingsregister.
 - Het zorgkantoor is betrokken bij de levering van zorg aan de client door de registratie van een bemiddelingspecificatie door het verantwoordelijk zorgkantoor die bij dezelfde Bemiddeling hoort als de te raadplegen Regiehouder.
 
 
@@ -41,7 +41,7 @@ Een zorgkantoor mag voor het toeleiden van de client de Regiehouders raadplegen 
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** |
 |---|---|---|---|
-| [**QBR-0013-ZKu**](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) | Op basis van de (ontvangen) notificatie de regiehouder raadplegen | `regiehouderID` | Regiehouder |
+| [**QBR-0013-ZKu**](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) | Op basis van de (ontvangen) notificatie en de eigen Uzovicode de regiehouder raadplegen | `regiehouderID`, `bemiddelingspecificatieID`, eigen `uzoviCode` | Regiehouder (en optioneel Bemiddeling, eigen Bemiddelingspecificatie en Client) |
 
 ## **Proces raadplegen**
 
