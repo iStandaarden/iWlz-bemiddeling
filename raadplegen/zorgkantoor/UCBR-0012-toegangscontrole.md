@@ -7,12 +7,12 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 ## Toegangscontrole PDP
 ### Subject
 - **Entiteit:** Zorgkantoor (bovenregionaal)
-- **Kenmerk:** In bezit van een access-token met daarin de eigen `uzovicode`
+- **Kenmerk:** In bezit van een access-token met daarin de eigen `uzoviCode`
 
 
 ### **Action**
 - **Type:** `raadplegen` (read)
-- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0012-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0012-ZKu.graphql) op het bemiddelingsregister door een zorgkantoor.
+- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0012-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0012-ZKu.graphql) op het Bemiddelingsregister door een zorgkantoor.
 
 
 ### **Resource**
@@ -68,10 +68,10 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
     1. **Geen enkele** `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata.   
       Resultaat: **Geen toegang**
     2. **Tenminste 1** `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata moet voldoen aan de volgende overlap-voorwaarden.  
-      Er moet beoordeeld worden of tenminste 1 `Bemiddelingspecificatie` overlapt heeft met de te raadplegen `Bemiddelingspecificatie` waarvan:
+      Er moet beoordeeld worden of tenminste 1 `Bemiddelingspecificatie` overlap heeft met de te raadplegen `Bemiddelingspecificatie` waarvan:
 
         1. de `eigen.bspec.toewijzingIngangsdatum` *kleiner of gelijk* is aan de `opgevraagde.bspec.toewijzingEinddatum` ***of***  
-          de `eigen.bspec.vaststellingsmoment` *kleiner of gelijk* is aan de `opgevraagde.bspec.toewijzingeinddatum`;  
+          de `eigen.bspec.vaststellingMoment` *kleiner of gelijk* is aan de `opgevraagde.bspec.toewijzingEinddatum`;  
           **èn**
         2. de `eigen.bspec.toewijzingEinddatum` is null (leeg) ***of***  
           de `eigen.bspec.toewijzingEinddatum` *groter of gelijk* is aan de `opgevraagde.bspec.toewijzingIngangsdatum` ***of***  
@@ -92,11 +92,10 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 ### Resultaat
 
-Toegang tot het Bemiddelingsregister via query [`QBR-0004-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0004-ZKu.graphql) is **alleen toegestaan** als:
+Toegang tot het Bemiddelingsregister via query [`QBR-0012-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0012-ZKu.graphql) is **alleen toegestaan** als:
 
 - Parameter **`bemiddelingspecificatieID`** is meegegeven in de query
 - De access-token bevat een geldige **`uzovicode`**
-- De in de query meegegeven `uzovicode` komt overeen met de `uzovicode` in de access-token; 
 - de PIP raadpleging context-data oplevert die volgens de gestelde voorwaarden toegang geeft.
 
 Als aan alle voorwaarden is voldaan, mogen de nodes `Bemiddelingspecificatie`, `Bemiddeling` en `Client` die horen bij deze `Bemiddelingspecificatie` direct worden opgevraagd.
@@ -183,11 +182,6 @@ stateDiagram
 | 5. | *Einde* |
 
 
-## Toegangscontrole PIP:
-```gql
-nvt
-
-```
 
 
 ---
