@@ -23,9 +23,12 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 
 ### **Context**
+
 **Query-parameters vereist:** De `bemiddelingspecificatieID` moet aanwezig zijn in de query
 
-**Toegangsvoorwaarde:**  Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
+**Toegangsvoorwaarde:**  
+
+Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
 
 1. Ophalen van benodigde context data (PIP)
     Input:
@@ -166,7 +169,7 @@ stateDiagram
   error:geen toegang tot Resource
 
   access:toegang tot Resource
-  resource: Query mag door naar Indicatieregister
+  resource: Query mag door naar Bemiddelingsregister
   style validerenR,checkInput01,checkInput02,checkInput03,checkOVerlap fill:#FFD600
   style error fill:#D50000
   style access,Query,resource fill:#00C853

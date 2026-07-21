@@ -18,48 +18,54 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 ### **Resource**
 - **Type:** `Bemiddelingsregister`
 - **ID:** `regiehouderID`
-- **Beperking:** Alleen toegang tot gegevens waarvoor het zorgkantoor een toewijzing heeft die overlap heeft met de geraadpleegde toewijzing
-- **Inhoud:** Alleen de nodes Bemiddelingspecificatie en de gerelateerde Bemiddeling en Client die horen bij de opgevraagde Bemiddelingspecificatie, mogen direct worden opgevraagd.
+- **Beperking:** Alleen toegang tot gegevens waarvoor het zorgkantoor een toewijzing heeft die overlap heeft met de geraadpleegde regiehouder
+- **Inhoud:** Alleen de specifieke Bemiddelingspecificatie, de gerelateerde Bemiddeling en Client die horen bij de opgevraagde Regiehouder, mogen direct worden opgevraagd.
 
 
 ### **Context**
-**Query-parameters vereist:** De `regiehouderID` moet aanwezig zijn in de query
+**Query-parameters vereist:** De `regiehouderID`, `bemiddelingspecificatieID` en `uzovicode` moeten aanwezig zijn in de query
 
 **Toegangsvoorwaarde:**  Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
 
 1. Ophalen van benodigde context data (PIP)
     Input:
-    - `regiehouderID` uit de raadpleeg-query
-    - `uzoviCode` uit de accesstoken
+    - `regiehouderID` - uit de raadpleeg-query
+    - `uzoviCode` - uit de raadpleeg-query
+    - `bemiddelingspecificatieID` - uit de raadpleeg-query  
 
     ```graphQL
-      query PIPContextDataRegiehouder (
-        $regiehouderID: UUID! # overgenomen uit query
-        $uzoviToken: String! # overgenomen uit accesstoken
-      ) {
-        # data van regiehouder
-        regiehouder (where:  {
-          regiehouderID:  {
-              eq: $regiehouderID 
-          }
-        }) {
-          regiehouderID
-          ingangsdatum
-          einddatum
-          bemiddeling{
-            # data van aanwezige bemddelingspecificaties bij regiehouder
-            bemiddelingspecificatie (where:  {
-              uitvoerendZorgkantoor:  {
-                  eq: $uzoviToken
-              }
-            }) {
-              toewijzingIngangsdatum
-              toewijzingEinddatum
-              vaststellingMoment
+    query PIPContextDataRegiehouder (
+      $regiehouderID: UUID!             # uit de raadpleeg-query
+      $uzovi: String!                   # uit de raadpleeg-query
+      $bemiddelingspecificatieID: UUID! # uit de raadpleeg-query
+    ) {
+      regiehouder (where:  {
+        regiehouderID:  {
+            eq: $regiehouderID 
+        }
+      }) {
+        regiehouderID
+        ingangsdatum
+        einddatum
+        bemiddeling{
+          bemiddelingspecificatie (where:  {
+            and: [ {
+                bemiddelingspecificatieID:  {
+                  eq: $bemiddelingspecificatieID
+                }
             }
+            { uitvoerendZorgkantoor:  {
+                eq: $uzovi
+            }}]
+          })  {
+            bemiddelingspecificatieID
+            toewijzingIngangsdatum
+            toewijzingEinddatum
+            vaststellingMoment
           }
         }
       }
+    }
     ```
 
 2. Bepalen toegang op basis van de verkregen context-data uit stap 1.
@@ -70,17 +76,16 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
     1. **Geen enkele** `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata.   
       Resultaat: **Geen toegang**
-    2. **Tenminste 1** `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata moet voldoen aan de volgende overlap-voorwaarden.  
-      Er moet beoordeeld worden of tenminste 1 `Bemiddelingspecificatie` overlapt heeft met de te raadplegen `Bemiddelingspecificatie` waarvan:
+    2. De `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata moet voldoen aan de volgende overlap-voorwaarden.  
+      Er moet beoordeeld worden of de `Bemiddelingspecificatie` overlap heeft met de te raadplegen `Bemiddelingspecificatie` waarvan:
 
-        1. de `eigen.bspec.toewijzingIngangsdatum` *kleiner of gelijk* is aan de `opgevraagde.bspec.toewijzingEinddatum` ***of***  
-          de `eigen.bspec.vaststellingsmoment` *kleiner of gelijk* is aan de `opgevraagde.bspec.toewijzingeinddatum`;  
+        1. de `eigen.bspec.toewijzingIngangsdatum` *kleiner of gelijk* is aan de `opgevraagde.regiehouder.einddatum` ***of***  
+          de `eigen.bspec.vaststellingsmoment` *kleiner of gelijk* is aan de `opgevraagde.regiehouder.einddatum`;  
           **èn**
         2. de `eigen.bspec.toewijzingEinddatum` is null (leeg) ***of***  
-          de `eigen.bspec.toewijzingEinddatum` *groter of gelijk* is aan de `opgevraagde.bspec.toewijzingIngangsdatum` ***of***  
-          de `eigen.bspec.toewijzingEinddatum` *groter of gelijk* is aan de `opgevraagde.bspec.vaststellingMoment`  
+          de `eigen.bspec.toewijzingEinddatum` *groter of gelijk* is aan de `opgevraagde.regiehouder.ingangsdatum`  
           
-      Voldoet geen van de gevonden `Bemiddelingspecificatie` van het raadplegende zorgkantoor aan de overlap voorwaarden?  
+      Voldoet de gevonden `Bemiddelingspecificatie` van het raadplegende zorgkantoor niet aan de overlap voorwaarden?  
       Resultaat: **Geen toegang**
    
 3. De toegang geldt t/m 31 mei van het jaar dat volgt op de einddatum van de eigen Bemiddelingspecificatie (`eigen.bspec.toewijzingEinddatum`).
@@ -89,23 +94,22 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
     1. is er een `eigen.bspec.toewijzingEinddatum` is null (leeg) -> Resultaat: **Toegang** 
     2. Valt de datum van raadplegen *voor of op* 31 mei van het jaar dat volgt op de grootst gevonden `eigen.bspec.toewijzingEinddatum` -> Resultaat: **Toegang**
    
-   Voldoet geen van de gevonden `Bemiddelingspecificatie` van het raadplegende zorgkantoor aan de toegangs voorwaarden?  
+   Voldoet de `Bemiddelingspecificatie` van het raadplegende zorgkantoor aan de toegangsvoorwaarden?  
    Resultaat: **Geen toegang**
 
 
 ### Resultaat
 
-Toegang tot het Bemiddelingsregister via query [`QBR-0004-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0004-ZKu.graphql) is **alleen toegestaan** als:
+Toegang tot het Bemiddelingsregister via query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) is **alleen toegestaan** als:
 
-- Parameter **`bemiddelingspecificatieID`** is meegegeven in de query
-- De access-token bevat een geldige **`uzovicode`**
+- Parameters **`bemiddelingspecificatieID`**, **`uzovicode`**, **`regiehouderID`** is meegegeven in de query
 - De in de query meegegeven `uzovicode` komt overeen met de `uzovicode` in de access-token; 
 - de PIP raadpleging context-data oplevert die volgens de gestelde voorwaarden toegang geeft.
 
-Als aan alle voorwaarden is voldaan, mogen de nodes `Bemiddelingspecificatie`, `Bemiddeling` en `Client` die horen bij deze `Bemiddelingspecificatie` direct worden opgevraagd.
+Als aan alle voorwaarden is voldaan, mogen de `Regiehouder`, de specifieke `Bemiddelingspecificatie`, `Bemiddeling` en `Client` die horen bij deze `Regiehouder` direct worden opgevraagd.
 
 
-## Toegangscontrole-flows Zorgkantoor: QBR-0012-ZKu.graphql
+## Toegangscontrole-flows Zorgkantoor: QBR-0013-ZKu.graphql
 
 Beschrijving van het autorisatieproces door de PEP.
 
@@ -159,17 +163,17 @@ stateDiagram
   PEP:Autorisatie controle PEP
   PDP:Toegangscontrole PDP
   PIP:Contextinformatie controle PIP
-  indienen: Ontvang QBR-0012-ZKu + Access token
+  indienen: Ontvang QBR-0013-ZKu + Access token
   validerenT: Valideer access token
   validerenR: Valideer Request
-  checkInput01:bemiddelingspecificatieID aanwezig?
+  checkInput01:regiehouderID, uzovicode, bemiddelingspecificatieID aanwezig?
   checkInput02:Contextdata ophalen
   checkInput03:Contextdata aanwezig?
   checkOVerlap:Overlapping contextdata aanwezig en binnen toegangsperiode?
   error:geen toegang tot Resource
 
   access:toegang tot Resource
-  resource: Query mag door naar Indicatieregister
+  resource: Query mag door naar Bemiddelingsregister
   style validerenR,checkInput01,checkInput02,checkInput03,checkOVerlap fill:#FFD600
   style error fill:#D50000
   style access,Query,resource fill:#00C853
@@ -194,4 +198,4 @@ nvt
 
 
 ---
-Ga naar [UC beschrijving raadplegen](UCBR-0012-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
+Ga naar [UC beschrijving raadplegen](UCBR-0013-raadplegen.md) -- Terug naar [Raadplegen](/raadplegen/README.md)
