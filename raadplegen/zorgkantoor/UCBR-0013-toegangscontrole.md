@@ -94,7 +94,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
     1. is er een `eigen.bspec.toewijzingEinddatum` is null (leeg) -> Resultaat: **Toegang** 
     2. Valt de datum van raadplegen *voor of op* 31 mei van het jaar dat volgt op de grootst gevonden `eigen.bspec.toewijzingEinddatum` -> Resultaat: **Toegang**
    
-   Voldoet de `Bemiddelingspecificatie` van het raadplegende zorgkantoor aan de toegangsvoorwaarden?  
+   Voldoet de `Bemiddelingspecificatie` van het raadplegende zorgkantoor **NIET** aan de toegangsvoorwaarden?  
    Resultaat: **Geen toegang**
 
 
