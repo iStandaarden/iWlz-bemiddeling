@@ -4,7 +4,7 @@
 
 Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een  Bemiddelingspecificatie heeft gewijzigd, die niet voor dat uitvoerende zorgkantoor is of voor het verantwoordelijke zorgkantoor zelf. 
 
-Het uitvoerende (bovenregionale) zorgkantoor is daarmee informatief geïnformeerd over een wijziging van een bemiddelingsspecificatie ,naast een overlappende bemiddelingspecificatie van dat zorgkantoor zelf.
+Het uitvoerende (bovenregionale) zorgkantoor is daarmee informatief geïnformeerd over een wijziging van een bemiddelingsspecificatie, naast een overlappende bemiddelingspecificatie van dat zorgkantoor zelf.
 
 De notificatie bevat informatie waarmee dat zorgkantoor de Bemiddelingspecificatie kan raadplegen. 
 
@@ -16,8 +16,8 @@ De notificatie bevat informatie waarmee dat zorgkantoor de Bemiddelingspecificat
 ## Instructie
 **Stel notificatie op voor:** 
 elk uitvoerende zorgkantoor (`Bemiddelingspecificatie.uitvoerendZorgkantoor`) met een Bemiddelingspecificatie waarvan op het moment van wijziging van een Bemiddelingspecificatie: 
-- de toewijzingIngangsdatum (of eerder vaststellingMoment) van de eigen bemiddelingspecificatie voor of gelijk is aan de toewijzingEinddatum (of later vaststellingMoment) van de gewijzigde bemiddelingspecificatie en 
-- de toewijzingEinddatum van de eigen bemiddelingspecificatie na of gelijk is aan de toewijzingIngangsdatum (of eerder vaststellingMoment) van de gewijzigde bemiddelingspecificatie.
+- de toewijzingIngangsdatum (of eerder vaststellingMoment) van de eigen Bemiddelingspecificatie voor of gelijk is aan de toewijzingEinddatum (of later vaststellingMoment) van de gewijzigde Bemiddelingspecificatie en 
+- de toewijzingEinddatum van de eigen Bemiddelingspecificatie na of gelijk is aan de toewijzingIngangsdatum (of eerder vaststellingMoment) van de gewijzigde Bemiddelingspecificatie.
 - en de toewijzingEinddatum van de eigen Bemiddelingspecificatie kleiner of gelijk is aan  31 mei van het jaar dat volgt op de einddatum van die eigen Bemiddelingspecificatie.
 
 ## Type
@@ -62,7 +62,7 @@ trigger:- Bemiddelingspecificatie
     opstellen: - overlappende bemiddelingspecificatie
     opstellen: - als dit een ander is dan het verantwoordelijke zorgkantoor
     opstellen: - en niet hetzelfde als het uitvoerende zorgkantoor van de 
-    opstellen: - nieuwe bemiddelingspecificatie zelf
+    opstellen: - gewijzigde bemiddelingspecificatie zelf
   verstuur:Verstuur 
   verstuur:notificatie
   ontvanger:Uitvoerend zorgkantoor
