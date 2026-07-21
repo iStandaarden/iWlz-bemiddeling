@@ -166,7 +166,7 @@ stateDiagram
   error:geen toegang tot Resource
 
   access:toegang tot Resource
-  resource: Query mag door naar Indicatieregister
+  resource: Query mag door naar Bemiddelingsregister
   style validerenR,checkInput01,checkInput02,checkInput03,checkOVerlap fill:#FFD600
   style error fill:#D50000
   style access,Query,resource fill:#00C853
