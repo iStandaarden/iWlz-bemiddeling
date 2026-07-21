@@ -52,7 +52,7 @@ stateDiagram
   trigger:- Registratie van
   trigger:- nieuwe Regiehouder
   opstellen:Stel notificatie
-  opstellen:- GEWIJZIGDE_REGIEHOUDER_ZORGKANTOOR
+  opstellen:- VERWIJDERDE_REGIEHOUDER_ZORGKANTOOR
   opstellen:- voor het uitvoerendzorgkantoor
   opstellen:- in de Bemiddelingspecificatie
   opstellen:- die op moment van verwijdering van een Regiehouder
