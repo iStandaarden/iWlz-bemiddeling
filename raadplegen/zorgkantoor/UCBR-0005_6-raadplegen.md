@@ -31,7 +31,8 @@ flowchart LR
 ### Autorisatie:
 Een zorgkantoor mag voor het toeleiden van de client de Bemiddelingspecificatie raadplegen waarin dit zorgkantoor als uitvoerend zorgkantoor is opgenomen. 
 - Volledige autorisatieregel: [BRA0006](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0006/), [BRA0007](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0007/), [BRA0008](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0008/), [BRA0009](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0009/)
-- Autorisatiematrix: [BRA0006, BRA0007, BRA0008, BRA0009](https://github.com/iStandaarden/iWlz-Autorisatiematrix/blob/main/autorisatiematrix_bemiddelingsregister.md)
+- Autorisatiematrix: [BRA0006, BRA0007, BRA0008, BRA0009](../autorisatiematrix_bemiddelingsregister.md)
+
 
 **Trigger:**
 - Een zorgkantoor wil de **eigen** toegewezen bemiddelingspecificatie, de **informatieve** bemiddelingsspecificatie, de **regiehouder** en aanvullende client gegevens raadplegen voor het leveren van zorg aan een cliënt.

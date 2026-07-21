@@ -30,7 +30,7 @@ flowchart LR
 
 Het CIZ mag voor het beoordelen van recht op Wlz de entiteiten Bemiddeling en Bemiddelingspecificatie in het Bemiddelingsregister raadplegen die horen bij de Wlz-indicatie waar een nieuwe, gewijzigde of verwijdere VervallenGeldidheid voor is geregistreerd.
 - volledige autorisatieregel: [BRA0014](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0014/)
-- Autorisatiematrix: [BRA0014](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/bra0014/)
+- Autorisatiematrix: [BRA0014](../autorisatiematrix_bemiddelingsregister.md)
 
 ### Trigger:
 - Het CIZ wil raadplegen welke zorgkantoren als uitvoerend zorgkantoor betrokken zijn of waren bij een Wlz-indicatie waar een VervallenGeldigheid voor is geregistreerd, gewijzigd of verwijderd. 
