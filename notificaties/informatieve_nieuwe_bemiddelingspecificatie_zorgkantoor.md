@@ -52,6 +52,7 @@ stateDiagram
     trigger:- Registratie van
     trigger:- nieuwe Bemiddelingspecificatie
   opstellen: Stel notificatie
+    opstellen: - INFORMATIEVE_NIEUWE_BEMIDDELINGSPECIFICATIE_ZORGKANTOOR
     opstellen: - voor het uitvoerendZorgkantoor
     opstellen: - met een met de nieuwe bemiddelingspecificatie
     opstellen: - overlappende bemiddelingspecificatie
