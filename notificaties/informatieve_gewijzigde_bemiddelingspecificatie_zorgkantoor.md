@@ -15,7 +15,7 @@ De notificatie bevat informatie waarmee dat zorgkantoor de Bemiddelingspecificat
 
 ## Instructie
 **Stel notificatie op voor:** 
-elk uitvoerende zorgkantoor (`Bemiddelingspecificatie.uitvoerendZorgkantoor`) met een Bemiddelingspecificatie waarvan op het moment van wijziging van een Bemiddelingspecificatie: 
+elk uitvoerend zorgkantoor (`Bemiddelingspecificatie.uitvoerendZorgkantoor`) met een Bemiddelingspecificatie waarvan op het moment van wijziging van een Bemiddelingspecificatie: 
 - de toewijzingIngangsdatum (of eerder vaststellingMoment) van de eigen Bemiddelingspecificatie voor of gelijk is aan de toewijzingEinddatum (of later vaststellingMoment) van de gewijzigde Bemiddelingspecificatie en 
 - de toewijzingEinddatum van de eigen Bemiddelingspecificatie na of gelijk is aan de toewijzingIngangsdatum (of eerder vaststellingMoment) van de gewijzigde Bemiddelingspecificatie.
 - en de toewijzingEinddatum van de eigen Bemiddelingspecificatie kleiner of gelijk is aan  31 mei van het jaar dat volgt op de einddatum van die eigen Bemiddelingspecificatie.
