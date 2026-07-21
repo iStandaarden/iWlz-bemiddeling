@@ -41,7 +41,7 @@ Een uitvoerend zorgkantoor mag voor het toeleiden van de cliënt de (informatiev
 
 | **Query ID** | **Beschrijving** | **Verplichte input** | **resultaat** |
 |---|---|---|---|
-| [**QBR-0012-ZKu**](/gql-query/zorgkantoor/QBR-0012-ZKu.graphql) | Op basis van de (ontvangen) bemiddelingspecificatieID en eigen identificatie, de Bemiddelingspecificatie, Bemiddeling en Cliënt gegevens raadplegen | `bemiddelingspecificatieID`, `uzoviCode` | Bemiddelingspecificatie /  Bemiddeling / Client |
+| [**QBR-0012-ZKu**](/gql-query/zorgkantoor/QBR-0012-ZKu.graphql) | Op basis van de (ontvangen) bemiddelingspecificatieID, de Bemiddelingspecificatie, Bemiddeling en Cliënt gegevens raadplegen | `bemiddelingspecificatieID` | Bemiddelingspecificatie /  Bemiddeling / Client |
 
 ## **Proces raadplegen**
 
