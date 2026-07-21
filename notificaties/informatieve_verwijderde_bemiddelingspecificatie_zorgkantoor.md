@@ -13,9 +13,9 @@ Het uitvoerende (bovenregionale) zorgkantoor is daarmee informatief geïnformeer
 
 ## Instructie
 **Stel notificatie op voor:**   
- elk uitvoerende zorgkantoor (`Bemiddelingspecificatie.uitvoerendZorgkantoor`) met een Bemiddelingspecificatie waarvan op het moment van verwijdering van een Bemiddelingspecificatie: 
- - de toewijzingIngangsdatum (of eerder vaststellingsmoment) van de eigen bemiddelingspecificatie voor of gelijk was aan de toewijzingEinddatum (of later vaststellingMoment) van de gewijzigde bemiddelingspecificatie en 
- - de toewijzingEinddatum van de eigen bemiddelingspecificatie na of gelijk was aan de toewijzingIngangsdatum (of eerder vaststellingMoment) van de gewijzigde bemiddelingspecificatie.
+ elk uitvoerend zorgkantoor (`Bemiddelingspecificatie.uitvoerendZorgkantoor`) met een Bemiddelingspecificatie waarvan op het moment van verwijdering van een Bemiddelingspecificatie: 
+ - de toewijzingIngangsdatum (of eerder vaststellingsmoment) van de eigen Bemiddelingspecificatie voor of gelijk was aan de toewijzingEinddatum (of later vaststellingMoment) van de gewijzigde Bemiddelingspecificatie en 
+ - de toewijzingEinddatum van de eigen Bemiddelingspecificatie na of gelijk was aan de toewijzingIngangsdatum (of eerder vaststellingMoment) van de gewijzigde Bemiddelingspecificatie.
  - en de toewijzingEinddatum van de eigen Bemiddelingspecificatie kleiner of gelijk is aan  31 mei van het jaar dat volgt op de einddatum van die eigen Bemiddelingspecificatie.
 
 ## Type
