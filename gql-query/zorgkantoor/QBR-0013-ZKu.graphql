@@ -1,0 +1,40 @@
+# QBR-0013-ZKu.graphql
+# Query voor uitvoerend Zorgkantoor op Bemiddelingsregister
+# Verplichte input:
+#   - regiehouderID = te raadplegen regiehouder
+#   - uzovi = uitvoerend Zorgkantoor
+#   - bemiddelingspecificatieID = bemiddelingspecificatieID uit notificatie
+
+query Regiehouder(
+  $regiehouderID: UUID!             # uit notificatie
+  $uzovi: String!                   # eigen uzovi van uitvoerend Zorgkantoor
+  $bemiddelingspecificatieID: UUID! # uit notificatie
+) {
+  regiehouder(where: { regiehouderID: { eq: $regiehouderID } }) {
+    regiehouderID
+    ingangsdatum
+    einddatum
+    bemiddeling {
+      # meer gegevens bemiddeling toegestaan
+      bemiddelingID
+      bemiddelingspecificatie(
+        where: {
+          and: [
+            { bemiddelingspecificatieID: { eq: $bemiddelingspecificatieID } }
+            { uitvoerendZorgkantoor: { eq: $uzovi } }
+          ]
+        }
+      ) {
+        # meer gegevens deze bemiddelingspecificatie toegestaan
+        toewijzingIngangsdatum
+        toewijzingEinddatum
+        vaststellingMoment
+      }
+      client {
+        # meer gegevens deze client toegestaan
+        bsn
+      }
+    }
+    # Overige gegevens NIET toegestaan met deze query
+  }
+}
