@@ -95,7 +95,7 @@ Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
 
 ### Resultaat
 
-Toegang tot het Bemiddelingsregister via query [`QBR-0004-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0004-ZKu.graphql) is **alleen toegestaan** als:
+Toegang tot het Bemiddelingsregister via query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) is **alleen toegestaan** als:
 
 - Parameter **`bemiddelingspecificatieID`** is meegegeven in de query
 - De access-token bevat een geldige **`uzovicode`**
