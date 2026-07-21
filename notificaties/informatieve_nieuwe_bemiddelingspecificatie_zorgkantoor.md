@@ -2,9 +2,9 @@
 
 ## Documentatie
 
-Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een nieuwe Bemiddelingspecificatie  heeft geregistreerd ,die niet voor dat uitvoerende zorgkantoor is of voor het verantwoordelijke zorgkantoor zelf.
+Notificatie aan het uitvoerende zorgkantoor als het verantwoordelijke zorgkantoor een nieuwe Bemiddelingspecificatie  heeft geregistreerd, die niet voor dat uitvoerende zorgkantoor is of voor het verantwoordelijke zorgkantoor zelf.
 
-Het uitvoerende (bovenregionale) zorgkantoor is daarmee informatief geïnformeerd over de registratie van een nieuwe bemiddelingsspecificatie, naast een overlappende bemiddelingspecificatie van dat zorgkantoor zelf.*
+Het uitvoerende (bovenregionale) zorgkantoor is daarmee informatief geïnformeerd over de registratie van een nieuwe bemiddelingsspecificatie, naast een overlappende bemiddelingspecificatie van dat zorgkantoor zelf.
 
 De notificatie bevat informatie waarmee dat zorgkantoor de Bemiddelingspecificatie kan raadplegen.
 
@@ -14,7 +14,7 @@ De notificatie bevat informatie waarmee dat zorgkantoor de Bemiddelingspecificat
 > de registratie van een Bemiddelingspecificatie in het Bemiddelingsregister
 
 ## Instructie
-**Stel notificatie op voor:** <br/>elk uitvoerende zorgkantoor (`Bemiddelingspecificatie.uitvoerendZorgkantoor`) met een Bemiddelingspecificatie waarvan op het moment van registratie van de nieuwe Bemiddelingspecificatie: <br/> <ol><li>de toewijzingIngangsdatum  (of eerder vaststellingMoment) van de eigen bemiddelingspecificatie voor of gelijk is aan de toewijzingEinddatum (of later vaststellingMoment) van de nieuwe bemiddelingspecificatie en <br/> <li/> de toewijzingEinddatum van de eigen bemiddelingspecificatie na of gelijk is aan de toewijzingIngangsdatum (of eerder vaststellingMoment) van de nieuwe bemiddelingspecificatie.<li/>en de toewijzingEinddatum van de eigen Bemiddelingspecificatie kleiner of gelijk is aan  31 mei van het jaar dat volgt op de einddatum van die eigen Bemiddelingspecificatie.</ol> 
+**Stel notificatie op voor:** <br/>elk uitvoerende zorgkantoor (`Bemiddelingspecificatie.uitvoerendZorgkantoor`) met een Bemiddelingspecificatie waarvan op het moment van registratie van de nieuwe Bemiddelingspecificatie: <br/> <ol><li>de toewijzingIngangsdatum  (of eerder vaststellingMoment) van de eigen Bemiddelingspecificatie voor of gelijk is aan de toewijzingEinddatum (of later vaststellingMoment) van de nieuwe Bemiddelingspecificatie en <br/> <li/> de toewijzingEinddatum van de eigen Bemiddelingspecificatie na of gelijk is aan de toewijzingIngangsdatum (of eerder vaststellingMoment) van de nieuwe Bemiddelingspecificatie.<li/>en de toewijzingEinddatum van de eigen Bemiddelingspecificatie kleiner of gelijk is aan  31 mei van het jaar dat volgt op de einddatum van die eigen Bemiddelingspecificatie.</ol> 
 
 ## Type
 Het type-notificatie: 
