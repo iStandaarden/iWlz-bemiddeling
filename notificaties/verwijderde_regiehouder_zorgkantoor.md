@@ -80,8 +80,8 @@ stateDiagram
 | ontvangerKenmerk | NULL | |
 | eventType | "VERWIJDERDE_REGIEHOUDER_ZORGKANTOOR" | ```"eventType": "VERWIJDERDE_REGIEHOUDER_ZORGKANTOOR"``` |
 | subjectList |  | ```"subjectList": [{```|
-| ../subject | "Bemiddeling/{bemiddelingID}" | "subject": "Bemiddeling/ef88ce35-58fa-4e6d-ac7a-6e298dd211d6"|
-| ../recordID | "Regiehouder/{regiehouderID}" | "recordID": "Regiehouder/ef88ce35-58fa-4e6d-ac7a-6e298dd211d6" |
+| ../subject | "Bemiddelingspecificatie/{bemiddelingspecificatieID}" | "subject": "Bemiddelingspecificatie/4ab74681-aaed-4bd0-aa90-89ba8fbeb1b4"|
+| ../recordID | "Regiehouder/{regiehouderID}" | "recordID": "Regiehouder/64b0c1ba-221b-4db7-b69e-79bc31ef95c4" |
 | | | ```}]``` | 
 
 
