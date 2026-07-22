@@ -2,7 +2,7 @@
 
 Beschrijving van de **toegangscontrole** door de Policy Decision Point (PDP) en indien van toepassing Policy Information Point (PIP).
 
-N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze beschrijving. Zie daarvoor het [Afsprakenstelsel iWlz - nID netwerkstelsel - 5. Policy Enforcement Point.](https://wlz.atlassian.net/wiki/spaces/IWLZAS/pages/229441537/nID+netwerkstelsel#5.-Policy-Enforcement-Point-(PEP))
+N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van deze beschrijving. Zie daarvoor het [Afsprakenstelsel iWlz - nID netwerkstelsel - 5. Policy Enforcement Point.](https://wlz.atlassian.net/wiki/spaces/IWLZAS/pages/229441537/nID+netwerkstelsel#5.-Policy-Enforcement-Point-(PEP))
 
 ## Toegangscontrole PDP
 ### Subject
@@ -12,7 +12,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 ### **Action**
 - **Type:** `raadplegen` (read)
-- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) op het bemiddelingsregister door een zorgkantoor.
+- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) op het Bemiddelingsregister door een zorgkantoor.
 
 
 ### **Resource**
@@ -70,14 +70,14 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 2. Bepalen toegang op basis van de verkregen context-data uit stap 1.
 
-    De beoordeling gaat op basis van de ontvangen contextdata en zal plaatsvinden op basis van de (REGO) policy-beoordeling door de PDP. De policy zal de volgende afweging moeten doorlopen om te bepalen of het raadplegende zorgkantoor toegang krijgt tot de opgevraagde Bemiddelingspecificatie.
+    De beoordeling gaat op basis van de ontvangen contextdata en zal plaatsvinden op basis van de (REGO) policy-beoordeling door de PDP. De policy zal de volgende afweging moeten doorlopen om te bepalen of het raadplegende zorgkantoor toegang krijgt tot de opgevraagde Regiehouder.
 
     Op basis van de context-data uit stap 1, is er:
 
     1. **Geen enkele** `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata.   
       Resultaat: **Geen toegang**
     2. De `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata moet voldoen aan de volgende overlap-voorwaarden.  
-      Er moet beoordeeld worden of de `Bemiddelingspecificatie` overlap heeft met de te raadplegen `Bemiddelingspecificatie` waarvan:
+      Er moet beoordeeld worden of de `Bemiddelingspecificatie` overlap heeft met de te raadplegen `Regiehouder` waarvan:
 
         1. de `eigen.bspec.toewijzingIngangsdatum` *kleiner of gelijk* is aan de `opgevraagde.regiehouder.einddatum` ***of***  
           de `eigen.bspec.vaststellingsmoment` *kleiner of gelijk* is aan de `opgevraagde.regiehouder.einddatum`;  
@@ -102,7 +102,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 Toegang tot het Bemiddelingsregister via query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) is **alleen toegestaan** als:
 
-- Parameters **`bemiddelingspecificatieID`**, **`uzoviCode`**, **`regiehouderID`** is meegegeven in de query
+- Parameters **`bemiddelingspecificatieID`**, **`uzoviCode`**, **`regiehouderID`** zijn meegegeven in de query
 - De in de query meegegeven `uzoviCode` komt overeen met de `uzoviCode` in de access-token; 
 - de PIP raadpleging context-data oplevert die volgens de gestelde voorwaarden toegang geeft.
 
@@ -190,11 +190,7 @@ stateDiagram
 | 5. | *Einde* |
 
 
-## Toegangscontrole PIP:
-```gql
-nvt
 
-```
 
 
 ---
