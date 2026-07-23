@@ -10,11 +10,11 @@ In de komende tijd wordt nieuwe casuïstiek ontwikkeld over onderwerpen die in d
 
 De casuïstiek gaat over fictieve cliënten en cliëntsituaties. De casussen zijn voorbeelden; soms zijn er ook andere mogelijkheden in volgorde of werkwijze. 
 
-**Gebruikte afkortingen:**
-IR Indicatieregister
-BR Bemiddelingsregister
-LR Leveringsregister
-BS Bemiddelingspecificatie
+**Gebruikte afkortingen:**\
+IR Indicatieregister\
+BR Bemiddelingsregister\
+LR Leveringsregister\
+BS Bemiddelingspecificatie\
 
 ### Casuïstiek
 
