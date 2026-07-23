@@ -1,4 +1,4 @@
-# iWlz bemiddeling 1
+# iWlz bemiddeling 1.1
 
 **iWlz-bemiddeling bevat de [Graphql-schema](/gql-specificatie) koppelvlak specificatie en voorgeschreven [GraphQL-query templates](/gql-query/) voor het raadplegen van Wlz Bemiddelinggegevens in het bemiddelingsregister.**
 
