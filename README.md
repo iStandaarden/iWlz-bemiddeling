@@ -18,7 +18,7 @@ Het bemiddelingsregister is in beheer bij de zorgkantoren en is onderdeel van he
     - [Open Agent Policy](#open-agent-policy)
     - [Notificaties](#notificaties)
   - [**Raadplegen Bemiddelingsregister**](#raadplegen-bemiddelingsregister)
-    - [Casuistiek](/iWlz-bemiddeling/raadplegen/casuistiek)
+    - [Casuistiek](/raadplegen/casuistiek)
     - [Autorisatieregels en autorisatiematrix](#autorisatieregels-en-autorisatiematrix)
   - [Versies en Status](#versies-en-status)
   - [Documentatie](#documentatie)
@@ -64,7 +64,7 @@ Als dat patroon niet wordt gevolgd — bijvoorbeeld door ontbrekende autorisatie
 Use-cases beschrijven hoe een deelnemer het register correct raadpleegt.
 
 ## Casuistiek
-Casuïstiek is bedoeld om te laten zien hoe registatie in de verschillende registers plaatsvindt en hoe het proces van notificeren en raadplegen verloopt. De casuïstiek is [hier](/iWlz-bemiddeling/raadplegen/casuistiek) te vinden.
+Casuïstiek is bedoeld om te laten zien hoe registatie in de verschillende registers plaatsvindt en hoe het proces van notificeren en raadplegen verloopt. De casuïstiek is [hier](/raadplegen/casuistiek) te vinden.
 
 ## Autorisatieregels en autorisatiematrix
 De toegang tot gegevens is vastgelegd doormiddel van **Autorisatieregels** en de **Autorisatiematrix**. De [autorisatieregels](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/) zijn te vinden in het Informatiemodel Bemiddelingsregister (via [hier](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/)) en de [autorisatiematrix](/raadplegen/autorisatiematrix_bemiddelingsregister.md) is [hier](/raadplegen/autorisatiematrix_bemiddelingsregister.md) te vinden.
