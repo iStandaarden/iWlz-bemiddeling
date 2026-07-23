@@ -36,6 +36,9 @@ flowchart LR
 
 Meer informatie over de structuur van het raadplegen en het valideren ervan is te lezen in het [Afsprakenstelsel iWlz - Raadplegen](https://wlz.atlassian.net/wiki/x/KgpgAQ)
 
+## Casuistiek
+Casuïstiek is bedoeld om te laten zien hoe registatie in de verschillende registers plaatsvindt en hoe het proces van notificeren en raadplegen verloopt. De casuïstiek is [hier](../raadplegen/casuistiek) te vinden.
+
 ## Autorisatieregels en autorisatiematrix
 De toegang tot gegevens is vastgelegd doormiddel van **Autorisatieregels** en de **Autorisatiematrix**. De [autorisatieregels](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/) zijn te vinden in het Informatiemodel Bemiddelingsregister (via [hier](https://informatiemodel.istandaarden.nl/informatiemodel/iwlz/netwerk/bemiddelingsregister-1/regels/autorisatieregel/)) en de [autorisatiematrix](/raadplegen/autorisatiematrix_bemiddelingsregister.md) is [hier](/raadplegen/autorisatiematrix_bemiddelingsregister.md) te vinden.
 
