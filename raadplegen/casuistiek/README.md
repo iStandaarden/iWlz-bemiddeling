@@ -14,7 +14,7 @@ De casuïstiek gaat over fictieve cliënten en cliëntsituaties. De casussen zij
 IR Indicatieregister\
 BR Bemiddelingsregister\
 LR Leveringsregister\
-BS Bemiddelingspecificatie\
+BS Bemiddelingspecificatie
 
 ### Casuïstiek
 
