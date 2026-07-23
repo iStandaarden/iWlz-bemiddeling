@@ -18,30 +18,35 @@ BS Bemiddelingspecificatie
 
 ### Casuïstiek
 
+
+> [!Note]
+> In de gedownloade vorm bevat de casuïstiek linken naar notificaties en raadplegen die in de betreffende casus van toepassing zijn. 
+
+
 | Casus | Titel |
 | :---- | :---- |
-| 01A | Direct opname bij voorkeuraanbieder |
-| 01B | Meeberhuizen met partner |
-| 02 | Direct opname bij voorkeuraanbieder, dagbesteding bij andere aanbieder |
-| 03A | Wachten op opname, overbruggingszorg thuis en dagbesteding |
-| 03B | Opname na overbruggingszorg thuis |
-| 04A | Wachten op opname bij voorkeuraanbieder, dagbesteding bij andere aanbieder ter overbrugging |
-| 04B | Opnname bij voorkeuraanbieder, voortzetten dagbesteding bij andere aanbieder |
-| 05 | Wachten op opname bij voorkeuraanbieder, voorkeuraanbieder levert VPT ter overbrugging |
-| 06A | Nog geen opname mogelijk bij voorkeuraanbieder, opname bij andere aanbieder ter overbrugging |
-| 06B | Opname bij voorkeuraanbieder na overbruggingsopname elders |
-| 07 | Sectorvreemd - wijziging Verblijf 5LG naar VPT 6VV bij dezelfde aanbieder |
-| 10A | MPT geleverd door meerdere aanbieders binnen budget |
-| 10B | MPT door meerdere aanbieder binnen budget - nieuwe verdeling |
-| 11 | MPT met extra budget en extra aanbieders |
-| 12 | MPT met verhoging van 100% naar 175% (Palliatief Terminale Zorg) |
-| 13A | Zorg thuis - Modulair Pakket Thuis (MPT)
-| 13B | MPT met extra budget (non-invasieve beademing) |
-| 13C | MPT met zorglevering door twee aanbieders | 
-| 13D | MPT omzetten naar VPT, directe start VPT |
-| 14 | MPT in combinatie met PGB |
-| 15A | Opnamewens - MPT als overbrugging bij andere aanbieder |
-| 15B | Opname bij voorkeuraanbieder en dagbesteding bij andere aanbieder | 
+| [01A](/iWlz-bemiddeling/raadplegen/casuistiek/casus01A.pdf) | Direct opname bij voorkeuraanbieder |
+| [01B](/iWlz-bemiddeling/raadplegen/casuistiek/casus01B.pdf) | Meeberhuizen met partner |
+| [02](/iWlz-bemiddeling/raadplegen/casuistiek/casus02.pdf) | Direct opname bij voorkeuraanbieder, dagbesteding bij andere aanbieder |
+| [03A](/iWlz-bemiddeling/raadplegen/casuistiek/casus03A.pdf) | Wachten op opname, overbruggingszorg thuis en dagbesteding |
+| [03B](/iWlz-bemiddeling/raadplegen/casuistiek/casus03B.pdf) | Opname na overbruggingszorg thuis |
+| [04A](/iWlz-bemiddeling/raadplegen/casuistiek/casus04A.pdf) | Wachten op opname bij voorkeuraanbieder, dagbesteding bij andere aanbieder ter overbrugging |
+| [04B](/iWlz-bemiddeling/raadplegen/casuistiek/casus04B.pdf) | Opnname bij voorkeuraanbieder, voortzetten dagbesteding bij andere aanbieder |
+| [05](/iWlz-bemiddeling/raadplegen/casuistiek/casus05.pdf) | Wachten op opname bij voorkeuraanbieder, voorkeuraanbieder levert VPT ter overbrugging |
+| [06A](/iWlz-bemiddeling/raadplegen/casuistiek/casus06A.pdf) | Nog geen opname mogelijk bij voorkeuraanbieder, opname bij andere aanbieder ter overbrugging |
+| [06B](/iWlz-bemiddeling/raadplegen/casuistiek/casus06B.pdf) | Opname bij voorkeuraanbieder na overbruggingsopname elders |
+| [07](/iWlz-bemiddeling/raadplegen/casuistiek/casus07.pdf) | Sectorvreemd - wijziging Verblijf 5LG naar VPT 6VV bij dezelfde aanbieder |
+| [10A](/iWlz-bemiddeling/raadplegen/casuistiek/casus10A.pdf) | MPT geleverd door meerdere aanbieders binnen budget |
+| [10B](/iWlz-bemiddeling/raadplegen/casuistiek/casus10B.pdf) | MPT door meerdere aanbieder binnen budget - nieuwe verdeling |
+| [11](/iWlz-bemiddeling/raadplegen/casuistiek/casus11.pdf) | MPT met extra budget en extra aanbieders |
+| [12](/iWlz-bemiddeling/raadplegen/casuistiek/casus12.pdf) | MPT met verhoging van 100% naar 175% (Palliatief Terminale Zorg) |
+| [13A](/iWlz-bemiddeling/raadplegen/casuistiek/casus13A.pdf) | Zorg thuis - Modulair Pakket Thuis (MPT)
+| [13B](/iWlz-bemiddeling/raadplegen/casuistiek/casus13B.pdf) | MPT met extra budget (non-invasieve beademing) |
+| [13C](/iWlz-bemiddeling/raadplegen/casuistiek/casus13C.pdf) | MPT met zorglevering door twee aanbieders | 
+| [13D](/iWlz-bemiddeling/raadplegen/casuistiek/casus13D.pdf) | MPT omzetten naar VPT, directe start VPT |
+| [14](/iWlz-bemiddeling/raadplegen/casuistiek/casus14.pdf) | MPT in combinatie met PGB |
+| [15A](/iWlz-bemiddeling/raadplegen/casuistiek/casus15A.pdf) | Opnamewens - MPT als overbrugging bij andere aanbieder |
+| [15B](/iWlz-bemiddeling/raadplegen/casuistiek/casus15B.pdf) | Opname bij voorkeuraanbieder en dagbesteding bij andere aanbieder | 
 
 
 ---
