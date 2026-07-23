@@ -77,9 +77,9 @@ stateDiagram
   resource --> [*]
   raadplegen:Raadplegen Bemiddelingsregister voor regiehouder
   welke: regiehouder raadplegen
-  idAvailable:regiehouderID bekend?
+  idAvailable:regiehouderID en bemiddelingspecificatieID bekend?
   notifyWait:Wacht op notificatie
-  QBR0001ZAiq:Gebruik regiehouderID
+  QBR0001ZAiq:Gebruik regiehouderID, bemiddelingspecificatieID en eigen Uzovicode
   notifyReceive:notificatie NIEUWE_REGIEHOUDER_ZORGKANTOOR of GEWIJZIGDE_REGIEHOUDER_ZORGKANTOOR ontvangen
   QBR0001ZA:Gebruik template QBR-0013-ZKu
   PEP:Toegangscontrole PEP
