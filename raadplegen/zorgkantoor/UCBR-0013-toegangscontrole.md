@@ -2,17 +2,17 @@
 
 Beschrijving van de **toegangscontrole** door de Policy Decision Point (PDP) en indien van toepassing Policy Information Point (PIP).
 
-N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze beschrijving. Zie daarvoor het [Afsprakenstelsel iWlz - nID netwerkstelsel - 5. Policy Enforcement Point.](https://wlz.atlassian.net/wiki/spaces/IWLZAS/pages/229441537/nID+netwerkstelsel#5.-Policy-Enforcement-Point-(PEP))
+N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van deze beschrijving. Zie daarvoor het [Afsprakenstelsel iWlz - nID netwerkstelsel - 5. Policy Enforcement Point.](https://wlz.atlassian.net/wiki/spaces/IWLZAS/pages/229441537/nID+netwerkstelsel#5.-Policy-Enforcement-Point-(PEP))
 
 ## Toegangscontrole PDP
 ### Subject
 - **Entiteit:** Zorgkantoor (bovenregionaal)
-- **Kenmerk:** In bezit van een access-token met daarin de eigen `uzovicode`
+- **Kenmerk:** In bezit van een access-token met daarin de eigen `uzoviCode`
 
 
 ### **Action**
 - **Type:** `raadplegen` (read)
-- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) op het bemiddelingsregister door een zorgkantoor.
+- **Omschrijving:** Uitvoeren van GraphQL-query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) op het Bemiddelingsregister door een zorgkantoor.
 
 
 ### **Resource**
@@ -23,7 +23,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 
 ### **Context**
-**Query-parameters vereist:** De `regiehouderID`, `bemiddelingspecificatieID` en `uzovicode` moeten aanwezig zijn in de query
+**Query-parameters vereist:** De `regiehouderID`, `bemiddelingspecificatieID` en `uzoviCode` moeten aanwezig zijn in de query
 
 **Toegangsvoorwaarde:**  Er is alleen toegang als aan alle volgende voorwaarden is voldaan:
 
@@ -70,14 +70,14 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 2. Bepalen toegang op basis van de verkregen context-data uit stap 1.
 
-    De beoordeling gaat op basis van de ontvangen contextdata en zal plaatsvinden op basis van de (REGO) policy-beoordeling door de PDP. De policy zal de volgende afweging moeten doorlopen om te bepalen of het raadplegende zorgkantoor toegang krijgt tot de opgevraagde Bemiddelingspecificatie.
+    De beoordeling gaat op basis van de ontvangen contextdata en zal plaatsvinden op basis van de (REGO) policy-beoordeling door de PDP. De policy zal de volgende afweging moeten doorlopen om te bepalen of het raadplegende zorgkantoor toegang krijgt tot de opgevraagde Regiehouder.
 
     Op basis van de context-data uit stap 1, is er:
 
     1. **Geen enkele** `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata.   
       Resultaat: **Geen toegang**
     2. De `Bemiddelingspecificatie` voor het raadplegende zorgkantoor in de contextdata moet voldoen aan de volgende overlap-voorwaarden.  
-      Er moet beoordeeld worden of de `Bemiddelingspecificatie` overlap heeft met de te raadplegen `Bemiddelingspecificatie` waarvan:
+      Er moet beoordeeld worden of de `Bemiddelingspecificatie` overlap heeft met de te raadplegen `Regiehouder` waarvan:
 
         1. de `eigen.bspec.toewijzingIngangsdatum` *kleiner of gelijk* is aan de `opgevraagde.regiehouder.einddatum` ***of***  
           de `eigen.bspec.vaststellingsmoment` *kleiner of gelijk* is aan de `opgevraagde.regiehouder.einddatum`;  
@@ -85,7 +85,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
         2. de `eigen.bspec.toewijzingEinddatum` is null (leeg) ***of***  
           de `eigen.bspec.toewijzingEinddatum` *groter of gelijk* is aan de `opgevraagde.regiehouder.ingangsdatum`  
           
-      Voldoet de gevonden `Bemiddelingspecificatie` van het raadplegende zorgkantoor niet aan de overlap voorwaarden?  
+      Voldoet **GEEN** van de gevonden `Bemiddelingspecificatie` van het raadplegende zorgkantoor aan de overlap voorwaarden?  
       Resultaat: **Geen toegang**
    
 3. De toegang geldt t/m 31 mei van het jaar dat volgt op de einddatum van de eigen Bemiddelingspecificatie (`eigen.bspec.toewijzingEinddatum`).
@@ -94,7 +94,7 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
     1. is er een `eigen.bspec.toewijzingEinddatum` is null (leeg) -> Resultaat: **Toegang** 
     2. Valt de datum van raadplegen *voor of op* 31 mei van het jaar dat volgt op de grootst gevonden `eigen.bspec.toewijzingEinddatum` -> Resultaat: **Toegang**
    
-   Voldoet de `Bemiddelingspecificatie` van het raadplegende zorgkantoor **NIET** aan de toegangsvoorwaarden?  
+   Voldoet **GEEN** van de `Bemiddelingspecificatie` van het raadplegende zorgkantoor aan de toegangsvoorwaarden?  
    Resultaat: **Geen toegang**
 
 
@@ -102,8 +102,8 @@ N.b. Het valideren van de Acces-token door de PEP is geen onderdeel van de ze be
 
 Toegang tot het Bemiddelingsregister via query [`QBR-0013-ZKu.graphql`](/gql-query/zorgkantoor/QBR-0013-ZKu.graphql) is **alleen toegestaan** als:
 
-- Parameters **`bemiddelingspecificatieID`**, **`uzovicode`**, **`regiehouderID`** is meegegeven in de query
-- De in de query meegegeven `uzovicode` komt overeen met de `uzovicode` in de access-token; 
+- Parameters **`bemiddelingspecificatieID`**, **`uzoviCode`**, **`regiehouderID`** zijn meegegeven in de query
+- De in de query meegegeven `uzoviCode` komt overeen met de `uzoviCode` in de access-token; 
 - de PIP raadpleging context-data oplevert die volgens de gestelde voorwaarden toegang geeft.
 
 Als aan alle voorwaarden is voldaan, mogen de `Regiehouder`, de specifieke `Bemiddelingspecificatie`, `Bemiddeling` en `Client` die horen bij deze `Regiehouder` direct worden opgevraagd.
@@ -166,7 +166,7 @@ stateDiagram
   indienen: Ontvang QBR-0013-ZKu + Access token
   validerenT: Valideer access token
   validerenR: Valideer Request
-  checkInput01:regiehouderID, uzovicode, bemiddelingspecificatieID aanwezig?
+  checkInput01:regiehouderID, uzoviCode, bemiddelingspecificatieID aanwezig?
   checkInput02:Contextdata ophalen
   checkInput03:Contextdata aanwezig?
   checkOVerlap:Overlapping contextdata aanwezig en binnen toegangsperiode?
@@ -185,16 +185,12 @@ stateDiagram
 | --: | :-- |
 | 1. |Ontvangst GraphQL-request + access-token door **PEP** |
 | 2. |De **PEP** valideert de access-token en geeft na goedkeur het request door aan de PDP |
-| 3. |De **PDP** voert de volgende stappen uit:<br/>1. controleer of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Laat **PIP** context-data ophalen;<br/>4. Beoordeel de aanwezigheid van de context-data en de voorwaarden van toegang. <br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
+| 3. |De **PDP** voert de volgende stappen uit:<br/>1. controleer of het request voldoet aan de template en er geen ongeoorloofde gegevens worden opgevraagd.<br/>2. Aanwezigheid van de verplichte parameters in het request;<br/>3. Of de **`uzovicode`** in request overeenkomt met de waarde in de **`access-token`**;<br/>4. Laat **PIP** context-data ophalen;<br/>5. Beoordeel de aanwezigheid van de context-data en de voorwaarden van toegang. <br/><br/>Is aan alle voorwaarden voldaan?<br/> - **Ja** →  Ga verder naar stap 4<br/>- **Nee** → *Einde proces (geen toegang.)*   |
 | 4. | Het zorgkantoor krijgt toegang tot het bemiddelingsregister.|
 | 5. | *Einde* |
 
 
-## Toegangscontrole PIP:
-```gql
-nvt
 
-```
 
 
 ---
