@@ -19,9 +19,9 @@ BS Bemiddelingspecificatie
 ### Casuïstiek
 
 
-> [!Note]
-> In de gedownloade vorm bevat de casuïstiek linken naar notificaties en raadplegen die in de betreffende casus van toepassing zijn. 
-
+> [!TIP]
+> De PDF bevat links naar de betreffende notificatie of raadpleging. Werkt het niet in de browser? Download het bestand dan! 
+> 
 
 | Casus | Titel |
 | :---- | :---- |
