@@ -26,7 +26,7 @@ BS Bemiddelingspecificatie
 | Casus | Titel |
 | :---- | :---- |
 | [01A](casus01A.pdf) | Direct opname bij voorkeuraanbieder |
-| [01B](casus01B.pdf) | Meeberhuizen met partner |
+| [01B](casus01B.pdf) | Meeverhuizen met partner |
 | [02](casus02.pdf) | Direct opname bij voorkeuraanbieder, dagbesteding bij andere aanbieder |
 | [03A](casus03A.pdf) | Wachten op opname, overbruggingszorg thuis en dagbesteding |
 | [03B](casus03B.pdf) | Opname na overbruggingszorg thuis |
