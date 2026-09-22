@@ -12,8 +12,10 @@ query Regiehouder(
 ) {
   regiehouder(where: { regiehouderID: { eq: $regiehouderID } }) {
     regiehouderID
+    instelling
     ingangsdatum
     einddatum
+    regierol
     bemiddeling {
       # meer gegevens bemiddeling toegestaan
       bemiddelingID
